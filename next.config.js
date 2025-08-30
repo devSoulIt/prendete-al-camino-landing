@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizeCss: true,
+    // optimizeCss: true, // Comentado temporalmente para evitar errores con critters
   },
   images: {
     formats: ['image/webp', 'image/avif'],
