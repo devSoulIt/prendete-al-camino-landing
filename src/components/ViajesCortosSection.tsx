@@ -7,21 +7,21 @@ export function ViajesCortosSection() {
     {
       title: "Fin de semana en Bariloche",
       description: "Paisajes únicos, lagos cristalinos y la calidez de la montaña patagónica.",
-      image: "https://images.unsplash.com/photo-1570197788417-0e82375c9371?q=80&w=2069&auto=format&fit=crop",
+      image: "/images/Salta/IMG_4164.webp",
       duration: "3 días",
       price: "Desde $180.000"
     },
     {
       title: "Escapada a Mendoza",
       description: "Viñedos, bodegas y la majestuosidad de los Andes en un viaje inolvidable.",
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop",
+      image: "/images/Salta/IMG_4073.webp",
       duration: "4 días",
       price: "Desde $220.000"
     },
     {
       title: "Buenos Aires cultural",
       description: "Tango, museos, gastronomía y la esencia porteña en todo su esplendor.",
-      image: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?q=80&w=2070&auto=format&fit=crop",
+      image: "/images/Salta/IMG_0908.webp",
       duration: "2 días",
       price: "Desde $150.000"
     }

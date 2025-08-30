@@ -32,8 +32,8 @@ export function Header() {
 
   return (
     <header className={`sticky top-0 z-50 w-full min-h-[90px] transition-colors duration-700 ${isScrolled
-        ? 'bg-black/70 backdrop-blur-sm shadow-lg'
-        : 'bg-transparent'
+      ? 'bg-black/70 backdrop-blur-sm shadow-lg'
+      : 'bg-transparent'
       }`}>
       {isMenuOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-black/70 backdrop-blur-sm z-50 flex justify-center items-start" onClick={() => setIsMenuOpen(false)}>
@@ -50,28 +50,16 @@ export function Header() {
                   Inicio
                 </a>
                 <a
-                  href="#santiago"
+                  href="#sobre-nosotros"
                   className="transition-colors duration-200 text-white hover:text-primary font-bold uppercase"
                 >
-                  Santiago de Compostela
+                  Sobre nosotros
                 </a>
                 <a
-                  href="#viajes-cortos"
+                  href="#testimonios"
                   className="transition-colors duration-200 text-white hover:text-primary font-bold uppercase"
                 >
-                  Viajes Cortos
-                </a>
-                <a
-                  href="#videollamada"
-                  className="transition-colors duration-200 text-white hover:text-primary font-bold uppercase"
-                >
-                  Videollamada
-                </a>
-                <a
-                  href="#galeria"
-                  className="transition-colors duration-200 text-white hover:text-primary font-bold uppercase"
-                >
-                  Galería
+                  Testimonios
                 </a>
                 <a
                   href="#contacto"
@@ -80,12 +68,6 @@ export function Header() {
                   Contacto
                 </a>
               </nav>
-              <Button
-                className="hidden md:inline-flex text-white font-medium px-6 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200"
-                style={{ backgroundColor: '#ffd600', color: '#404d21' }}
-              >
-                Solicitar información
-              </Button>
             </div>
           </div>
         </div>
@@ -107,28 +89,16 @@ export function Header() {
               Inicio
             </a>
             <a
-              href="#santiago"
+              href="#sobre-nosotros"
               className="transition-colors duration-200 text-white hover:text-primary font-bold uppercase"
             >
-              Santiago de Compostela
+              Sobre nosotros
             </a>
             <a
-              href="#viajes-cortos"
+              href="#testimonios"
               className="transition-colors duration-200 text-white hover:text-primary font-bold uppercase"
             >
-              Viajes Cortos
-            </a>
-            <a
-              href="#videollamada"
-              className="transition-colors duration-200 text-white hover:text-primary font-bold uppercase"
-            >
-              Videollamada
-            </a>
-            <a
-              href="#galeria"
-              className="transition-colors duration-200 text-white hover:text-primary font-bold uppercase"
-            >
-              Galería
+              Testimonios
             </a>
             <a
               href="#contacto"
@@ -137,14 +107,6 @@ export function Header() {
               Contacto
             </a>
           </nav>
-
-          {/* CTA Button */}
-          <Button
-            className="hidden md:inline-flex text-white font-medium px-6 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200"
-            style={{ backgroundColor: '#ffd600', color: '#404d21' }}
-          >
-            Solicitar información
-          </Button>
 
           {/* Mobile menu button */}
           <button className="md:hidden p-2 rounded-md text-white hover:text-gray-300 hover:bg-white/10 transition-colors duration-200" onClick={() => setIsMenuOpen(!isMenuOpen)}>

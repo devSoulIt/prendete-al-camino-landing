@@ -1,38 +1,75 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
+import { Button } from "./ui/button";
 
 export function SantiagoSection() {
   return (
-    <section id="santiago" className="py-20" style={{ backgroundColor: '#f8f9fa' }}>
+    <section id="sobre-nosotros" className="py-20" style={{ backgroundColor: '#f8f9fa' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#404d21' }}>
-            Santiago de Compostela
+            Sobre nosotros
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Viví la experiencia única del Camino de Santiago. Un viaje espiritual y cultural 
-            que transformará tu perspectiva de vida.
-          </p>
+          <div className="max-w-4xl mx-auto space-y-2">
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Soy <strong>Silvia Perez Mulki</strong>, creadora de Prendete al Camino: 57 años, guía de turismo y odontóloga,
+              y un equipo que trabaja para vos.
+            </p>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              <strong>Tu Camino, nuestro compromiso.</strong> La mejor vivencia de tu Camino a Santiago,
+              diseñada por quienes lo han recorrido.
+            </p>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* Image */}
-          <div className="relative">
+          <div className="lg:sticky lg:top-28 h-fit">
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2069&auto=format&fit=crop"
+              src="/images/Santiago/IMG_6995.webp"
               alt="Catedral de Santiago de Compostela"
               className="w-full h-96 object-cover rounded-xl shadow-2xl"
             />
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#contacto">
+                <Button
+                  size="lg"
+                  className="text-lg px-6 py-6 mt-4 font-bold rounded-lg hover:opacity-90 transition-opacity duration-200"
+                  style={{ backgroundColor: '#ffd600', color: '#404d21' }}
+                >
+                  CONTACTARNOS
+                </Button>
+              </a>
+            </div>
           </div>
 
           {/* Content */}
           <div className="space-y-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4" style={{ color: '#404d21' }}>
+                Nuestra Experiencia
+              </h3>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                <strong>Confianza en cada paso.</strong> Te acompañamos en cada kilómetro, cuidando los detalles
+                para que tú solo te ocupes de disfrutar, reflexionar y caminar.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold mb-4" style={{ color: '#404d21' }}>
+                Qué ofrecemos
+              </h3>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                <strong>Espiritualidad y diversión en un solo Camino.</strong> Hemos combinado la introspección
+                con la alegría de compartir, garantizándote una experiencia completa, auténtica y transformadora.
+              </p>
+            </div>
+
             <div className="grid md:grid-cols-2 gap-6">
               <Card className="p-6 border-0 shadow-lg">
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
-                    <div 
+                    <div
                       className="w-12 h-12 rounded-full flex items-center justify-center text-white"
                       style={{ backgroundColor: '#404d21' }}
                     >
@@ -52,7 +89,7 @@ export function SantiagoSection() {
               <Card className="p-6 border-0 shadow-lg">
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
-                    <div 
+                    <div
                       className="w-12 h-12 rounded-full flex items-center justify-center text-white"
                       style={{ backgroundColor: '#404d21' }}
                     >
@@ -68,10 +105,10 @@ export function SantiagoSection() {
                 </CardContent>
               </Card>
 
-              <Card className="p-6 border-0 shadow-lg">
+              {/*  <Card className="p-6 border-0 shadow-lg">
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
-                    <div 
+                    <div
                       className="w-12 h-12 rounded-full flex items-center justify-center text-white"
                       style={{ backgroundColor: '#404d21' }}
                     >
@@ -90,7 +127,7 @@ export function SantiagoSection() {
               <Card className="p-6 border-0 shadow-lg">
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
-                    <div 
+                    <div
                       className="w-12 h-12 rounded-full flex items-center justify-center text-white"
                       style={{ backgroundColor: '#404d21' }}
                     >
@@ -104,16 +141,8 @@ export function SantiagoSection() {
                     Momentos inolvidables que marcarán tu vida para siempre.
                   </p>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
-
-            <Button 
-              size="lg"
-              className="w-full sm:w-auto text-lg px-8 py-4 font-medium rounded-lg hover:opacity-90 transition-opacity duration-200"
-              style={{ backgroundColor: '#ffd600', color: '#404d21' }}
-            >
-              Conocer más sobre Santiago
-            </Button>
           </div>
         </div>
       </div>
