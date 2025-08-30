@@ -64,7 +64,13 @@ export const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({
     >
       <div style={{ height: totalHeight, position: 'relative' }}>
         {visibleItems.map(({ item, index, style }) => (
-          <div key={index} style={style}>
+          <div
+            key={index}
+            style={{
+              ...style,
+              position: 'absolute' as React.CSSProperties['position'],
+            }}
+          >
             {renderItem(item, index)}
           </div>
         ))}
