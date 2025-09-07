@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
+import Image from "next/image";
 import { Button } from "./ui/button";
 
 export function SantiagoSection() {
@@ -11,11 +11,11 @@ export function SantiagoSection() {
             Sobre nosotros
           </h2>
           <div className="max-w-4xl mx-auto space-y-2">
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Soy <strong>Silvia Perez Mulki</strong>, creadora de Prendete al Camino: 57 años, guía de turismo y odontóloga,
-              y un equipo que trabaja para vos.
+            <p className="text-xl text-gray-600 leading-relaxed text-justify">
+              Soy <strong>Silvia Perez Mulki</strong>, creadora de Prendete al Camino: 57 años, guía de turismo y odontóloga
+              acompañanda de un equipo que trabaja para vos.
             </p>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-gray-600 leading-relaxed text-justify">
               <strong>Tu Camino, nuestro compromiso.</strong> La mejor vivencia de tu Camino a Santiago,
               diseñada por quienes lo han recorrido.
             </p>
@@ -25,16 +25,18 @@ export function SantiagoSection() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Image */}
           <div className="lg:sticky lg:top-28 h-fit">
-            <ImageWithFallback
-              src="/images/Santiago/IMG_6995.webp"
+            <Image
+              src="/images/sobre_nosotros.jpg"
               alt="Catedral de Santiago de Compostela"
               className="w-full h-96 object-cover rounded-xl shadow-2xl"
+              width={800}
+              height={600}
             />
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#contacto">
                 <Button
                   size="lg"
-                  className="text-lg px-6 py-6 mt-4 font-bold rounded-lg hover:opacity-90 transition-opacity duration-200"
+                  className="w-full md:w-auto text-lg px-6 py-6 mt-4 font-bold rounded-lg hover:opacity-90 transition-opacity duration-200"
                   style={{ backgroundColor: '#ffd600', color: '#404d21' }}
                 >
                   CONTACTARNOS

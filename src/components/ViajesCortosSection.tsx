@@ -1,29 +1,36 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
+import Image from "next/image";
 
 export function ViajesCortosSection() {
   const destinations = [
     {
-      title: "Fin de semana en Bariloche",
-      description: "Paisajes únicos, lagos cristalinos y la calidez de la montaña patagónica.",
-      image: "/images/Salta/IMG_4164.webp",
-      duration: "3 días",
-      price: "Desde $180.000"
-    },
-    {
-      title: "Escapada a Mendoza",
-      description: "Viñedos, bodegas y la majestuosidad de los Andes en un viaje inolvidable.",
-      image: "/images/Salta/IMG_4073.webp",
+      title: "Catamarca",
+      description: "Descubrí la magia de las montañas catamarqueñas con senderismo, historia colonial y sabores únicos de la región.",
+      image: "/images/Portadas/Catamarca.webp",
       duration: "4 días",
-      price: "Desde $220.000"
+      activities: ["Senderismo", "Historia", "Gastronomía"]
     },
     {
-      title: "Buenos Aires cultural",
-      description: "Tango, museos, gastronomía y la esencia porteña en todo su esplendor.",
-      image: "/images/Salta/IMG_0908.webp",
-      duration: "2 días",
-      price: "Desde $150.000"
+      title: "Jujuy",
+      description: "Explorá los paisajes únicos de la Quebrada de Humahuaca, con trekking, cultura ancestral y platos tradicionales.",
+      image: "/images/Portadas/Salta .webp", // Usando imagen de Salta como placeholder para Jujuy
+      duration: "5 días",
+      activities: ["Senderismo", "Historia", "Gastronomía"]
+    },
+    {
+      title: "Córdoba",
+      description: "Viví la experiencia de las sierras cordobesas con caminatas, patrimonio jesuítico y la mejor gastronomía regional.",
+      image: "/images/Portadas/Córdoba .webp",
+      duration: "3 días",
+      activities: ["Senderismo", "Historia", "Gastronomía"]
+    },
+    {
+      title: "Salta",
+      description: "Sumergite en la cultura salteña con trekking por los cerros, historia colonial y los sabores del norte argentino.",
+      image: "/images/Portadas/Salta .webp",
+      duration: "4 días",
+      activities: ["Senderismo", "Historia", "Gastronomía"]
     }
   ];
 
@@ -40,14 +47,16 @@ export function ViajesCortosSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
           {destinations.map((destination, index) => (
             <Card key={index} className="overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <div className="relative h-48 overflow-hidden">
-                <ImageWithFallback
+                <Image
                   src={destination.image}
                   alt={destination.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  width={400}
+                  height={300}
                 />
                 <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full shadow-lg">
                   <span className="font-semibold" style={{ color: '#404d21' }}>
@@ -63,10 +72,26 @@ export function ViajesCortosSection() {
                 <p className="text-gray-600 mb-4 leading-relaxed">
                   {destination.description}
                 </p>
+                
+                {/* Actividades */}
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold mb-2" style={{ color: '#404d21' }}>
+                    Actividades incluidas:
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {destination.activities.map((activity, activityIndex) => (
+                      <span
+                        key={activityIndex}
+                        className="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full"
+                      >
+                        {activity}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-semibold" style={{ color: '#ffd600' }}>
-                    {destination.price}
-                  </span>
+                  <div className="flex"/>
                   <Button 
                     variant="outline"
                     className="border-2 hover:bg-opacity-10 transition-colors duration-200"
@@ -81,16 +106,6 @@ export function ViajesCortosSection() {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="text-center">
-          <Button 
-            size="lg"
-            className="text-lg px-8 py-4 font-medium rounded-lg hover:opacity-90 transition-opacity duration-200"
-            style={{ backgroundColor: '#ffd600', color: '#404d21' }}
-          >
-            Ver todos los viajes cortos
-          </Button>
         </div>
       </div>
     </section>
