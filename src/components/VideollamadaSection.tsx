@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
+import Image from "next/image";
 
 export function VideollamadaSection() {
   return (
@@ -83,7 +83,7 @@ export function VideollamadaSection() {
 
           {/* Image */}
           <div className="relative">
-            <ImageWithFallback
+            <Image
               src="/images/persona-mayor-videollamada.webp"
               alt="Persona mayor en videollamada sonriendo"
               className="w-full h-96 object-cover rounded-xl shadow-2xl"
