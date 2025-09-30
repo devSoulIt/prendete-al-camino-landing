@@ -1,8 +1,19 @@
 'use client'
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useState } from "react";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  onImageLoad?: () => void;
+}
+
+export function HeroSection({ onImageLoad }: HeroSectionProps) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+    onImageLoad?.();
+  };
 
   return (
     <section id="inicio" className="relative min-h-screen flex items-center ">
@@ -16,6 +27,8 @@ export function HeroSection() {
               className="w-full h-full object-cover"
               width={1920}
               height={1080}
+              onLoad={handleImageLoad}
+              priority
             />
             <div className="absolute inset-0 bg-black bg-opacity-40"></div>
           </div>
