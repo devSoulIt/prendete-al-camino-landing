@@ -201,22 +201,28 @@ export function GaleriaSection() {
   }, [selectedImage, currentIndex, currentMedia.length]);
 
   return (
-    <section id="galeria" className="py-20 bg-white">
+    <section id="galeria" className="py-20" style={{ backgroundColor: '#f8f9fa' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#404d21' }}>
-            Galería de momentos
+        {/* Título principal */}
+       {/*  <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#404d21' }}>
+            NUESTRA EXPERIENCIA
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            Una muestra de las experiencias increíbles que vivimos en cada destino.
-            Descubrí la magia de viajar con nosotros a través de estas imágenes.
-          </p>
-        </div>
+        </div> */}
 
-        {/* Nueva estructura de galería */}
-        <div className="space-y-8">
+        {/* Sección Viajes Internacionales */}
+        <div className="mb-12">
+          <div className="text-center mb-6">
+            <h3 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: '#404d21' }}>
+              VIAJES INTERNACIONALES
+            </h3>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Por España: Madrid, Barajas, Santiago de Compostela, Lugo, Playa de las Catedrales, Segovia, Toledo. Portugal: Oporto
+            </p>
+          </div>
+          
           {/* Santiago - Portada principal */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-6">
             <div
               className="relative group overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 cursor-pointer max-w-4xl w-full"
               onClick={() => openModal('santiago')}
@@ -237,9 +243,20 @@ export function GaleriaSection() {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Catamarca y Córdoba - Lado a lado */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Sección Viajes Nacionales */}
+        <div className="mb-12">
+          <div className="text-center mb-6">
+            <h3 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: '#404d21' }}>
+              VIAJES NACIONALES
+            </h3>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Jujuy, Salta, Tucumán, Córdoba y Catamarca.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
             {/* Catamarca - Lado izquierdo */}
             <div
               className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
@@ -306,6 +323,7 @@ export function GaleriaSection() {
             </div>
           </div>
         </div>
+
 
         {/* Modal mejorado con navegación */}
         {selectedImage && (
@@ -400,22 +418,7 @@ export function GaleriaSection() {
             </div>
           </div>
         )}
-
-        {/* Testimonial */}
-        <div className="rounded-2xl p-8 md:p-12 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold mb-6" style={{ color: '#404d21' }}>
-              Testimonios
-            </h3>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              <strong>Ellos ya lo vivieron. ¿Y tú?</strong> Tu aventura espiritual y divertida,
-              con la seguridad y la guía de quienes son la mejor opción.
-            </p>
-          </div>
-        </div>
-
-        <div className="elfsight-app-337b500b-7431-4ca9-b96d-ea0941f53bf5" data-elfsight-app-lazy></div>
       </div>
-    </section>
+    </section >
   );
 }
