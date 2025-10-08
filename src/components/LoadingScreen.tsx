@@ -43,7 +43,7 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
         {/* Progress Bar */}
         <div className="w-80 max-w-full mx-auto">
           <div className="bg-white bg-opacity-20 rounded-full h-3 overflow-hidden" style={{ backgroundColor: '#404d21' }}>
-            <div 
+            <div
               className="h-full bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full transition-all duration-300 ease-out"
               style={{ width: `${progress}%` }}
             />

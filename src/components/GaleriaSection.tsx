@@ -217,7 +217,8 @@ export function GaleriaSection() {
               VIAJES INTERNACIONALES
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Por España: Madrid, Barajas, Santiago de Compostela, Lugo, Playa de las Catedrales, Segovia, Toledo. Portugal: Oporto
+              Santiago de Compostela <strong>es nuestro destino principal</strong>, pero cada año sumamos nuevas ciudades europeas.
+              Este 2024 exploramos: Madrid, Barajas, Lugo, Playa de las Catedrales, Segovia, Toledo y Oporto.
             </p>
           </div>
           
@@ -252,7 +253,7 @@ export function GaleriaSection() {
               VIAJES NACIONALES
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Jujuy, Salta, Tucumán, Córdoba y Catamarca.
+              A lo largo de nuestro querido país, ya hemos explorado: Jujuy, Salta, Tucumán, Córdoba y Catamarca.
             </p>
           </div>
 

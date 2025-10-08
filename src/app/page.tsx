@@ -27,9 +27,10 @@ export default function Home() {
       <Whatsapp />
       <HeroSection onImageLoad={handleImageLoad} />
       <div className="text-sm md:text-base w-full mx-auto px-4 sm:px-6 lg:px-8 mt-4" style={{ backgroundColor: '#f8f9fa' }} id="sobre-nosotros">
-        <p className="p-2 text-start text-gray-600 text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
-          Descubre la magia del Camino de Santiago: desde Sarria hasta la Catedral de Compostela.
-          El viaje hacia la mejor versión de vos mismo, el que dejará una huella imborrable en tu corazón.
+        <p className="p-2 text-center text-gray-600 text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
+          <strong>Descubrí la magia del Camino de Santiago:</strong> desde Sarria hasta la majestuosa Catedral de Compostela.
+          Un viaje hacia <strong>la mejor versión de vos mismo.</strong>
+          Una experiencia que <strong>dejará una huella imborrable en tu corazón.</strong>
         </p>
       </div>
       <SantiagoSection />
@@ -37,7 +38,7 @@ export default function Home() {
       <GaleriaSection />
       <TestimoniosSection />
       <Contacto />
-      <ViajesCortosSection />
+      {/* <ViajesCortosSection /> */}
       <PreguntasFrecuentes />
       <Footer />
     </div>

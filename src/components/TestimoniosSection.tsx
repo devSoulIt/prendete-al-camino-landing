@@ -108,18 +108,29 @@ export function TestimoniosSection() {
     const testimoniosPorVista = isMobile ? 2 : 3;
     const maxIndex = Math.max(0, testimonios.length - testimoniosPorVista);
 
-    // Auto-play del carrusel
+    // Auto-play del carrusel con transición más lenta y exponencial
     useEffect(() => {
         if (!isAutoPlaying) return;
 
-        const interval = setInterval(() => {
-            setTestimonioActual((prev) => {
-                const nextIndex = prev + 1;
-                return nextIndex > maxIndex ? 0 : nextIndex;
-            });
-        }, 5000);
+        let timeoutId: NodeJS.Timeout;
+        let currentDelay = 3000; // Empezar con 3 segundos
 
-        return () => clearInterval(interval);
+        const scheduleNext = () => {
+            timeoutId = setTimeout(() => {
+                setTestimonioActual((prev) => {
+                    const nextIndex = prev + 1;
+                    return nextIndex > maxIndex ? 0 : nextIndex;
+                });
+                
+                // Aumentar el delay exponencialmente (máximo 8 segundos)
+                currentDelay = Math.min(currentDelay * 1.2, 8000);
+                scheduleNext();
+            }, currentDelay);
+        };
+
+        scheduleNext();
+
+        return () => clearTimeout(timeoutId);
     }, [isAutoPlaying, maxIndex]);
 
     const siguienteTestimonio = () => {
@@ -165,12 +176,8 @@ export function TestimoniosSection() {
                 {/* Título */}
                 <div className="text-center mb-12">
                     <h3 className="text-4xl font-bold mb-4" style={{ color: '#404d21' }}>
-                        Testimonios
+                        Nuestros Caminantes
                     </h3>
-                    <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                        <strong>Ellos ya lo vivieron. ¿Y tú?</strong> Tu aventura espiritual y divertida,
-                        con la seguridad y la guía de quienes son la mejor opción.
-                    </p>
                 </div>
 
                 {/* Carrusel */}

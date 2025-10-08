@@ -2,150 +2,116 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { SantiagoFormModal } from "./SantiagoFormModal";
-import { useState } from "react";
 
 export function SantiagoSection() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section className="py-20" style={{ backgroundColor: '#f8f9fa' }}>
       {/* Mobile Layout */}
-      <div className="lg:hidden max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#404d21' }}>
-            QUIENES SOMOS
-          </h2>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Sección QUIENES SOMOS */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-4">
+          <div className="">
+            <div className="text-center lg:text-start">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#404d21' }}>
+                QUIENES SOMOS
+              </h2>
+              <div className="">
+                <Image
+                  src="/images/sobre_nosotros_silvi.jpg"
+                  alt="Grupo haciendo algo innovador"
+                  className="w-full h-96 object-cover rounded-xl shadow-2xl mb-4"
+                  width={800}
+                  height={600}
+                />
+              </div>
+              <div className="max-w-4xl mx-auto lg:mx-0">
+                <p className="text-xl text-gray-600 leading-relaxed text-center lg:text-start">
+                  Somos una agencia de turismo argentina, liderada por <strong style={{ color: '#404d21' }}>Silvia Pérez Mulki</strong>, odontóloga de vocación y <strong style={{ color: '#404d21' }}>guía de turismo de vocación</strong>, junto a un equipo que trabaja para vos.
+                  <br />
+                  <strong style={{ color: '#404d21' }}>Somos peregrinos</strong> que ya vivimos la magia del <strong style={{ color: '#404d21' }}>Camino de Santiago</strong> y queremos compartirla con vos…
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
+
+        {/* Sección QUE HACEMOS */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mt-12 mb-4">
           {/* Texto - Izquierda en PC, arriba en mobile */}
-          <div className="order-2 lg:order-1">
-            <div className="max-w-4xl mx-auto lg:mx-0">
-              <p className="text-xl text-gray-600 leading-relaxed text-center lg:text-start">
-                <strong style={{ color: '#404d21' }}>Silvia Perez Mulki</strong> guía de turismo y odontóloga, con un equipo que trabaja para vos. Somos peregrinos que ya vivimos la magia del "Camino"
-              </p>
+          <div className="">
+            <div className="text-center lg:text-start">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#404d21' }}>
+                QUE HACEMOS
+              </h2>
+              <div className="">
+                <Image
+                  src="/images/sobre_nosotros_silvi.jpg"
+                  alt="Grupo en Santiago de Compostela"
+                  className="w-full h-96 object-cover rounded-xl shadow-2xl mb-4"
+                  width={800}
+                  height={600}
+                />
+              </div>
+              <div className="max-w-4xl mx-auto lg:mx-0">
+                <p className="text-xl text-gray-600 leading-relaxed text-center lg:text-start">
+                  Realizamos numerosos viajes y experiencias durante todo el año, pero el más especial de todos es el <strong style={{ color: '#404d21' }}>Camino de Santiago</strong>.
+                  <br /><br />
+                  Nos ocupamos de <strong style={{ color: '#404d21' }}>cada detalle:</strong> pasajes, alojamiento, media pensión, logística de maletas y entrenamiento previo; para que vos solo tengas que <strong style={{ color: '#404d21' }}>disfrutar de caminar y vivir la experiencia.</strong>
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Imagen - Derecha en PC, abajo en mobile */}
-          <div className="order-1 lg:order-2">
-            <Image
-              src="/images/sobre_nosotros_silvi.jpg"
-              alt="Silvia Perez Mulki - Guía de turismo"
-              className="w-full h-96 object-cover rounded-xl shadow-2xl"
-              width={800}
-              height={600}
-            />
-          </div>
-        </div>
-
-        {/* Sección QUE HACEMOS */}
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#404d21' }}>
-            QUE HACEMOS
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-xl text-gray-600 leading-relaxed text-center">
-              Te organizamos todo: pasajes, logística de maletas, alojamiento, media pensión y entrenamiento previo, para que vos <br /> <strong style={{ color: '#404d21' }}>solo disfrutes de caminar.</strong>
-            </p>
-          </div>
         </div>
 
         {/* Sección POR QUÉ CON NOSOTROS */}
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#404d21' }}>
-            POR QUÉ CON NOSOTROS
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-xl text-gray-600 leading-relaxed text-center">
-              Porque sabemos que este viaje transforma y queremos que lo vivas seguro, cuidado y feliz; siempre acompañándote. <br /> <strong style={{ color: '#404d21' }}>¡Caminamos a tu lado!</strong>
-            </p>
+        <div className="grid lg:grid-cols-2 gap-12 items-center mt-12 mb-4">
+
+          {/* Texto - Derecha en PC, abajo en mobile */}
+          <div className="">
+            <div className="text-center lg:text-start">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#404d21' }}>
+                POR QUÉ CON NOSOTROS
+              </h2>
+              <div className="">
+                <Image
+                  src="/images/sobre_nosotros_silvi.jpg"
+                  alt="Grupo haciendo algo innovador"
+                  className="w-full h-96 object-cover rounded-xl shadow-2xl mb-4"
+                  width={800}
+                  height={600}
+                />
+              </div>
+              <div className="max-w-4xl mx-auto lg:mx-0">
+                <p className="text-xl text-gray-600 leading-relaxed text-center lg:text-start">
+                  Porque sabemos que para vivir este viaje plenamente necesitas estar tranquilo, <strong style={{ color: '#404d21' }}>nosotros nos ocupamos de todo</strong> para que solo tengas que disfrutarlo.
+                  <br /><br />
+                  Nuestros viajes no ven el caminar solo como una actividad física, sino como una <strong style={{ color: '#404d21' }}>experiencia integral que despierta todos tus sentidos</strong>, conecta cuerpo, mente y alma… y queremos que la vivas plenamente.
+                  <br /><br />
+                  <strong style={{ color: '#404d21' }}>¡Caminamos a tu lado!</strong>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Botón de contacto centrado */}
         <div className="flex justify-center">
-          <Button
-            onClick={() => setIsModalOpen(true)}
-            size="lg"
-            className="text-lg px-8 py-6 font-bold rounded-lg hover:opacity-90 transition-opacity duration-200"
-            style={{ backgroundColor: '#ffd600', color: '#404d21' }}
-          >
-            CONTACTANOS!
-          </Button>
+          <a href="#contacto">
+            <Button
+              size="lg"
+              className="text-lg px-8 py-6 font-bold rounded-lg hover:opacity-90 transition-opacity duration-200"
+              style={{ backgroundColor: '#ffd600', color: '#404d21' }}
+            >
+              CONTACTANOS!
+            </Button>
+          </a>
         </div>
       </div>
 
-      {/* Desktop Layout */}
-      <div className="hidden lg:flex max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-1500px">
-        <div className="flex flex-col w-full gap-8">
-          <div className="text-start">
-            <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#404d21' }}>
-              QUIENES SOMOS
-            </h2>
-            <div className="max-w-4xl mx-auto mt-2">
-              <p className="text-xl text-gray-600 leading-relaxed text-start">
-                <strong style={{ color: '#404d21' }}>Silvia Perez Mulki</strong> guía de turismo y odontóloga, con un equipo que trabaja para vos. Somos peregrinos que ya vivimos la magia del "Camino"
-              </p>
-            </div>
-          </div>
-
-
-          {/* Sección QUE HACEMOS */}
-          <div className="text-start">
-            <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#404d21' }}>
-              QUE HACEMOS
-            </h2>
-            <div className="max-w-4xl mx-auto mt-2">
-              <p className="text-xl text-gray-600 leading-relaxed text-start">
-                Te organizamos todo: pasajes, logística de maletas, alojamiento, media pensión y entrenamiento previo, para que vos <br /> <strong style={{ color: '#404d21' }}>solo disfrutes de caminar.</strong>
-              </p>
-            </div>
-          </div>
-
-          {/* Sección POR QUÉ CON NOSOTROS */}
-          <div className="text-start">
-            <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#404d21' }}>
-              POR QUÉ CON NOSOTROS
-            </h2>
-            <div className="max-w-4xl mx-auto mt-2">
-              <p className="text-xl text-gray-600 leading-relaxed text-start">
-                Porque sabemos que este viaje transforma y queremos que lo vivas seguro, cuidado y feliz; siempre acompañándote. <br /> <strong style={{ color: '#404d21' }}>¡Caminamos a tu lado!</strong>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex relative w-full max-w-4xl mx-auto h-full">
-          <div className="flex flex-col gap-4 w-full sticky top-0">
-            <Image
-              src="/images/sobre_nosotros_silvi.jpg"
-              alt="Silvia Perez Mulki - Guía de turismo"
-              className="w-full h-96 object-cover rounded-xl shadow-2xl"
-              width={800}
-              height={600}
-            />
-            <div className="flex justify-center w-full">
-              <Button
-                onClick={() => setIsModalOpen(true)}
-                size="lg"
-                className="text-lg px-8 py-6 font-bold rounded-lg hover:opacity-90 transition-opacity duration-200"
-                style={{ backgroundColor: '#ffd600', color: '#404d21' }}
-              >
-                CONTACTANOS!
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      {/* Modal del formulario */}
-      <SantiagoFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </section>
   );
 }
