@@ -35,7 +35,7 @@ export function Contacto() {
     return (
         <section id="contacto" className="py-20" style={{ backgroundColor: '#404d21' }}>
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-                <div className="grid lg:grid-cols-2 gap-8">
+                <div className="grid lg:grid-cols-1 gap-8">
                     {/* Contact Info */}
                     <div className="text-white h-full flex flex-col justify-start">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">

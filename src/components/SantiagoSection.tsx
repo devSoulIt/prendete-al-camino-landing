@@ -11,13 +11,13 @@ export function SantiagoSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Sección QUIENES SOMOS */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-4">
+        <div className="grid grid-cols-1 gap-12 items-center mb-4">
           <div className="">
-            <div className="text-center lg:text-start">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#404d21' }}>
+            <div className="text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 lg:text-center" style={{ color: '#404d21' }}>
                 QUIENES SOMOS
               </h2>
-              <div className="">
+              <div className="block lg:hidden max-w-3xl mx-auto">
                 <Image
                   src="/images/sobre_nosotros_silvi.jpg"
                   alt="Grupo haciendo algo innovador"
@@ -26,7 +26,28 @@ export function SantiagoSection() {
                   height={600}
                 />
               </div>
-              <div className="max-w-4xl mx-auto lg:mx-0">
+              <div className="hidden lg:block max-w-3xl mx-auto">
+                <div className="flex justify-center mb-6">
+                  <div
+                    className="relative group overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 max-w-4xl w-full"
+                  >
+                    <Image
+                      src="/images/sobre_nosotros_silvi.jpg"
+                      alt="Santiago de Compostela - Portada"
+                      className="w-full h-96 md:h-[500px] object-cover group-hover:scale-105 transition-transform duration-500"
+                      width={800}
+                      height={500}
+                      quality={90}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="absolute bottom-6 left-6 text-white">
+                        <h3 className="text-2xl md:text-3xl font-bold mb-2 text-start">Silvia Pérez Mulki, guia de turismo con +10 años de experiencia</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="max-w-4xl mx-auto">
                 <p className="text-xl text-gray-600 leading-relaxed text-center lg:text-start">
                   Somos una agencia de turismo argentina, liderada por <strong style={{ color: '#404d21' }}>Silvia Pérez Mulki</strong>, odontóloga de vocación y <strong style={{ color: '#404d21' }}>guía de turismo de vocación</strong>, junto a un equipo que trabaja para vos.
                   <br />
@@ -39,23 +60,44 @@ export function SantiagoSection() {
 
 
         {/* Sección QUE HACEMOS */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mt-12 mb-4">
+        <div className="grid grid-cols-1 gap-12 items-center mt-12 mb-4">
           {/* Texto - Izquierda en PC, arriba en mobile */}
           <div className="">
-            <div className="text-center lg:text-start">
+            <div className="text-center">
               <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#404d21' }}>
                 QUE HACEMOS
               </h2>
-              <div className="">
+              <div className="block lg:hidden max-w-3xl mx-auto">
                 <Image
-                  src="/images/sobre_nosotros_silvi.jpg"
+                  src="/images/sobre_nosotros.jpg"
                   alt="Grupo en Santiago de Compostela"
                   className="w-full h-96 object-cover rounded-xl shadow-2xl mb-4"
                   width={800}
                   height={600}
                 />
               </div>
-              <div className="max-w-4xl mx-auto lg:mx-0">
+              <div className="hidden lg:block max-w-3xl mx-auto">
+                <div className="flex justify-center mb-6">
+                  <div
+                    className="relative group overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 max-w-4xl w-full"
+                  >
+                    <Image
+                      src="/images/sobre_nosotros.jpg"
+                      alt="Santiago de Compostela - Portada"
+                      className="w-full h-96 md:h-[500px] object-cover group-hover:scale-105 transition-transform duration-500"
+                      width={800}
+                      height={500}
+                      quality={90}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="absolute bottom-6 left-6 text-white">
+                        <h3 className="text-2xl md:text-3xl font-bold mb-2 text-start">Realizamos viajes y experiencias durante todo el año, pero el más especial de todos es el Camino de Santiago</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="max-w-4xl mx-auto">
                 <p className="text-xl text-gray-600 leading-relaxed text-center lg:text-start">
                   Realizamos numerosos viajes y experiencias durante todo el año, pero el más especial de todos es el <strong style={{ color: '#404d21' }}>Camino de Santiago</strong>.
                   <br /><br />
@@ -68,29 +110,50 @@ export function SantiagoSection() {
         </div>
 
         {/* Sección POR QUÉ CON NOSOTROS */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mt-12 mb-4">
+        <div className="grid grid-cols-1 gap-12 items-center mt-12 mb-4">
 
           {/* Texto - Derecha en PC, abajo en mobile */}
           <div className="">
-            <div className="text-center lg:text-start">
+            <div className="text-center">
               <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#404d21' }}>
                 POR QUÉ CON NOSOTROS
               </h2>
-              <div className="">
+              <div className="block lg:hidden max-w-3xl mx-auto">
                 <Image
-                  src="/images/sobre_nosotros_silvi.jpg"
+                  src="/images/foto-innovadora.jpg"
                   alt="Grupo haciendo algo innovador"
                   className="w-full h-96 object-cover rounded-xl shadow-2xl mb-4"
                   width={800}
                   height={600}
                 />
               </div>
-              <div className="max-w-4xl mx-auto lg:mx-0">
+              <div className="hidden lg:block max-w-3xl mx-auto">
+                <div className="flex justify-center mb-6">
+                  <div
+                    className="relative group overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 max-w-4xl w-full"
+                  >
+                    <Image
+                      src="/images/foto-innovadora.jpg"
+                      alt="Santiago de Compostela - Portada"
+                      className="w-full h-96 md:h-[500px] object-cover group-hover:scale-105 transition-transform duration-500"
+                      width={800}
+                      height={500}
+                      quality={90}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="absolute bottom-6 left-6 text-white">
+                        <h3 className="text-2xl md:text-3xl font-bold mb-2 text-start">Porque te acompañamos en cada paso del viaje...</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="max-w-4xl mx-auto">
                 <p className="text-xl text-gray-600 leading-relaxed text-center lg:text-start">
                   Porque sabemos que para vivir este viaje plenamente necesitas estar tranquilo, <strong style={{ color: '#404d21' }}>nosotros nos ocupamos de todo</strong> para que solo tengas que disfrutarlo.
                   <br /><br />
                   Nuestros viajes no ven el caminar solo como una actividad física, sino como una <strong style={{ color: '#404d21' }}>experiencia integral que despierta todos tus sentidos</strong>, conecta cuerpo, mente y alma… y queremos que la vivas plenamente.
-                  <br /><br />
+                  <br />
                   <strong style={{ color: '#404d21' }}>¡Caminamos a tu lado!</strong>
                 </p>
               </div>

@@ -7,36 +7,90 @@ export function PreguntasFrecuentes() {
 
   const faqs = [
     {
-      question: "¿Qué incluyen los viajes?",
-      answer: "Nuestros viajes incluyen alojamiento, desayuno, transporte terrestre, guía especializado, actividades programadas y seguro de viaje. Las comidas adicionales y gastos personales no están incluidos."
+      question: "¿Puedo viajar solo/a?",
+      answer: "Si, podes viajar solo/a. Podes optar por habitación individual o compartir."
     },
     {
-      question: "¿Cuál es la política de cancelación?",
-      answer: "Puedes cancelar tu viaje hasta 15 días antes de la fecha de salida con un reembolso del 80%. Entre 15 y 7 días antes, el reembolso es del 50%. Menos de 7 días, no hay reembolso."
+      question: "¿Puedo financiar mi viaje?",
+      answer: "Si, tenemos posibilidad de financiar los viajes."
     },
     {
-      question: "¿Necesito experiencia previa para el senderismo?",
-      answer: "No es necesario tener experiencia previa. Nuestros guías adaptan las rutas al nivel del grupo y siempre priorizamos la seguridad. Sin embargo, recomendamos tener una condición física básica."
+      question: "¿Qué tipo de viajes organizan?",
+      answer: "Todos nuestros viajes giran en torno a la caminata, gastronomía e historia: desde recorridos cortos hasta travesías de varios días, tanto en Argentina como en el exterior. Cada experiencia busca que conectes contigo mismo, con la naturaleza y con un grupo de personas que comparten la misma energía."
     },
     {
-      question: "¿Qué debo llevar en mi equipaje?",
-      answer: "Te enviaremos una lista detallada según el destino, pero básicamente necesitarás ropa cómoda, calzado para caminar, protector solar, gorra, y una mochila pequeña para las excursiones diarias."
+      question: "¿Qué incluye cualquier viaje de Prendete al Camino?",
+      answer: {
+        text: "En todos nuestros viajes vas a contar con:",
+        items: [
+          "Guías acompañantes en todo momento.",
+          "Organización integral del itinerario.",
+          "Hospedaje en alojamientos seleccionados.",
+          "Desayunos diarios.",
+          "Actividades de reflexión, entretenimiento y socialización.",
+          "Seguro de viaje en destinos nacionales."
+        ]
+      }
+    },
+    {
+      question: "¿Cómo funciona el proceso de reserva?",
+      answer: {
+        text: "El proceso es sencillo:",
+        items: [
+          "1. Completás la inscripción en whatsapp.",
+          "2. Realizás un pago de seña para asegurar tu lugar.",
+          "3. Cancelás el saldo en la fecha indicada.",
+          "4. Recibís la confirmación final con todos los detalles del viaje."
+        ]
+      }
+    },
+    {
+      question: "¿Con cuánta anticipación debería inscribirme?",
+      answer: "Lo ideal es reservar lo antes posible para garantizar tu lugar. Aceptamos inscripciones hasta 2 semanas antes en viajes nacionales y hasta 2 meses antes en viajes internacionales."
+    },
+    {
+      question: "¿Quiénes son las guías y qué rol cumplen?",
+      answer: {
+        text: "",
+        items: [
+          "Silvia Emilce Pérez Mulki (57 años) – Creadora de Prendete al Camino. Odontóloga y caminante desde hace más de 10 años, encontró en la naturaleza paz y fortaleza. Guía certificada, organiza y acompaña cada paso del viaje.",
+          "Marina Molina Pérez (26 años) – Guía de apoyo. Apasionada de los viajes y la organización, se encarga de los itinerarios para que disfrutes sin preocuparte. También es diseñadora y community manager de la comunidad.",
+          "Sergio Jung (59 años) – Guía de apoyo. Arquitecto, aporta su mirada profesional sobre la arquitectura y la historia de los lugares que visitamos."
+        ]
+      }
+    },
+    {
+      question: "¿Necesito experiencia previa en caminatas?",
+      answer: "No siempre. Muchos de nuestros viajes son aptos para principiantes. En los que requieren un poco más de entrenamiento, te brindamos un plan de caminatas progresivas para que llegues preparada y segura."
+    },
+    {
+      question: "¿Dónde puedo ver los próximos viajes disponibles?",
+      answer: {
+        text: "Publicamos cada viaje en nuestras redes sociales:",
+        items: [
+          "Instagram: @prendetealcamino",
+          "Facebook: Prendete al Camino",
+          "TikTok: Prendete al Camino"
+        ]
+      }
+    },
+    {
+      question: "¿Ofrecen viajes privados o a medida?",
+      answer: "Sí. Podemos diseñar experiencias personalizadas para grupos de amigos, familias o empresas que quieran un viaje adaptado a sus intereses y tiempos."
     },
     {
       question: "¿Los viajes son aptos para todas las edades?",
-      answer: "La mayoría de nuestros viajes son aptos para personas de 12 años en adelante. Para viajeros mayores de 65 años, recomendamos consultar previamente sobre el nivel de dificultad de las actividades."
-    },
-    {
-      question: "¿Cómo puedo reservar mi lugar?",
-      answer: "Puedes reservar contactándonos por WhatsApp, completando el formulario de contacto en nuestra web, o llamándonos directamente. Te pediremos una seña del 30% para confirmar tu lugar."
-    },
-    {
-      question: "¿Qué pasa si llueve durante el viaje?",
-      answer: "Tenemos planes alternativos para días de lluvia. Siempre llevamos equipamiento de lluvia y adaptamos las actividades para que puedas disfrutar igual del viaje."
+      answer: "No, están pensados a partir de los 18 años y adultos de cualquier edad, siempre que tengan excelente estado de salud."
     },
     {
       question: "¿Incluyen seguro de viaje?",
-      answer: "Sí, todos nuestros viajes incluyen seguro de viaje básico. Si necesitas una cobertura más amplia, podemos ayudarte a contratar un seguro adicional."
+      answer: {
+        text: "",
+        items: [
+          "En viajes nacionales: el seguro está incluido en el precio.",
+          "En viajes internacionales: cada viajero debe contratarlo en su aseguradora de confianza (recomendamos Assist Card)."
+        ]
+      }
     }
   ];
 
@@ -79,9 +133,24 @@ export function PreguntasFrecuentes() {
               {openIndex === index && (
                 <div className="px-6 pb-4">
                   <div className="border-t border-gray-100 pt-4">
-                    <p className="text-gray-600 leading-relaxed">
-                      {faq.answer}
-                    </p>
+                    {typeof faq.answer === 'string' ? (
+                      <p className="text-gray-600 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    ) : (
+                      <div className="text-gray-600 leading-relaxed">
+                        {faq.answer.text && (
+                          <p className="mb-3">{faq.answer.text}</p>
+                        )}
+                        {faq.answer.items && (
+                          <ul className="list-disc list-inside space-y-1 ml-4">
+                            {faq.answer.items.map((item, itemIndex) => (
+                              <li key={itemIndex}>{item}</li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
               )}
