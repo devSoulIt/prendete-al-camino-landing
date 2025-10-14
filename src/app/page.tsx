@@ -5,6 +5,7 @@ import { SantiagoSection } from "@/components/SantiagoSection";
 import { ViajesCortosSection } from "@/components/ViajesCortosSection";
 import { GaleriaSection } from "@/components/GaleriaSection";
 import { PreguntasFrecuentes } from "@/components/PreguntasFrecuentes";
+import { CalendarioSection } from "@/components/CalendarioSection";
 import { Footer } from "@/components/Footer";
 import { Contacto } from "@/components/Contacto";
 import { Whatsapp } from "@/components/Whatsapp";
@@ -39,6 +40,7 @@ export default function Home() {
       <TestimoniosSection />
       <Contacto />
       {/* <ViajesCortosSection /> */}
+      <CalendarioSection />
       <PreguntasFrecuentes />
       <Footer />
     </div>
