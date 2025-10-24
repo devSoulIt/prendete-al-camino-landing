@@ -49,7 +49,7 @@ export function SantiagoSection() {
               </div>
               <div className="max-w-4xl mx-auto">
                 <p className="text-xl text-gray-600 leading-relaxed text-center lg:text-start">
-                  Somos una agencia de turismo argentina, liderada por <strong style={{ color: '#404d21' }}>Silvia Pérez Mulki</strong>, odontóloga de vocación y <strong style={{ color: '#404d21' }}>guía de turismo por pasión.</strong>, junto a un equipo que trabaja para vos.
+                  Somos una agencia argentina, liderada por <strong style={{ color: '#404d21' }}>Silvia Pérez Mulki</strong>, odontóloga de vocación y <strong style={{ color: '#404d21' }}>guía de turismo por pasión.</strong>, junto a un equipo que trabaja para vos.
                   <br />
                   <strong style={{ color: '#404d21' }}>Somos peregrinos</strong> que ya vivimos la magia del <strong style={{ color: '#404d21' }}>Camino de Santiago</strong> y queremos compartirla con vos!
                 </p>
