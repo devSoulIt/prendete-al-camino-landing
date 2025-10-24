@@ -15,6 +15,8 @@ export function GaleriaSection() {
       coverImage: "/images/Portadas/Santiago de Compostela .webp",
       media: [
         { src: "/images/Santiago/video-santiago-1.mp4", alt: "Santiago - Video", category: "Santiago", type: "video" },//video
+        { src: "/images/Santiago/IMG_5308.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
+        { src: "/images/Santiago/IMG_4058.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_6995.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_6581.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_6435.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
@@ -23,13 +25,13 @@ export function GaleriaSection() {
         { src: "/images/Santiago/IMG_6334.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_6321.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_6309.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6306.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
+        //{ src: "/images/Santiago/IMG_6306.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_6304.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_6280.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6271.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
+        // { src: "/images/Santiago/IMG_6271.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_6167.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_6105.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6092.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
+        // { src: "/images/Santiago/IMG_6092.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_6036.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5996.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5965.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
@@ -44,25 +46,23 @@ export function GaleriaSection() {
         { src: "/images/Santiago/IMG_5690.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5664.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5658.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5650.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
+        // { src: "/images/Santiago/IMG_5650.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5604.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5554.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
+        // { src: "/images/Santiago/IMG_5554.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5543.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5519.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5502.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5476.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5428.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5400.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5395.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5392.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5308.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
+        // { src: "/images/Santiago/IMG_5395.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
+        // { src: "/images/Santiago/IMG_5392.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5260.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_5022.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_4765.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_4715.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_4521.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
         { src: "/images/Santiago/IMG_4419.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_4058.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
         { src: "/images/Santiago/d2018c62-241e-4d0a-9322-d987678cd4d6.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
         { src: "/images/Santiago/aef2ef1a-98fe-4cd9-b316-8ea7a37e97f6.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
         { src: "/images/Santiago/667bfe79-55cc-4f23-92f2-09929c853cb7.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
@@ -204,7 +204,7 @@ export function GaleriaSection() {
     <section id="galeria" className="py-20" style={{ backgroundColor: '#f8f9fa' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Título principal */}
-       {/*  <div className="text-center mb-12">
+        {/*  <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#404d21' }}>
             NUESTRA EXPERIENCIA
           </h2>
@@ -218,10 +218,10 @@ export function GaleriaSection() {
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Santiago de Compostela <strong>es nuestro destino principal</strong>, pero cada año sumamos nuevas ciudades europeas.
-              Este 2024 exploramos: Madrid, Barajas, Lugo, Playa de las Catedrales, Segovia, Toledo y Oporto.
+              Este 2025 exploramos: Madrid, Barajas, Lugo, Playa de las Catedrales, Segovia, Toledo y Oporto.
             </p>
           </div>
-          
+
           {/* Santiago - Portada principal */}
           <div className="flex justify-center mb-6">
             <div
@@ -253,7 +253,7 @@ export function GaleriaSection() {
               VIAJES NACIONALES
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              A lo largo de nuestro querido país, ya hemos explorado: Jujuy, Salta, Tucumán, Córdoba y Catamarca.
+            A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba y Catamarca.
             </p>
           </div>
 

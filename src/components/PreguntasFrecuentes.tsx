@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+import { ChevronDownIcon, ChevronUpIcon, Instagram, Facebook, MessageCircle } from "lucide-react";
 
 export function PreguntasFrecuentes() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -8,7 +8,7 @@ export function PreguntasFrecuentes() {
   const faqs = [
     {
       question: "¿Puedo viajar solo/a?",
-      answer: "Si, podes viajar solo/a. Podes optar por habitación individual o compartir."
+      answer: "Si, podes viajar solo/a. Podes optar por habitación individual o compartida."
     },
     {
       question: "¿Puedo financiar mi viaje?",
@@ -33,12 +33,12 @@ export function PreguntasFrecuentes() {
       }
     },
     {
-      question: "¿Cómo funciona el proceso de reserva?",
+      question: "¿Cómo tramitar la reserva?",
       answer: {
         text: "El proceso es sencillo:",
         items: [
-          "1. Completás la inscripción en whatsapp.",
-          "2. Realizás un pago de seña para asegurar tu lugar.",
+          "1. Completás la inscripción por whatsapp.",
+          "2. Abonás una seña para asegurar tu lugar.",
           "3. Cancelás el saldo en la fecha indicada.",
           "4. Recibís la confirmación final con todos los detalles del viaje."
         ]
@@ -54,14 +54,14 @@ export function PreguntasFrecuentes() {
         text: "",
         items: [
           "Silvia Emilce Pérez Mulki (57 años) – Creadora de Prendete al Camino. Odontóloga y caminante desde hace más de 10 años, encontró en la naturaleza paz y fortaleza. Guía certificada, organiza y acompaña cada paso del viaje.",
-          "Marina Molina Pérez (26 años) – Guía de apoyo. Apasionada de los viajes y la organización, se encarga de los itinerarios para que disfrutes sin preocuparte. También es diseñadora y community manager de la comunidad.",
+          "Marina Molina Pérez (26 años) – Guía de apoyo. Apasionada de los viajes y la planificación, se encarga de los itinerarios para que disfrutes sin preocuparte. También es Diseñadora Gráfica y Community Manager.",
           "Sergio Jung (59 años) – Guía de apoyo. Arquitecto, aporta su mirada profesional sobre la arquitectura y la historia de los lugares que visitamos."
         ]
       }
     },
     {
       question: "¿Necesito experiencia previa en caminatas?",
-      answer: "No siempre. Muchos de nuestros viajes son aptos para principiantes. En los que requieren un poco más de entrenamiento, te brindamos un plan de caminatas progresivas para que llegues preparada y segura."
+      answer: "No siempre. Muchos de nuestros viajes son aptos para principiantes. En los que requieren un poco más de entrenamiento, te brindamos un plan de caminatas progresivas para que llegues preparado/a y seguro/a."
     },
     {
       question: "¿Dónde puedo ver los próximos viajes disponibles?",
@@ -69,7 +69,7 @@ export function PreguntasFrecuentes() {
         text: "Publicamos cada viaje en nuestras redes sociales:",
         items: [
           "Instagram: @prendetealcamino",
-          "Facebook: Prendete al Camino",
+          "Facebook: Prendete al Camino", 
           "TikTok: Prendete al Camino"
         ]
       }
@@ -80,7 +80,7 @@ export function PreguntasFrecuentes() {
     },
     {
       question: "¿Los viajes son aptos para todas las edades?",
-      answer: "No, están pensados a partir de los 18 años y adultos de cualquier edad, siempre que tengan excelente estado de salud."
+      answer: "No, están pensados a partir de los 18 años y adultos de cualquier edad, siempre que tengan buen estado de salud."
     },
     {
       question: "¿Incluyen seguro de viaje?",
@@ -144,9 +144,25 @@ export function PreguntasFrecuentes() {
                         )}
                         {faq.answer.items && (
                           <ul className="list-disc list-inside space-y-1 ml-4">
-                            {faq.answer.items.map((item, itemIndex) => (
-                              <li key={itemIndex}>{item}</li>
-                            ))}
+                            {faq.answer.items.map((item, itemIndex) => {
+                              // Detectar si es la pregunta de redes sociales para mostrar iconos
+                              if (faq.question === "¿Dónde puedo ver los próximos viajes disponibles?") {
+                                const getIcon = (item: string) => {
+                                  if (item.includes("Instagram")) return <Instagram className="w-4 h-4 inline mr-2 text-pink-500" />;
+                                  if (item.includes("Facebook")) return <Facebook className="w-4 h-4 inline mr-2 text-blue-600" />;
+                                  if (item.includes("TikTok")) return <MessageCircle className="w-4 h-4 inline mr-2 text-black" />;
+                                  return null;
+                                };
+                                
+                                return (
+                                  <li key={itemIndex} className="flex items-center">
+                                    {getIcon(item)}
+                                    <span>{item}</span>
+                                  </li>
+                                );
+                              }
+                              return <li key={itemIndex}>{item}</li>;
+                            })}
                           </ul>
                         )}
                       </div>

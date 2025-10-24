@@ -18,9 +18,9 @@ export function Contacto() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsSubmitting(true);
-        
+
         const formData = new FormData(event.currentTarget);
-        
+
         try {
             await handleFormSubmit(formData);
             alert('¡Formulario enviado correctamente! Te contactaremos pronto.');
@@ -42,7 +42,7 @@ export function Contacto() {
                             El camino te espera, nosotros también
                         </h2>
                         <p className="text-xl text-gray-300 mb-6 leading-relaxed text-center">
-                            Deja tu primer camino en manos expertas y preparate para la mejor experiencia de tu vida.
+                            Confía tu camino a manos expertas y prepárate para la mejor experiencia de tu vida.
                         </p>
                     </div>
 
@@ -154,7 +154,7 @@ export function Contacto() {
                                     {/* 5. Disponibilidad en junio 2026 */}
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 mb-3">
-                                            5. Disponibilidad en junio 2026 *
+                                            5. Disponibilidad en todo <strong style={{ color: '#404d21' }}>JUNIO</strong> 2026
                                         </label>
                                         <div className="space-y-2">
                                             <label className="flex items-center space-x-3 cursor-pointer">
@@ -236,7 +236,7 @@ export function Contacto() {
                                     {/* Texto aclaratorio */}
                                     <div className="bg-gray-50 p-4 rounded-lg">
                                         <p className="text-sm text-gray-600 text-center">
-                                            Esto no implica ningún compromiso. Es solo para conocerte mejor y asegurarnos de 
+                                            Esto no implica ningún compromiso, es sólo para conocerte mejor y asegurarnos de
                                             que el viaje sea la experiencia perfecta para vos.
                                         </p>
                                     </div>
@@ -252,7 +252,7 @@ export function Contacto() {
                                 </form>
                             </CardContent>
                         </Card>
-                        
+
                         <div className="text-center">
                             <p className="text-white mb-4">¿Tenés alguna otra pregunta? No dudes en contactarnos.</p>
                             <a

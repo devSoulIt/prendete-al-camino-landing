@@ -121,7 +121,7 @@ export function TestimoniosSection() {
                     const nextIndex = prev + 1;
                     return nextIndex > maxIndex ? 0 : nextIndex;
                 });
-                
+
                 // Aumentar el delay exponencialmente (máximo 8 segundos)
                 currentDelay = Math.min(currentDelay * 1.2, 8000);
                 scheduleNext();
@@ -176,7 +176,7 @@ export function TestimoniosSection() {
                 {/* Título */}
                 <div className="text-center mb-12">
                     <h3 className="text-4xl font-bold mb-4" style={{ color: '#404d21' }}>
-                        Nuestros Caminantes
+                        ELLOS YA SE PRENDIERON AL CAMINO
                     </h3>
                 </div>
 

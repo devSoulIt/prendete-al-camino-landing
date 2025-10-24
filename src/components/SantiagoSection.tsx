@@ -49,9 +49,9 @@ export function SantiagoSection() {
               </div>
               <div className="max-w-4xl mx-auto">
                 <p className="text-xl text-gray-600 leading-relaxed text-center lg:text-start">
-                  Somos una agencia de turismo argentina, liderada por <strong style={{ color: '#404d21' }}>Silvia Pérez Mulki</strong>, odontóloga de vocación y <strong style={{ color: '#404d21' }}>guía de turismo de vocación</strong>, junto a un equipo que trabaja para vos.
+                  Somos una agencia de turismo argentina, liderada por <strong style={{ color: '#404d21' }}>Silvia Pérez Mulki</strong>, odontóloga de vocación y <strong style={{ color: '#404d21' }}>guía de turismo por pasión.</strong>, junto a un equipo que trabaja para vos.
                   <br />
-                  <strong style={{ color: '#404d21' }}>Somos peregrinos</strong> que ya vivimos la magia del <strong style={{ color: '#404d21' }}>Camino de Santiago</strong> y queremos compartirla con vos…
+                  <strong style={{ color: '#404d21' }}>Somos peregrinos</strong> que ya vivimos la magia del <strong style={{ color: '#404d21' }}>Camino de Santiago</strong> y queremos compartirla con vos!
                 </p>
               </div>
             </div>
@@ -91,7 +91,7 @@ export function SantiagoSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <div className="absolute bottom-6 left-6 text-white">
-                        <h3 className="text-2xl md:text-3xl font-bold mb-2 text-start">Realizamos viajes y experiencias durante todo el año, pero el más especial de todos es el Camino de Santiago</h3>
+                        <h3 className="text-2xl md:text-3xl font-bold mb-2 text-start">Realizamos viajes y experiencias durante todo el año, pero el más especial de todos es el "Camino de Santiago"</h3>
                       </div>
                     </div>
                   </div>
@@ -99,9 +99,9 @@ export function SantiagoSection() {
               </div>
               <div className="max-w-4xl mx-auto">
                 <p className="text-xl text-gray-600 leading-relaxed text-center lg:text-start">
-                  Realizamos numerosos viajes y experiencias durante todo el año, pero el más especial de todos es el <strong style={{ color: '#404d21' }}>Camino de Santiago</strong>.
+                  Realizamos numerosos viajes y experiencias durante todo el año, pero el más especial de todos es el <strong style={{ color: '#404d21' }}>"Camino de Santiago"</strong>.
                   <br /><br />
-                  Nos ocupamos de <strong style={{ color: '#404d21' }}>cada detalle:</strong> pasajes, alojamiento, media pensión, logística de maletas y entrenamiento previo; para que vos solo tengas que <strong style={{ color: '#404d21' }}>disfrutar de caminar y vivir la experiencia.</strong>
+                  Nos ocupamos de <strong style={{ color: '#404d21' }}>cada detalle:</strong> pasajes, alojamiento, media pensión, logística de maletas y entrenamiento previo; para que vos sólo tengas que <strong style={{ color: '#404d21' }}>disfrutar de caminar y vivir la experiencia con toda intensidad.</strong>
                 </p>
               </div>
             </div>
@@ -116,7 +116,7 @@ export function SantiagoSection() {
           <div className="">
             <div className="text-center">
               <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#404d21' }}>
-                POR QUÉ CON NOSOTROS
+                POR QUE CON NOSOTROS
               </h2>
               <div className="block lg:hidden max-w-3xl mx-auto">
                 <Image
@@ -152,7 +152,7 @@ export function SantiagoSection() {
                 <p className="text-xl text-gray-600 leading-relaxed text-center lg:text-start">
                   Porque sabemos que para vivir este viaje plenamente necesitas estar tranquilo, <strong style={{ color: '#404d21' }}>nosotros nos ocupamos de todo</strong> para que solo tengas que disfrutarlo.
                   <br /><br />
-                  Nuestros viajes no ven el caminar solo como una actividad física, sino como una <strong style={{ color: '#404d21' }}>experiencia integral que despierta todos tus sentidos</strong>, conecta cuerpo, mente y alma… y queremos que la vivas plenamente.
+                  Nuestros viajes no conciben "el caminar" sólo como una actividad física, sino como una <strong style={{ color: '#404d21' }}>experiencia integral que despierta todos tus sentidos</strong>, conecta cuerpo, mente y alma… y queremos que la vivas plenamente.
                   <br />
                   <strong style={{ color: '#404d21' }}>¡Caminamos a tu lado!</strong>
                 </p>

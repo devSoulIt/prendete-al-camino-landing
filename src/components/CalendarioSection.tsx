@@ -30,7 +30,7 @@ const viajes: Viaje[] = [
     mes: 10, // Noviembre (0-indexed)
     dias: [14, 15, 16]
   },
-  {
+  /* {
     id: '2',
     titulo: 'Santiago de Compostela',
     fecha: 'Junio 2026',
@@ -42,12 +42,12 @@ const viajes: Viaje[] = [
     color: 'bg-gradient-to-r from-green-600 to-emerald-600',
     mes: 5, // Junio (0-indexed)
     dias: [15, 16, 17, 18, 19, 20, 21, 22]
-  }
+  } */
 ];
 
 export function CalendarioSection() {
   const [viajeSeleccionado, setViajeSeleccionado] = useState<string | null>(null);
-  const [mesActual, setMesActual] = useState(new Date().getMonth());
+  const [mesActual, setMesActual] = useState(10); // Noviembre (0-indexed)
   const [añoActual, setAñoActual] = useState(new Date().getFullYear());
 
   const meses = [
@@ -57,6 +57,10 @@ export function CalendarioSection() {
 
   const cambiarMes = (direccion: 'anterior' | 'siguiente') => {
     if (direccion === 'anterior') {
+      // No permitir ir a meses anteriores a noviembre
+      if (mesActual === 10) { // Noviembre
+        return; // No hacer nada si ya estamos en noviembre
+      }
       if (mesActual === 0) {
         setMesActual(11);
         setAñoActual(añoActual - 1);
@@ -77,23 +81,23 @@ export function CalendarioSection() {
     const hoy = new Date();
     const diasEnMes = new Date(añoActual, mesActual + 1, 0).getDate();
     const primerDia = new Date(añoActual, mesActual, 1).getDay();
-    
+
     const dias = [];
-    
+
     // Días del mes anterior
     for (let i = primerDia - 1; i >= 0; i--) {
       dias.push({ numero: '', esOtroMes: true });
     }
-    
+
     // Días del mes actual
     for (let dia = 1; dia <= diasEnMes; dia++) {
       const esHoy = dia === hoy.getDate() && mesActual === hoy.getMonth() && añoActual === hoy.getFullYear();
-      
+
       // Verificar si hay viajes en este día
-      const viajeEnEsteDia = viajes.find(viaje => 
+      const viajeEnEsteDia = viajes.find(viaje =>
         viaje.mes === mesActual && viaje.dias.includes(dia)
       );
-      
+
       dias.push({
         numero: dia,
         esHoy,
@@ -102,7 +106,7 @@ export function CalendarioSection() {
         esOtroMes: false
       });
     }
-    
+
     return dias;
   };
 
@@ -123,24 +127,29 @@ export function CalendarioSection() {
           {/* Calendario */}
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <div className="flex items-center justify-between mb-6">
-              <button 
+              <button
                 onClick={() => cambiarMes('anterior')}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                disabled={mesActual === 10} // Deshabilitar en noviembre
+                className={`p-2 rounded-lg transition-colors ${
+                  mesActual === 10 
+                    ? 'opacity-50 cursor-not-allowed' 
+                    : 'hover:bg-gray-100'
+                }`}
               >
-                <ChevronLeft className="w-5 h-5 text-gray-600" />
+                <ChevronLeft className={`w-5 h-5 ${mesActual === 10 ? 'text-gray-400' : 'text-gray-600'}`} />
               </button>
               <h3 className="text-2xl font-bold flex items-center gap-2" style={{ color: '#404d21' }}>
                 <Calendar className="w-6 h-6" style={{ color: '#404d21' }} />
                 {meses[mesActual]} {añoActual}
               </h3>
-              <button 
+              <button
                 onClick={() => cambiarMes('siguiente')}
                 className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
               >
                 <ChevronRight className="w-5 h-5 text-gray-600" />
               </button>
             </div>
-            
+
             {/* Días de la semana */}
             <div className="grid grid-cols-7 gap-2 mb-4">
               {['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'].map(dia => (
@@ -149,7 +158,7 @@ export function CalendarioSection() {
                 </div>
               ))}
             </div>
-            
+
             {/* Días del calendario */}
             <div className="grid grid-cols-7 gap-2">
               {getDiasDelMes().map((dia, index) => (
@@ -163,9 +172,9 @@ export function CalendarioSection() {
                     ${!dia.esOtroMes && !dia.esHoy && !dia.tieneViaje ? 'hover:bg-gray-100 text-gray-700' : ''}
                   `}
                   style={{
-                    backgroundColor: dia.esHoy ? '#404d21' : 
-                                   dia.tieneViaje ? (dia.viaje?.color.includes('amber') ? '#f59e0b' : '#059669') : 
-                                   'transparent',
+                    backgroundColor: dia.esHoy ? '#404d21' :
+                      dia.tieneViaje ? (dia.viaje?.color.includes('amber') ? '#f59e0b' : '#059669') :
+                        'transparent',
                     borderColor: dia.tieneViaje ? (dia.viaje?.color.includes('amber') ? '#d97706' : '#047857') : 'transparent'
                   }}
                 >
@@ -173,7 +182,7 @@ export function CalendarioSection() {
                 </div>
               ))}
             </div>
-            
+
             {/* Leyenda */}
             <div className="mt-6 flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-2">
@@ -212,7 +221,7 @@ export function CalendarioSection() {
                   </div>
                   <div className={`w-4 h-4 rounded-full ${viaje.color}`}></div>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div className="flex items-center gap-2 text-gray-600">
                     <Calendar className="w-4 h-4" />
@@ -231,10 +240,10 @@ export function CalendarioSection() {
                     <span className="text-sm">{viaje.participantes}</span>
                   </div>
                 </div>
-                
-                <button 
+
+                <button
                   className="hidden w-full text-white py-3 px-6 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-2"
-                  style={{ 
+                  style={{
                     background: 'linear-gradient(135deg, #404d21 0%, #2d3a1a 100%)',
                   }}
                   onMouseEnter={(e) => {
@@ -257,9 +266,9 @@ export function CalendarioSection() {
           <p className="text-lg text-gray-600 mb-6">
             ¿No encontrás lo que buscás? Contactanos para más opciones
           </p>
-          <button 
+          <button
             className="text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
-            style={{ 
+            style={{
               background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
             }}
             onMouseEnter={(e) => {
