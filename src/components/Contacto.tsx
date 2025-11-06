@@ -5,11 +5,21 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 
-// Action para manejar el envío del formulario (placeholder por ahora)
+// Envío del formulario al endpoint /api/contact
 async function handleFormSubmit(formData: FormData) {
-    // Por ahora no hace nada, en el futuro se implementará el envío de email
-    console.log('Formulario enviado:', Object.fromEntries(formData));
-    return { success: true };
+    const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+    });
+    if (!response.ok) {
+        try {
+            const data = await response.json();
+            throw new Error(data?.message || 'Error al enviar el formulario');
+        } catch {
+            throw new Error('Error al enviar el formulario');
+        }
+    }
+    return response.json();
 }
 
 export function Contacto() {
@@ -256,7 +266,7 @@ export function Contacto() {
                         <div className="text-center">
                             <p className="text-white mb-4">¿Tenés alguna otra pregunta? No dudes en contactarnos.</p>
                             <a
-                                href="https://wa.me/5491123456789"
+                                href="https://api.whatsapp.com/send?phone=543815184516&text=Hola%F0%9F%91%8B%20los%20contacto%20desde%20la%20web.%0AQuiero%20info%20sobre..."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center px-6 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-300 shadow-lg hover:shadow-xl"
