@@ -30,19 +30,32 @@ const viajes: Viaje[] = [
     mes: 10, // Noviembre (0-indexed)
     dias: [14, 15, 16]
   },
-  /* {
+  {
     id: '2',
     titulo: 'Santiago de Compostela',
-    fecha: 'Junio 2026',
-    duracion: '8 días',
+    fecha: '1-10 Junio 2026',
+    duracion: '10 días',
     ubicacion: 'España',
     participantes: 'Grupo reducido',
     descripcion: 'El camino espiritual más famoso del mundo',
     destacado: false,
     color: 'bg-gradient-to-r from-green-600 to-emerald-600',
     mes: 5, // Junio (0-indexed)
-    dias: [15, 16, 17, 18, 19, 20, 21, 22]
-  } */
+    dias: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  },
+  {
+    id: '3',
+    titulo: 'Italia',
+    fecha: '10-20 Junio 2026',
+    duracion: '11 días',
+    ubicacion: 'Italia',
+    participantes: 'Grupo reducido',
+    descripcion: 'Descubrí la belleza y cultura de Italia',
+    destacado: false,
+    color: 'bg-gradient-to-r from-blue-600 to-indigo-600',
+    mes: 5, // Junio (0-indexed)
+    dias: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+  }
 ];
 
 export function CalendarioSection() {
@@ -173,9 +186,17 @@ export function CalendarioSection() {
                   `}
                   style={{
                     backgroundColor: dia.esHoy ? '#404d21' :
-                      dia.tieneViaje ? (dia.viaje?.color.includes('amber') ? '#f59e0b' : '#059669') :
+                      dia.tieneViaje ? (
+                        dia.viaje?.color.includes('amber') ? '#f59e0b' :
+                        dia.viaje?.color.includes('blue') ? '#2563eb' :
+                        '#059669'
+                      ) :
                         'transparent',
-                    borderColor: dia.tieneViaje ? (dia.viaje?.color.includes('amber') ? '#d97706' : '#047857') : 'transparent'
+                    borderColor: dia.tieneViaje ? (
+                      dia.viaje?.color.includes('amber') ? '#d97706' :
+                      dia.viaje?.color.includes('blue') ? '#1d4ed8' :
+                      '#047857'
+                    ) : 'transparent'
                   }}
                 >
                   {dia.numero}
