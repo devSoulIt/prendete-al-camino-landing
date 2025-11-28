@@ -41,7 +41,7 @@ export async function POST(request: Request) {
     `;
 
     const { data, error } = await resend.emails.send({
-      from: 'Prendete al Camino <notification@lemonpad.app>',
+      from: 'Prendete al Camino <notification@prendetealcamino.com>',
       to: ['prendetealcamino@gmail.com'],
       // to: ['lautarooyt837@gmail.com'],
       subject,

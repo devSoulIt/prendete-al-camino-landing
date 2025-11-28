@@ -140,6 +140,14 @@ export function GaleriaSection() {
         { src: "/images/Salta/7FBB4437-7B3E-4DD5-B17A-CAF4C45C115C.webp", alt: "Salta - Naturaleza", category: "Salta", type: "image" },
         { src: "/images/Salta/0B556362-96BF-41CE-A151-3F609741154A.webp", alt: "Salta - Paisaje rural", category: "Salta", type: "image" },
       ]
+    },
+    jujuy: {
+      name: "Jujuy",
+      coverImage: "/images/JUJUY/portada.jpeg",
+      media: [
+        { src: "/images/JUJUY/video1.mp4", alt: "Jujuy - Video", category: "Jujuy", type: "video" },
+        { src: "/images/JUJUY/portada.jpeg", alt: "Jujuy - Portada", category: "Jujuy", type: "image" },
+      ]
     }
   };
 
@@ -301,10 +309,32 @@ export function GaleriaSection() {
             </div>
           </div>
 
-          {/* Salta - Centrado */}
-          <div className="flex justify-center">
+          {/* Jujuy y Salta - Grid de 2 columnas */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+            {/* Jujuy - Lado izquierdo */}
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer max-w-2xl w-full"
+              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              onClick={() => openModal('jujuy')}
+            >
+              <Image
+                src={imageCategories.jujuy.coverImage}
+                alt="Jujuy - Portada"
+                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                width={600}
+                height={400}
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Jujuy</h3>
+                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Salta - Lado derecho */}
+            <div
+              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
               onClick={() => openModal('salta')}
             >
               <Image
@@ -323,6 +353,7 @@ export function GaleriaSection() {
               </div>
             </div>
           </div>
+
         </div>
 
 

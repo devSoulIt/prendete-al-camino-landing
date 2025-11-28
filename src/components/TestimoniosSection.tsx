@@ -86,6 +86,20 @@ Silvia y marina unas genias totales me sentí muy cuidada en cada momento
 Gracias préndete al camino por este viaje mágico ❤️`,
         estrellas: 5
     },
+    {
+        id: 11,
+        nombre: "Hebe Carrizo",
+        avatar: null,
+        texto: "El viaje a Jujuy para conocer la Garganta del Diablo, Uquía con su Quebrada y Cuevas y también Inca Cueva...todo muy bien planificado, cumpliendo con todo lo pactado. La guía de Silvia Perez Mulki y Co.impecable. PRENDETE AL CAMINO...seguro la pasarás de 10!!",
+        estrellas: 5
+    },
+    {
+        id: 12,
+        nombre: "Romina Prieto",
+        avatar: null,
+        texto: "Me prendí al camino y jamás pensé que me iba a llenar el alma, sentí que estaba en familia, el grupo muy humano y ni que hablar de SIL, SERGIO, MARINA Y NACHO,los mejores coordinadores que podes tener, no solo por la dedicación que le ponen a cada cosa, también te hacen sentir familia, los elijo para seguir en este hermoso camino.. Muchas gracias",
+        estrellas: 5
+    },
 ];
 
 export function TestimoniosSection() {

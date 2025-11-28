@@ -18,19 +18,6 @@ interface Viaje {
 
 const viajes: Viaje[] = [
   {
-    id: '1',
-    titulo: 'Los Tesoros de Jujuy',
-    fecha: '14-16 Noviembre 2025',
-    duracion: '3 días',
-    ubicacion: 'Jujuy, Argentina',
-    participantes: 'Grupo reducido',
-    descripcion: 'Descubrí los paisajes más impresionantes del norte argentino',
-    destacado: true,
-    color: 'bg-gradient-to-r from-amber-500 to-orange-600',
-    mes: 10, // Noviembre (0-indexed)
-    dias: [14, 15, 16]
-  },
-  {
     id: '2',
     titulo: 'Santiago de Compostela',
     fecha: '1-10 Junio 2026',
@@ -38,7 +25,7 @@ const viajes: Viaje[] = [
     ubicacion: 'España',
     participantes: 'Grupo reducido',
     descripcion: 'El camino espiritual más famoso del mundo',
-    destacado: false,
+    destacado: true,
     color: 'bg-gradient-to-r from-green-600 to-emerald-600',
     mes: 5, // Junio (0-indexed)
     dias: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -55,12 +42,25 @@ const viajes: Viaje[] = [
     color: 'bg-gradient-to-r from-blue-600 to-indigo-600',
     mes: 5, // Junio (0-indexed)
     dias: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-  }
+  },
+  {
+    id: '1',
+    titulo: 'Los Tesoros de Jujuy (Finalizado)',
+    fecha: '14-16 Noviembre 2025',
+    duracion: '3 días',
+    ubicacion: 'Jujuy, Argentina',
+    participantes: 'Grupo reducido',
+    descripcion: 'Descubrí los paisajes más impresionantes del norte argentino',
+    destacado: false,
+    color: 'bg-gradient-to-r from-amber-500 to-orange-600',
+    mes: 10, 
+    dias: [14, 15, 16]
+  },
 ];
 
 export function CalendarioSection() {
   const [viajeSeleccionado, setViajeSeleccionado] = useState<string | null>(null);
-  const [mesActual, setMesActual] = useState(10); // Noviembre (0-indexed)
+  const [mesActual, setMesActual] = useState(5); // Noviembre (0-indexed)
   const [añoActual, setAñoActual] = useState(new Date().getFullYear());
 
   const meses = [
