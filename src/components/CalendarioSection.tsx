@@ -18,6 +18,19 @@ interface Viaje {
 
 const viajes: Viaje[] = [
   {
+    id: '4',
+    titulo: 'Alpachiri Portal de los Alisos',
+    fecha: '13-14 Diciembre 2025',
+    duracion: '2 días',
+    ubicacion: 'Alpachiri Portal de los Alisos',
+    participantes: 'Grupo reducido',
+    descripcion: 'Una experiencia única en contacto con la naturaleza',
+    destacado: false,
+    color: 'bg-gradient-to-r from-purple-600 to-pink-600',
+    mes: 11, // Diciembre (0-indexed)
+    dias: [13, 14]
+  },
+  {
     id: '2',
     titulo: 'Santiago de Compostela',
     fecha: '1-10 Junio 2026',
@@ -56,11 +69,12 @@ const viajes: Viaje[] = [
     mes: 10, 
     dias: [14, 15, 16]
   },
+  
 ];
 
 export function CalendarioSection() {
   const [viajeSeleccionado, setViajeSeleccionado] = useState<string | null>(null);
-  const [mesActual, setMesActual] = useState(5); // Noviembre (0-indexed)
+  const [mesActual, setMesActual] = useState(11); // Diciembre (0-indexed)
   const [añoActual, setAñoActual] = useState(new Date().getFullYear());
 
   const meses = [
@@ -189,12 +203,14 @@ export function CalendarioSection() {
                       dia.tieneViaje ? (
                         dia.viaje?.color.includes('amber') ? '#f59e0b' :
                         dia.viaje?.color.includes('blue') ? '#2563eb' :
+                        dia.viaje?.color.includes('purple') ? '#9333ea' :
                         '#059669'
                       ) :
                         'transparent',
                     borderColor: dia.tieneViaje ? (
                       dia.viaje?.color.includes('amber') ? '#d97706' :
                       dia.viaje?.color.includes('blue') ? '#1d4ed8' :
+                      dia.viaje?.color.includes('purple') ? '#7e22ce' :
                       '#047857'
                     ) : 'transparent'
                   }}
