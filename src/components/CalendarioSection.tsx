@@ -18,6 +18,19 @@ interface Viaje {
 
 const viajes: Viaje[] = [
   {
+    id: '5',
+    titulo: 'Balcosna, Catamarca',
+    fecha: '10-11 Enero 2026',
+    duracion: '2 días',
+    ubicacion: 'Balcosna, Catamarca',
+    participantes: 'Grupo reducido',
+    descripcion: 'Explorá los paisajes únicos y la cultura de Catamarca',
+    destacado: false,
+    color: 'bg-gradient-to-r from-teal-600 to-cyan-600',
+    mes: 0, // Enero (0-indexed)
+    dias: [10, 11]
+  },
+  {
     id: '4',
     titulo: 'Alpachiri Portal de los Alisos',
     fecha: '13-14 Diciembre 2025',
@@ -204,6 +217,7 @@ export function CalendarioSection() {
                         dia.viaje?.color.includes('amber') ? '#f59e0b' :
                         dia.viaje?.color.includes('blue') ? '#2563eb' :
                         dia.viaje?.color.includes('purple') ? '#9333ea' :
+                        dia.viaje?.color.includes('teal') ? '#0d9488' :
                         '#059669'
                       ) :
                         'transparent',
@@ -211,6 +225,7 @@ export function CalendarioSection() {
                       dia.viaje?.color.includes('amber') ? '#d97706' :
                       dia.viaje?.color.includes('blue') ? '#1d4ed8' :
                       dia.viaje?.color.includes('purple') ? '#7e22ce' :
+                      dia.viaje?.color.includes('teal') ? '#0f766e' :
                       '#047857'
                     ) : 'transparent'
                   }}
