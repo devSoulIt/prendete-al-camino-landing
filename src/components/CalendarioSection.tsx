@@ -19,29 +19,16 @@ interface Viaje {
 const viajes: Viaje[] = [
   {
     id: '5',
-    titulo: 'Balcosna, Catamarca',
+    titulo: 'Balcozna-Catamarca',
     fecha: '10-11 Enero 2026',
     duracion: '2 días',
-    ubicacion: 'Balcosna, Catamarca',
+    ubicacion: 'Balcozna, Catamarca',
     participantes: 'Grupo reducido',
     descripcion: 'Explorá los paisajes únicos y la cultura de Catamarca',
     destacado: false,
     color: 'bg-gradient-to-r from-teal-600 to-cyan-600',
     mes: 0, // Enero (0-indexed)
     dias: [10, 11]
-  },
-  {
-    id: '4',
-    titulo: 'Alpachiri Portal de los Alisos',
-    fecha: '13-14 Diciembre 2025',
-    duracion: '2 días',
-    ubicacion: 'Alpachiri Portal de los Alisos',
-    participantes: 'Grupo reducido',
-    descripcion: 'Una experiencia única en contacto con la naturaleza',
-    destacado: false,
-    color: 'bg-gradient-to-r from-purple-600 to-pink-600',
-    mes: 11, // Diciembre (0-indexed)
-    dias: [13, 14]
   },
   {
     id: '2',
@@ -70,6 +57,19 @@ const viajes: Viaje[] = [
     dias: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
   },
   {
+    id: '4',
+    titulo: 'Alpachiri Portal de los Alisos (Finalizado)',
+    fecha: '13-14 Diciembre 2025',
+    duracion: '2 días',
+    ubicacion: 'Alpachiri Portal de los Alisos',
+    participantes: 'Grupo reducido',
+    descripcion: 'Una experiencia única en contacto con la naturaleza',
+    destacado: false,
+    color: 'bg-gradient-to-r from-purple-600 to-pink-600',
+    mes: 11, // Diciembre (0-indexed)
+    dias: [13, 14]
+  },
+  {
     id: '1',
     titulo: 'Los Tesoros de Jujuy (Finalizado)',
     fecha: '14-16 Noviembre 2025',
@@ -79,16 +79,16 @@ const viajes: Viaje[] = [
     descripcion: 'Descubrí los paisajes más impresionantes del norte argentino',
     destacado: false,
     color: 'bg-gradient-to-r from-amber-500 to-orange-600',
-    mes: 10, 
+    mes: 10,
     dias: [14, 15, 16]
   },
-  
 ];
 
 export function CalendarioSection() {
   const [viajeSeleccionado, setViajeSeleccionado] = useState<string | null>(null);
-  const [mesActual, setMesActual] = useState(11); // Diciembre (0-indexed)
-  const [añoActual, setAñoActual] = useState(new Date().getFullYear());
+  const [mesActual, setMesActual] = useState(0); // Diciembre (0-indexed)
+  // const [añoActual, setAñoActual] = useState(new Date().getFullYear());
+  const [añoActual, setAñoActual] = useState(2026);
 
   const meses = [
     'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
@@ -170,11 +170,10 @@ export function CalendarioSection() {
               <button
                 onClick={() => cambiarMes('anterior')}
                 disabled={mesActual === 10} // Deshabilitar en noviembre
-                className={`p-2 rounded-lg transition-colors ${
-                  mesActual === 10 
-                    ? 'opacity-50 cursor-not-allowed' 
+                className={`p-2 rounded-lg transition-colors ${mesActual === 10
+                    ? 'opacity-50 cursor-not-allowed'
                     : 'hover:bg-gray-100'
-                }`}
+                  }`}
               >
                 <ChevronLeft className={`w-5 h-5 ${mesActual === 10 ? 'text-gray-400' : 'text-gray-600'}`} />
               </button>
@@ -215,18 +214,18 @@ export function CalendarioSection() {
                     backgroundColor: dia.esHoy ? '#404d21' :
                       dia.tieneViaje ? (
                         dia.viaje?.color.includes('amber') ? '#f59e0b' :
-                        dia.viaje?.color.includes('blue') ? '#2563eb' :
-                        dia.viaje?.color.includes('purple') ? '#9333ea' :
-                        dia.viaje?.color.includes('teal') ? '#0d9488' :
-                        '#059669'
+                          dia.viaje?.color.includes('blue') ? '#2563eb' :
+                            dia.viaje?.color.includes('purple') ? '#9333ea' :
+                              dia.viaje?.color.includes('teal') ? '#0d9488' :
+                                '#059669'
                       ) :
                         'transparent',
                     borderColor: dia.tieneViaje ? (
                       dia.viaje?.color.includes('amber') ? '#d97706' :
-                      dia.viaje?.color.includes('blue') ? '#1d4ed8' :
-                      dia.viaje?.color.includes('purple') ? '#7e22ce' :
-                      dia.viaje?.color.includes('teal') ? '#0f766e' :
-                      '#047857'
+                        dia.viaje?.color.includes('blue') ? '#1d4ed8' :
+                          dia.viaje?.color.includes('purple') ? '#7e22ce' :
+                            dia.viaje?.color.includes('teal') ? '#0f766e' :
+                              '#047857'
                     ) : 'transparent'
                   }}
                 >

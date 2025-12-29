@@ -148,6 +148,21 @@ export function GaleriaSection() {
         { src: "/images/JUJUY/video1.mp4", alt: "Jujuy - Video", category: "Jujuy", type: "video" },
         { src: "/images/JUJUY/portada.jpeg", alt: "Jujuy - Portada", category: "Jujuy", type: "image" },
       ]
+    },
+    alpachiri: {
+      name: "Alpachiri-Portal de los Alisos",
+      coverImage: "/images/Alpachiri/Alpachiri-1.webp",
+      media: [
+        { src: "/images/Alpachiri/Alpachiri-1.mp4", alt: "Alpachiri - Video", category: "Alpachiri", type: "video" },
+        { src: "/images/Alpachiri/Alpachiri-1.webp", alt: "Alpachiri - Paisaje", category: "Alpachiri", type: "image" },
+        { src: "/images/Alpachiri/Alpachiri-2.webp", alt: "Alpachiri - Naturaleza", category: "Alpachiri", type: "image" },
+        { src: "/images/Alpachiri/Alpachiri-3.webp", alt: "Alpachiri - Vista panorámica", category: "Alpachiri", type: "image" },
+        { src: "/images/Alpachiri/Alpachiri-4.webp", alt: "Alpachiri - Paisaje", category: "Alpachiri", type: "image" },
+        { src: "/images/Alpachiri/Alpachiri-5.webp", alt: "Alpachiri - Naturaleza", category: "Alpachiri", type: "image" },
+        { src: "/images/Alpachiri/Alpachiri-6.webp", alt: "Alpachiri - Vista panorámica", category: "Alpachiri", type: "image" },
+        { src: "/images/Alpachiri/Alpachiri-7.webp", alt: "Alpachiri - Paisaje", category: "Alpachiri", type: "image" },
+        { src: "/images/Alpachiri/Alpachiri-8.webp", alt: "Alpachiri - Naturaleza", category: "Alpachiri", type: "image" },
+      ]
     }
   };
 
@@ -246,7 +261,7 @@ export function GaleriaSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-2xl md:text-3xl md:text-4xl font-bold mb-2">Santiago de Compostela</h3>
+                  <h3 className="text-2xl md:text-4xl font-bold mb-2">Santiago de Compostela</h3>
                   <p className="text-sm md:text-lg opacity-90">Haz clic para ver todas las fotos y videos</p>
                 </div>
               </div>
@@ -261,7 +276,7 @@ export function GaleriaSection() {
               VIAJES NACIONALES
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba y Catamarca.
+            A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba, Catamarca y Alpachiri-Portal de los Alisos.
             </p>
           </div>
 
@@ -348,6 +363,29 @@ export function GaleriaSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-2xl md:text-3xl font-bold mb-1">Salta</h3>
+                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Alpachiri-Portal de los Alisos */}
+          <div className="flex justify-center mb-6">
+            <div
+              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer max-w-4xl w-full"
+              onClick={() => openModal('alpachiri')}
+            >
+              <Image
+                src={imageCategories.alpachiri.coverImage}
+                alt="Alpachiri-Portal de los Alisos - Portada"
+                className="w-full h-80 md:h-96 object-cover group-hover:scale-105 transition-transform duration-500"
+                width={800}
+                height={400}
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Alpachiri-Portal de los Alisos</h3>
                   <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
                 </div>
               </div>
