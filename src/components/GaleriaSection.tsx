@@ -151,7 +151,7 @@ export function GaleriaSection() {
     },
     alpachiri: {
       name: "Alpachiri-Portal de los Alisos",
-      coverImage: "/images/Alpachiri/Alpachiri-1.webp",
+      coverImage: "/images/Alpachiri/Alpachiri-6.webp",
       media: [
         { src: "/images/Alpachiri/Alpachiri-1.mp4", alt: "Alpachiri - Video", category: "Alpachiri", type: "video" },
         { src: "/images/Alpachiri/Alpachiri-1.webp", alt: "Alpachiri - Paisaje", category: "Alpachiri", type: "image" },
@@ -162,6 +162,22 @@ export function GaleriaSection() {
         { src: "/images/Alpachiri/Alpachiri-6.webp", alt: "Alpachiri - Vista panorámica", category: "Alpachiri", type: "image" },
         { src: "/images/Alpachiri/Alpachiri-7.webp", alt: "Alpachiri - Paisaje", category: "Alpachiri", type: "image" },
         { src: "/images/Alpachiri/Alpachiri-8.webp", alt: "Alpachiri - Naturaleza", category: "Alpachiri", type: "image" },
+      ]
+    },
+    balcozna: {
+      name: "Balcozna",
+      coverImage: "/images/Balcozna/1.jpeg",
+      media: [
+        { src: "/images/Balcozna/1.jpeg", alt: "Balcozna - Paisaje", category: "Balcozna", type: "image" },
+        { src: "/images/Balcozna/2.jpeg", alt: "Balcozna - Vista panorámica", category: "Balcozna", type: "image" },
+        { src: "/images/Balcozna/3.jpeg", alt: "Balcozna - Naturaleza", category: "Balcozna", type: "image" },
+        { src: "/images/Balcozna/4.jpeg", alt: "Balcozna - Paisaje", category: "Balcozna", type: "image" },
+        { src: "/images/Balcozna/5.jpeg", alt: "Balcozna - Vista panorámica", category: "Balcozna", type: "image" },
+        { src: "/images/Balcozna/6.jpeg", alt: "Balcozna - Naturaleza", category: "Balcozna", type: "image" },
+        { src: "/images/Balcozna/7.jpeg", alt: "Balcozna - Paisaje", category: "Balcozna", type: "image" },
+        { src: "/images/Balcozna/8.jpeg", alt: "Balcozna - Vista panorámica", category: "Balcozna", type: "image" },
+        { src: "/images/Balcozna/9.jpeg", alt: "Balcozna - Naturaleza", category: "Balcozna", type: "image" },
+        { src: "/images/Balcozna/10.jpeg", alt: "Balcozna - Paisaje", category: "Balcozna", type: "image" },
       ]
     }
   };
@@ -276,7 +292,7 @@ export function GaleriaSection() {
               VIAJES NACIONALES
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba, Catamarca y Alpachiri-Portal de los Alisos.
+            A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba, Catamarca, Alpachiri-Portal de los Alisos y Balcozna.
             </p>
           </div>
 
@@ -369,23 +385,45 @@ export function GaleriaSection() {
             </div>
           </div>
 
-          {/* Alpachiri-Portal de los Alisos */}
-          <div className="flex justify-center mb-6">
+          {/* Alpachiri-Portal de los Alisos y Balcozna - Grid de 2 columnas */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+            {/* Alpachiri-Portal de los Alisos - Lado izquierdo */}
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer max-w-4xl w-full"
+              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
               onClick={() => openModal('alpachiri')}
             >
               <Image
                 src={imageCategories.alpachiri.coverImage}
                 alt="Alpachiri-Portal de los Alisos - Portada"
-                className="w-full h-80 md:h-96 object-cover group-hover:scale-105 transition-transform duration-500"
-                width={800}
+                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                width={600}
                 height={400}
                 quality={90}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-2xl md:text-3xl font-bold mb-1">Alpachiri-Portal de los Alisos</h3>
+                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Balcozna - Lado derecho */}
+            <div
+              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              onClick={() => openModal('balcozna')}
+            >
+              <Image
+                src={imageCategories.balcozna.coverImage}
+                alt="Balcozna - Portada"
+                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                width={600}
+                height={400}
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Balcozna</h3>
                   <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
                 </div>
               </div>
