@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+/** Carpeta pública con espacios y tilde — usar segmento codificado en URLs */
+const SAN_CARLOS_MAGICO = "/images/San%20Carlos%20M%C3%A1gico";
+
 export function GaleriaSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>("santiago");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -179,6 +182,35 @@ export function GaleriaSection() {
         { src: "/images/Balcozna/9.jpeg", alt: "Balcozna - Naturaleza", category: "Balcozna", type: "image" },
         { src: "/images/Balcozna/10.jpeg", alt: "Balcozna - Paisaje", category: "Balcozna", type: "image" },
       ]
+    },
+    sanCarlosMagico: {
+      name: "San Carlos Mágico",
+      coverImage: `${SAN_CARLOS_MAGICO}/21.jpeg`,
+      media: [
+        { src: `${SAN_CARLOS_MAGICO}/1.mp4`, alt: "San Carlos Mágico - Video", category: "San Carlos Mágico", type: "video" },
+        { src: `${SAN_CARLOS_MAGICO}/1.jpeg`, alt: "San Carlos Mágico - Foto 1", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/2.jpeg`, alt: "San Carlos Mágico - Foto 2", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/3.jpeg`, alt: "San Carlos Mágico - Foto 3", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/4.jpeg`, alt: "San Carlos Mágico - Foto 4", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/5.jpeg`, alt: "San Carlos Mágico - Foto 5", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/6.jpeg`, alt: "San Carlos Mágico - Foto 6", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/7.jpeg`, alt: "San Carlos Mágico - Foto 7", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/8.jpeg`, alt: "San Carlos Mágico - Foto 8", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/9.jpeg`, alt: "San Carlos Mágico - Foto 9", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/10.jpeg`, alt: "San Carlos Mágico - Foto 10", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/11.jpeg`, alt: "San Carlos Mágico - Foto 11", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/12.jpeg`, alt: "San Carlos Mágico - Foto 12", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/13.jpeg`, alt: "San Carlos Mágico - Foto 13", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/14.jpeg`, alt: "San Carlos Mágico - Foto 14", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/15.jpeg`, alt: "San Carlos Mágico - Foto 15", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/16.jpeg`, alt: "San Carlos Mágico - Foto 16", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/17.jpeg`, alt: "San Carlos Mágico - Foto 17", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/18.jpeg`, alt: "San Carlos Mágico - Foto 18", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/19.jpeg`, alt: "San Carlos Mágico - Foto 19", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/20.jpeg`, alt: "San Carlos Mágico - Foto 20", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/21.jpeg`, alt: "San Carlos Mágico - Foto 21", category: "San Carlos Mágico", type: "image" },
+        { src: `${SAN_CARLOS_MAGICO}/22.jpeg`, alt: "San Carlos Mágico - Foto 22", category: "San Carlos Mágico", type: "image" },
+      ]
     }
   };
 
@@ -292,7 +324,7 @@ export function GaleriaSection() {
               VIAJES NACIONALES
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba, Catamarca, Alpachiri-Portal de los Alisos y Balcozna.
+            A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba, Catamarca, Alpachiri-Portal de los Alisos, Balcozna y San Carlos Mágico.
             </p>
           </div>
 
@@ -424,6 +456,29 @@ export function GaleriaSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-2xl md:text-3xl font-bold mb-1">Balcozna</h3>
+                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* San Carlos Mágico — ancho completo */}
+          <div className="flex justify-center mb-6">
+            <div
+              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer w-full max-w-4xl"
+              onClick={() => openModal('sanCarlosMagico')}
+            >
+              <Image
+                src={imageCategories.sanCarlosMagico.coverImage}
+                alt="San Carlos Mágico - Portada"
+                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                width={800}
+                height={400}
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-1">San Carlos Mágico</h3>
                   <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
                 </div>
               </div>

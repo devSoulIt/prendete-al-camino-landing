@@ -11,25 +11,14 @@ interface Viaje {
   participantes: string;
   descripcion: string;
   destacado: boolean;
+  /** Viaje ya realizado: no se marca en el calendario y se muestra como cerrado en la lista */
+  finalizado?: boolean;
   color: string;
   mes: number;
   dias: number[];
 }
 
 const viajes: Viaje[] = [
-  {
-    id: '6',
-    titulo: 'San Carlos',
-    fecha: '21-23 Marzo 2026',
-    duracion: '3 días',
-    ubicacion: 'San Carlos, Argentina',
-    participantes: 'Grupo reducido',
-    descripcion: 'Fin de semana largo en los hermosos paisajes de San Carlos',
-    destacado: false,
-    color: 'bg-gradient-to-r from-rose-600 to-pink-600',
-    mes: 2, // Marzo (0-indexed)
-    dias: [21, 22, 23]
-  },
   {
     id: '2',
     titulo: 'Santiago de Compostela',
@@ -55,6 +44,20 @@ const viajes: Viaje[] = [
     color: 'bg-gradient-to-r from-blue-600 to-indigo-600',
     mes: 5, // Junio (0-indexed)
     dias: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+  },
+  {
+    id: '6',
+    titulo: 'San Carlos Mágico',
+    fecha: '21-23 Marzo 2026',
+    duracion: '3 días',
+    ubicacion: 'San Carlos, Argentina',
+    participantes: 'Grupo reducido',
+    descripcion: 'Fin de semana largo en los hermosos paisajes de San Carlos',
+    destacado: false,
+    finalizado: true,
+    color: 'bg-gradient-to-r from-rose-600 to-pink-600',
+    mes: 2, // Marzo (0-indexed)
+    dias: [21, 22, 23]
   },
   // {
   //   id: '5',
@@ -148,7 +151,7 @@ export function CalendarioSection() {
 
       // Verificar si hay viajes en este día
       const viajeEnEsteDia = viajes.find(viaje =>
-        viaje.mes === mesActual && viaje.dias.includes(dia)
+        !viaje.finalizado && viaje.mes === mesActual && viaje.dias.includes(dia)
       );
 
       dias.push({
@@ -271,15 +274,21 @@ export function CalendarioSection() {
                   bg-white rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl
                   ${viajeSeleccionado === viaje.id ? 'ring-2 ring-blue-500' : ''}
                   ${viaje.destacado ? 'border-l-4 border-orange-500' : ''}
+                  ${viaje.finalizado ? 'opacity-90 border border-gray-200' : ''}
                 `}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h4 className="text-xl font-bold text-gray-900">{viaje.titulo}</h4>
+                    <div className="flex items-center gap-3 mb-2 flex-wrap">
+                      <h4 className={`text-xl font-bold ${viaje.finalizado ? 'text-gray-700' : 'text-gray-900'}`}>{viaje.titulo}</h4>
                       {viaje.destacado && (
                         <span className="bg-orange-100 text-orange-800 text-xs font-semibold px-2 py-1 rounded-full">
                           Destacado
+                        </span>
+                      )}
+                      {viaje.finalizado && (
+                        <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full">
+                          Finalizado
                         </span>
                       )}
                     </div>
