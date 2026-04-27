@@ -20,6 +20,19 @@ interface Viaje {
 
 const viajes: Viaje[] = [
   {
+    id: '7',
+    titulo: 'Prendete Perú · Machu Picchu',
+    fecha: '3-11 Octubre 2026',
+    duracion: '9 días / 8 noches',
+    ubicacion: 'Lima & Cusco, Perú',
+    participantes: 'Salida grupal',
+    descripcion: 'Lima · Miraflores · Centro Histórico · Machu Picchu · Valle Sagrado',
+    destacado: true,
+    color: 'bg-gradient-to-r from-amber-500 to-orange-500',
+    mes: 9, // Octubre (0-indexed)
+    dias: [3, 4, 5, 6, 7, 8, 9, 10, 11]
+  },
+  {
     id: '2',
     titulo: 'Santiago de Compostela',
     fecha: '1-10 Junio 2026',

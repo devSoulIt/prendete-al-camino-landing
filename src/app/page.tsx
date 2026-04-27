@@ -11,6 +11,7 @@ import { Contacto } from "@/components/Contacto";
 import { Whatsapp } from "@/components/Whatsapp";
 import { TestimoniosSection } from "@/components/TestimoniosSection";
 import { LoadingScreen } from "@/components/LoadingScreen";
+import { MachuPicchuSection } from "@/components/MachuPicchuSection";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +35,7 @@ export default function Home() {
           Una experiencia que <strong>dejará una huella imborrable en tu corazón.</strong>
         </p>
       </div>
+      <MachuPicchuSection />
       <SantiagoSection />
       {/* <VideollamadaSection /> */}
       <GaleriaSection />
