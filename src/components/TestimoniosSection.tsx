@@ -16,82 +16,14 @@ interface Testimonio {
 const testimonios: Testimonio[] = [
   {
     id: 1,
-    nombre: "Fabiana Vasvari",
-    avatar:
-      "https://lh3.googleusercontent.com/a-/ALV-UjUF3CBl1WhgBZkFGZj9QqchtRP5jRwNO2_7kIBTDrI6S5AfyZZTsA=w36-h36-p-rp-mo-br100",
+    nombre: "Sandra Garcia",
+    avatar: null,
     texto:
-      "El acompañamiento de Silvia y Marina fue increíble, atentas a todos los detalles y necesidades de cada persona del grupo. Los hoteles y la logística para organizar cada etapa del camino, excelentes! recomiendo prenderte al camino para poder disfrutar la experiencia del camino al 100%",
+      "Hice el Camino de Santiago con Prendete al Camino... hermosa experiencia... acompañándote en todo el trayecto... atenta a cada detalle... nos reservo hoteles preciosos para descansar... nos estímulo y cuido en todo momento... es para hacerla la experiencia con ella...",
     estrellas: 5,
   },
   {
     id: 2,
-    nombre: "Adri Mena",
-    avatar: null,
-    texto:
-      "Excelente toda la organización,pero sobre todo la calidez que demostraron,tanto Silvia como Marina, al grupo,unas Genias! Inolvidable!!! Gracias por está experiencia!",
-    estrellas: 5,
-  },
-  {
-    id: 3,
-    nombre: "Angélica Nigro",
-    avatar:
-      "https://lh3.googleusercontent.com/a-/ALV-UjVa4n1jrHy91TEMTqXIq3rIxKgNhkasrIT2xtksyxWWE_-DSIAHUA=w36-h36-p-rp-mo-br100",
-    texto:
-      "Gracias Silvia y Marina por el acompañamiento en esta experiencia que fué MARAVILLOSA e INOLVIDABLE!! No duden en realizar ésta aventura con Prendete al camino!",
-    estrellas: 5,
-  },
-  {
-    id: 4,
-    nombre: "Silvina Manganelli",
-    avatar: null,
-    texto:
-      "Fin de semana en Valles Catamarqueños San José y Hualfin, descubrímos bellos lugares con un grupo muy divertido, todo organizado excelente!!!",
-    estrellas: 5,
-  },
-  {
-    id: 5,
-    nombre: "Elida Rosana Suarez",
-    avatar:
-      "https://lh3.googleusercontent.com/a-/ALV-UjXnQR_8-mNUEeiF5p4ByOtiMo7bbU9kgr2hdAS4_2K1w1KBPka0=w36-h36-p-rp-mo-br100",
-    texto:
-      "Excelente finde! Muy buena organización, atentos a todos los detalles, un grupo humano maravilloso, recomiendo!",
-    estrellas: 5,
-  },
-  {
-    id: 6,
-    nombre: "Judith Affaticati",
-    avatar:
-      "https://lh3.googleusercontent.com/a-/ALV-UjXOGi1BTsH2Yvvlb0gS1yEetcljGG9LjZHVB-0xW4lcCys7l4XE=w36-h36-p-rp-mo-br100",
-    texto:
-      "Excelente logística, excelente servicio, excelente calidad humana. Muy recomendable. Éxitos.Ya quiero ir otra vez.",
-    estrellas: 5,
-  },
-  {
-    id: 7,
-    nombre: "Maria Silvia Rivero",
-    avatar: null,
-    texto:
-      "Excelente organización, excelente logística, y sobre todo alta calidad humana!!! Altamente recomendable!!",
-    estrellas: 5,
-  },
-  {
-    id: 8,
-    nombre: "Alejandra Brusco",
-    avatar: null,
-    texto:
-      "Mi experiencia fue maravillosa. Desde el momento que decidi hacer el viaje hasta mi regreso. Silvia y Marina se ocuparon de los mas mínimos detalles . Los hoteles fueron excelentes, la organización 10  puntos . No me falto absolutamente nada . Lo recomiendo y volvería a hacerlo",
-    estrellas: 5,
-  },
-  {
-    id: 9,
-    nombre: "Nilda Aguilar",
-    avatar: null,
-    texto: `Espectacular,  Maravillosa experiencia de la mano de PRENDETE AL CAMINO, con la Excelente guía de Silvita PEREZ MULKI. Está en todos los detalles: se cumple totalmente lo planificado.  En esta oportunidad,  San José de Catamarca- Valles Calchaquíes este finde INOLVIDABLE. La Seriedad,  la Calidez, la Responsabilidad puestas de manifiesto en cada etapa.  Los distintos lugares y paisajes haciendo lo que amamos: TREKKING en HUALFIN y VALLE DE LA LUNA; ALOJAMIENTO en Portal de la Luna: IMPECABLE, MUY BUEN
-SERVICIO Y SOBRETODO LA ESMERADA ATENCIÓN. Sin duda, elijo DISFRUTAR con PRENDETE AL CAMINO.`,
-    estrellas: 5,
-  },
-  {
-    id: 10,
     nombre: "Marta Ortiz",
     avatar: null,
     texto: `Experiencia única todo impecable en cada detalle del viaje no faltó nada
@@ -100,7 +32,39 @@ Gracias préndete al camino por este viaje mágico ❤️`,
     estrellas: 5,
   },
   {
-    id: 11,
+    id: 3,
+    nombre: "Patricia Collado",
+    avatar: null,
+    texto:
+      "Fue una experiencia que tenia pendiente de hacer hace tiempo!! Excelente en todos los sentidos ,excelente la organización y disposición de silvia y todo su equipo de trabajo ,la amabilidad, acompañamiento y cuidados permanente para hacermos sentir muy bien en todo momento!! Los lugares y caminatas maravillosos con paisajes increibles para llevarse en el alma , la hoteleria y recepción y servicios excelentes !!el grupo de caminantes excelentes compañeros todos y muchas gracias por permitirme compartir esta travesia !! Felicitaciones !!",
+    estrellas: 5,
+  },
+  {
+    id: 4,
+    nombre: "Alejandra Brusco",
+    avatar: null,
+    texto:
+      "Mi experiencia fue maravillosa. Desde el momento que decidi hacer el viaje hasta mi regreso. Silvia y Marina se ocuparon de los mas mínimos detalles . Los hoteles fueron excelentes, la organización 10  puntos . No me falto absolutamente nada . Lo recomiendo y volvería a hacerlo",
+    estrellas: 5,
+  },
+  {
+    id: 5,
+    nombre: "Nilda Aguiilar",
+    avatar: null,
+    texto: `Espectacular,  Maravillosa experiencia de la mano de PRENDETE AL CAMINO, con la Excelente guía de Silvita PEREZ MULKI. Está en todos los detalles: se cumple totalmente lo planificado.  En esta oportunidad,  San José de Catamarca- Valles Calchaquíes este finde INOLVIDABLE. La Seriedad,  la Calidez, la Responsabilidad puestas de manifiesto en cada etapa.  Los distintos lugares y paisajes haciendo lo que amamos: TREKKING en HUALFIN y VALLE DE LA LUNA; ALOJAMIENTO en Portal de la Luna: IMPECABLE, MUY BUEN
+SERVICIO Y SOBRETODO LA ESMERADA ATENCIÓN. Sin duda, elijo DISFRUTAR con PRENDETE AL CAMINO.`,
+    estrellas: 5,
+  },
+  {
+    id: 6,
+    nombre: "Romina Prieto",
+    avatar: null,
+    texto:
+      "Me prendí al camino y jamás pensé que me iba a llenar el alma, sentí que estaba en familia, el grupo muy humano y ni que hablar de SIL, SERGIO, MARINA Y NACHO,los mejores coordinadores que podes tener, no solo por la dedicación que le ponen a cada cosa, también te hacen sentir familia, los elijo para seguir en este hermoso camino.. Muchas gracias",
+    estrellas: 5,
+  },
+  {
+    id: 7,
     nombre: "Hebe Carrizo",
     avatar: null,
     texto:
@@ -108,11 +72,95 @@ Gracias préndete al camino por este viaje mágico ❤️`,
     estrellas: 5,
   },
   {
-    id: 12,
-    nombre: "Romina Prieto",
+    id: 8,
+    nombre: "jose pablo argañaraz",
     avatar: null,
     texto:
-      "Me prendí al camino y jamás pensé que me iba a llenar el alma, sentí que estaba en familia, el grupo muy humano y ni que hablar de SIL, SERGIO, MARINA Y NACHO,los mejores coordinadores que podes tener, no solo por la dedicación que le ponen a cada cosa, también te hacen sentir familia, los elijo para seguir en este hermoso camino.. Muchas gracias",
+      "Excelente la organización de Silvia que está a cargo de prenderte en el camino, los hoteles elegidos por ella son paradisíacos.",
+    estrellas: 5,
+  },
+  {
+    id: 9,
+    nombre: "Rosa Lina Cuozzo",
+    avatar: null,
+    texto:
+      "Hermoso viaje! Lugares maravillosos, excelente compañía y la mejor organización! La pasamos estupendo!!! préndete al camino!",
+    estrellas: 5,
+  },
+  {
+    id: 10,
+    nombre: "silvia noemi Miglio",
+    avatar: null,
+    texto:
+      "Hermoso grupo.genial la conducción de silvia muy cuidadosa en todos los detalles la.pase hermoso",
+    estrellas: 5,
+  },
+  {
+    id: 11,
+    nombre: "Nancy Beatriz Rodriguez",
+    avatar: null,
+    texto:
+      "Maravillosa experiencia. Bellos paisajes de la quebrada hermosas personas. La pasé genial. Que se repitaaaaa",
+    estrellas: 5,
+  },
+  {
+    id: 12,
+    nombre: "Fabiana Vasvari",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjUF3CBl1WhgBZkFGZj9QqchtRP5jRwNO2_7kIBTDrI6S5AfyZZTsA=w36-h36-p-rp-mo-br100",
+    texto:
+      "El acompañamiento de Silvia y Marina fue increíble, atentas a todos los detalles y necesidades de cada persona del grupo. Los hoteles y la logística para organizar cada etapa del camino, excelentes! recomiendo prenderte al camino para poder disfrutar la experiencia del camino al 100%",
+    estrellas: 5,
+  },
+  {
+    id: 13,
+    nombre: "Adri Mena",
+    avatar: null,
+    texto:
+      "Excelente toda la organización,pero sobre todo la calidez que demostraron,tanto Silvia como Marina, al grupo,unas Genias! Inolvidable!!! Gracias por está experiencia!",
+    estrellas: 5,
+  },
+  {
+    id: 14,
+    nombre: "Angélica Nigro",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjVa4n1jrHy91TEMTqXIq3rIxKgNhkasrIT2xtksyxWWE_-DSIAHUA=w36-h36-p-rp-mo-br100",
+    texto:
+      "Gracias Silvia y Marina por el acompañamiento en esta experiencia que fué MARAVILLOSA e INOLVIDABLE!! No duden en realizar ésta aventura con Prendete al camino!",
+    estrellas: 5,
+  },
+  {
+    id: 15,
+    nombre: "Silvina Manganelli",
+    avatar: null,
+    texto:
+      "Fin de semana en Valles Catamarqueños San José y Hualfin, descubrímos bellos lugares con un grupo muy divertido, todo organizado excelente!!!",
+    estrellas: 5,
+  },
+  {
+    id: 16,
+    nombre: "Elida Rosana Suarez",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjXnQR_8-mNUEeiF5p4ByOtiMo7bbU9kgr2hdAS4_2K1w1KBPka0=w36-h36-p-rp-mo-br100",
+    texto:
+      "Excelente finde! Muy buena organización, atentos a todos los detalles, un grupo humano maravilloso, recomiendo!",
+    estrellas: 5,
+  },
+  {
+    id: 17,
+    nombre: "Judith Affaticati",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjXOGi1BTsH2Yvvlb0gS1yEetcljGG9LjZHVB-0xW4lcCys7l4XE=w36-h36-p-rp-mo-br100",
+    texto:
+      "Excelente logística, excelente servicio, excelente calidad humana. Muy recomendable. Éxitos.Ya quiero ir otra vez.",
+    estrellas: 5,
+  },
+  {
+    id: 18,
+    nombre: "Maria Silvia Rivero",
+    avatar: null,
+    texto:
+      "Excelente organización, excelente logística, y sobre todo alta calidad humana!!! Altamente recomendable!!",
     estrellas: 5,
   },
 ];
