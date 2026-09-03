@@ -71,6 +71,26 @@ export function GaleriaSection() {
         { src: "/images/Santiago/667bfe79-55cc-4f23-92f2-09929c853cb7.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
       ]
     },
+    italia: {
+      name: "Italia",
+      coverImage: "/images/Roma/3.jpg",
+      media: [
+        { src: "/images/Roma/3.jpg", alt: "Roma - Fontana di Trevi", category: "Italia", type: "image" },
+        { src: "/images/Roma/5.jpg", alt: "Roma - Plaza San Pedro", category: "Italia", type: "image" },
+        { src: "/images/Roma/1.jpg", alt: "Roma - Foto 1", category: "Italia", type: "image" },
+        { src: "/images/Roma/2.jpg", alt: "Roma - Foto 2", category: "Italia", type: "image" },
+        { src: "/images/Roma/4.jpg", alt: "Roma - Foto 4", category: "Italia", type: "image" },
+        { src: "/images/Roma/6.jpg", alt: "Roma - Foto 6", category: "Italia", type: "image" },
+        { src: "/images/Roma/7.jpg", alt: "Roma - Foto 7", category: "Italia", type: "image" },
+        { src: "/images/Roma/8.jpg", alt: "Roma - Foto 8", category: "Italia", type: "image" },
+        { src: "/images/Roma/9.jpg", alt: "Roma - Foto 9", category: "Italia", type: "image" },
+        { src: "/images/Roma/10.jpg", alt: "Roma - Foto 10", category: "Italia", type: "image" },
+        { src: "/images/Napoles/2.jpg", alt: "Nápoles - Plaza del Plebiscito", category: "Italia", type: "image" },
+        { src: "/images/Sorrento/1.jpg", alt: "Sorrento - Grupo Prendete al Camino", category: "Italia", type: "image" },
+        { src: "/images/Sorrento/2.jpg", alt: "Sorrento - Foto 2", category: "Italia", type: "image" },
+        { src: "/images/Pompeya/1.jpg", alt: "Pompeya - Ruinas", category: "Italia", type: "image" },
+      ]
+    },
     catamarca: {
       name: "Catamarca",
       coverImage: "/images/Portadas/Catamarca.webp",
@@ -211,6 +231,14 @@ export function GaleriaSection() {
         { src: `${SAN_CARLOS_MAGICO}/21.jpeg`, alt: "San Carlos Mágico - Foto 21", category: "San Carlos Mágico", type: "image" },
         { src: `${SAN_CARLOS_MAGICO}/22.jpeg`, alt: "San Carlos Mágico - Foto 22", category: "San Carlos Mágico", type: "image" },
       ]
+    },
+    ancajuli: {
+      name: "Ancajuli",
+      coverImage: "/images/Ancajuli/1.jpg",
+      media: [
+        { src: "/images/Ancajuli/1.jpg", alt: "Ancajuli - Grupo Prendete al Camino", category: "Ancajuli", type: "image" },
+        { src: "/images/Ancajuli/2.jpg", alt: "Ancajuli - Grupo Prendete al Camino", category: "Ancajuli", type: "image" },
+      ]
     }
   };
 
@@ -289,7 +317,8 @@ export function GaleriaSection() {
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Santiago de Compostela <strong>es nuestro destino principal</strong>, pero cada año sumamos nuevas ciudades europeas.
-              Este 2025 exploramos: Madrid, Barajas, Lugo, Playa de las Catedrales, Segovia, Toledo y Oporto.
+              En 2025 exploramos: Madrid, Barajas, Lugo, Playa de las Catedrales, Segovia, Toledo y Oporto.
+              Este 2026 recorrimos Italia: Roma, Nápoles, Sorrento y Pompeya.
             </p>
           </div>
 
@@ -315,6 +344,29 @@ export function GaleriaSection() {
               </div>
             </div>
           </div>
+
+          {/* Italia — Roma, Nápoles, Sorrento y Pompeya */}
+          <div className="flex justify-center mb-6">
+            <div
+              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer w-full max-w-4xl"
+              onClick={() => openModal('italia')}
+            >
+              <Image
+                src={imageCategories.italia.coverImage}
+                alt="Italia - Portada"
+                className="w-full h-80 md:h-[420px] object-cover group-hover:scale-105 transition-transform duration-500"
+                width={800}
+                height={420}
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Italia</h3>
+                  <p className="text-sm md:text-lg opacity-90">Roma · Nápoles · Sorrento · Pompeya</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Sección Viajes Nacionales */}
@@ -324,7 +376,7 @@ export function GaleriaSection() {
               VIAJES NACIONALES
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba, Catamarca, Alpachiri-Portal de los Alisos, Balcozna y San Carlos Mágico.
+            A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba, Catamarca, Alpachiri-Portal de los Alisos, Balcozna, San Carlos Mágico y Ancajuli.
             </p>
           </div>
 
@@ -462,23 +514,45 @@ export function GaleriaSection() {
             </div>
           </div>
 
-          {/* San Carlos Mágico — ancho completo */}
-          <div className="flex justify-center mb-6">
+          {/* San Carlos Mágico y Ancajuli - Grid de 2 columnas */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+            {/* San Carlos Mágico - Lado izquierdo */}
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer w-full max-w-4xl"
+              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
               onClick={() => openModal('sanCarlosMagico')}
             >
               <Image
                 src={imageCategories.sanCarlosMagico.coverImage}
                 alt="San Carlos Mágico - Portada"
                 className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                width={800}
+                width={600}
                 height={400}
                 quality={90}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-2xl md:text-3xl font-bold mb-1">San Carlos Mágico</h3>
+                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Ancajuli - Lado derecho */}
+            <div
+              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              onClick={() => openModal('ancajuli')}
+            >
+              <Image
+                src={imageCategories.ancajuli.coverImage}
+                alt="Ancajuli - Portada"
+                className="w-full h-80 object-cover object-[center_70%] group-hover:scale-105 transition-transform duration-500"
+                width={600}
+                height={400}
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Ancajuli</h3>
                   <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
                 </div>
               </div>

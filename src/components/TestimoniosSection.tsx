@@ -15,6 +15,22 @@ interface Testimonio {
 
 const testimonios: Testimonio[] = [
   {
+    id: 19,
+    nombre: "Yannina Salomon",
+    avatar: null,
+    texto:
+      "Hice el Camino a Santiago de Compostela 2026 con Préndete al Camino…y realmente fue la experiencia más enriquecedora que tuve hasta hoy. Silvia y Marina están en cada detalle y cumplieron con todo. Los hoteles, la logística y lo lugares…el grupo hermoso!! todo está pensado para transmitir un mensaje súper enriquecedor tanto espiritual como de aventura. Lo recomiendo 1000x1000!!! Gracias chicas.",
+    estrellas: 5,
+  },
+  {
+    id: 20,
+    nombre: "Patricia Contreras",
+    avatar: null,
+    texto:
+      "Hice el Camino de Santiago de Compostela.. e Italia, en junio 2026 ..Muy bien organizado, cumplieron con todo! Nos mimaron y cuidaron…estuvieron en cada detalle , con hermosas sorpresas ✨Gracias por todo Sil y Marina ❣️",
+    estrellas: 5,
+  },
+  {
     id: 1,
     nombre: "Sandra Garcia",
     avatar: null,
