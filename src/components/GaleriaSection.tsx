@@ -300,69 +300,70 @@ export function GaleriaSection() {
   }, [selectedImage, currentIndex, currentMedia.length]);
 
   return (
-    <section id="galeria" className="py-20" style={{ backgroundColor: '#f8f9fa' }}>
+    <section id="galeria" className="bg-pac-bg py-[56px] md:py-[96px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Título principal */}
-        {/*  <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#404d21' }}>
-            NUESTRA EXPERIENCIA
-          </h2>
-        </div> */}
-
         {/* Sección Viajes Internacionales */}
-        <div className="mb-12">
-          <div className="text-center mb-6">
-            <h3 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: '#404d21' }}>
-              VIAJES INTERNACIONALES
-            </h3>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Santiago de Compostela <strong>es nuestro destino principal</strong>, pero cada año sumamos nuevas ciudades europeas.
+        <div className="mb-14 md:mb-20">
+          <div className="flex flex-col gap-3 mb-8">
+            <p className="pac-eyebrow">Galería</p>
+            <h2 className="pac-title text-[32px] md:text-[48px]">
+              Viajes internacionales
+            </h2>
+            <p className="text-[17px] text-pac-body leading-relaxed max-w-3xl">
+              Santiago de Compostela <strong className="font-bold text-pac-ink">es nuestro destino principal</strong>, pero cada año sumamos nuevas ciudades europeas.
               En 2025 exploramos: Madrid, Barajas, Lugo, Playa de las Catedrales, Segovia, Toledo y Oporto.
               Este 2026 recorrimos Italia: Roma, Nápoles, Sorrento y Pompeya.
             </p>
           </div>
 
           {/* Santiago - Portada principal */}
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-[24px]">
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 cursor-pointer max-w-4xl w-full"
+              className="relative group overflow-hidden rounded-[24px] shadow-[0_12px_32px_rgba(31,36,20,0.12)] hover:shadow-[0_22px_52px_rgba(31,36,20,0.20)] transition-all duration-500 cursor-pointer max-w-4xl w-full"
               onClick={() => openModal('santiago')}
             >
               <Image
                 src={imageCategories.santiago.coverImage}
-                alt="Santiago de Compostela - Portada"
+                alt="Grupo de peregrinos en Santiago de Compostela"
                 className="w-full h-96 md:h-[500px] object-cover group-hover:scale-105 transition-transform duration-500"
                 width={800}
                 height={500}
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-2xl md:text-4xl font-bold mb-2">Santiago de Compostela</h3>
-                  <p className="text-sm md:text-lg opacity-90">Haz clic para ver todas las fotos y videos</p>
+              <div className="absolute top-5 left-5 z-10 inline-flex items-center rounded-full bg-pac-yellow px-[14px] py-2 text-[12px] font-extrabold uppercase tracking-[0.08em] text-pac-olive-dark">
+                Destino principal
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+                <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                  <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                    Santiago de Compostela
+                  </h3>
+                  <p className="mt-1 text-[14px] opacity-85">Ver galería completa</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Italia — Roma, Nápoles, Sorrento y Pompeya */}
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center">
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer w-full max-w-4xl"
+              className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer w-full max-w-4xl"
               onClick={() => openModal('italia')}
             >
               <Image
                 src={imageCategories.italia.coverImage}
-                alt="Italia - Portada"
+                alt="Calles de Roma durante el viaje a Italia"
                 className="w-full h-80 md:h-[420px] object-cover group-hover:scale-105 transition-transform duration-500"
                 width={800}
                 height={420}
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Italia</h3>
-                  <p className="text-sm md:text-lg opacity-90">Roma · Nápoles · Sorrento · Pompeya</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+                <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                  <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                    Italia
+                  </h3>
+                  <p className="mt-1 text-[14px] opacity-85">Roma · Nápoles · Sorrento · Pompeya</p>
                 </div>
               </div>
             </div>
@@ -370,208 +371,224 @@ export function GaleriaSection() {
         </div>
 
         {/* Sección Viajes Nacionales */}
-        <div className="mb-12">
-          <div className="text-center mb-6">
-            <h3 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: '#404d21' }}>
-              VIAJES NACIONALES
-            </h3>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba, Catamarca, Alpachiri-Portal de los Alisos, Balcozna, San Carlos Mágico y Ancajuli.
+        <div>
+          <div className="flex flex-col gap-3 mb-8">
+            <p className="pac-eyebrow">Galería</p>
+            <h2 className="pac-title text-[32px] md:text-[48px]">
+              Viajes nacionales
+            </h2>
+            <p className="text-[17px] text-pac-body leading-relaxed max-w-3xl">
+              A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba, Catamarca, Alpachiri-Portal de los Alisos, Balcozna, San Carlos Mágico y Ancajuli.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px] mb-[24px]">
             {/* Catamarca - Lado izquierdo */}
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer"
               onClick={() => openModal('catamarca')}
             >
               <Image
                 src={imageCategories.catamarca.coverImage}
-                alt="Catamarca - Portada"
+                alt="Paisaje de los valles de Catamarca"
                 className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                 width={600}
                 height={400}
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Catamarca</h3>
-                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+                <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                  <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                    Catamarca
+                  </h3>
+                  <p className="mt-1 text-[14px] opacity-85">Ver galería completa</p>
                 </div>
               </div>
             </div>
 
             {/* Córdoba - Lado derecho */}
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer"
               onClick={() => openModal('cordoba')}
             >
               <Image
                 src={imageCategories.cordoba.coverImage}
-                alt="Córdoba - Portada"
+                alt="Sierras de Córdoba durante una escapada"
                 className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                 width={600}
                 height={400}
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Córdoba</h3>
-                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+                <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                  <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                    Córdoba
+                  </h3>
+                  <p className="mt-1 text-[14px] opacity-85">Ver galería completa</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Jujuy y Salta - Grid de 2 columnas */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px] mb-[24px]">
             {/* Jujuy - Lado izquierdo */}
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer"
               onClick={() => openModal('jujuy')}
             >
               <Image
                 src={imageCategories.jujuy.coverImage}
-                alt="Jujuy - Portada"
+                alt="Cerros de la Quebrada en Jujuy"
                 className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                 width={600}
                 height={400}
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Jujuy</h3>
-                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+                <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                  <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                    Jujuy
+                  </h3>
+                  <p className="mt-1 text-[14px] opacity-85">Ver galería completa</p>
                 </div>
               </div>
             </div>
 
             {/* Salta - Lado derecho */}
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer"
               onClick={() => openModal('salta')}
             >
               <Image
                 src={imageCategories.salta.coverImage}
-                alt="Salta - Portada"
+                alt="Paisaje de cerros en Salta"
                 className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                 width={600}
                 height={400}
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Salta</h3>
-                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+                <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                  <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                    Salta
+                  </h3>
+                  <p className="mt-1 text-[14px] opacity-85">Ver galería completa</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Alpachiri-Portal de los Alisos y Balcozna - Grid de 2 columnas */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px] mb-[24px]">
             {/* Alpachiri-Portal de los Alisos - Lado izquierdo */}
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer"
               onClick={() => openModal('alpachiri')}
             >
               <Image
                 src={imageCategories.alpachiri.coverImage}
-                alt="Alpachiri-Portal de los Alisos - Portada"
+                alt="Senderos de Alpachiri, Portal de los Alisos"
                 className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                 width={600}
                 height={400}
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Alpachiri-Portal de los Alisos</h3>
-                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+                <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                  <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                    Alpachiri-Portal de los Alisos
+                  </h3>
+                  <p className="mt-1 text-[14px] opacity-85">Ver galería completa</p>
                 </div>
               </div>
             </div>
 
             {/* Balcozna - Lado derecho */}
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer"
               onClick={() => openModal('balcozna')}
             >
               <Image
                 src={imageCategories.balcozna.coverImage}
-                alt="Balcozna - Portada"
+                alt="Río y monte en Balcozna"
                 className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                 width={600}
                 height={400}
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Balcozna</h3>
-                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+                <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                  <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                    Balcozna
+                  </h3>
+                  <p className="mt-1 text-[14px] opacity-85">Ver galería completa</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* San Carlos Mágico y Ancajuli - Grid de 2 columnas */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px]">
             {/* San Carlos Mágico - Lado izquierdo */}
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer"
               onClick={() => openModal('sanCarlosMagico')}
             >
               <Image
                 src={imageCategories.sanCarlosMagico.coverImage}
-                alt="San Carlos Mágico - Portada"
+                alt="Paisaje de San Carlos Mágico"
                 className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                 width={600}
                 height={400}
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1">San Carlos Mágico</h3>
-                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+                <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                  <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                    San Carlos Mágico
+                  </h3>
+                  <p className="mt-1 text-[14px] opacity-85">Ver galería completa</p>
                 </div>
               </div>
             </div>
 
             {/* Ancajuli - Lado derecho */}
             <div
-              className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer"
               onClick={() => openModal('ancajuli')}
             >
               <Image
                 src={imageCategories.ancajuli.coverImage}
-                alt="Ancajuli - Portada"
+                alt="Cerros y agua en Ancajuli"
                 className="w-full h-80 object-cover object-[center_70%] group-hover:scale-105 transition-transform duration-500"
                 width={600}
                 height={400}
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1">Ancajuli</h3>
-                  <p className="text-sm md:text-lg opacity-90">Ver galería completa</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+                <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                  <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                    Ancajuli
+                  </h3>
+                  <p className="mt-1 text-[14px] opacity-85">Ver galería completa</p>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
-
 
         {/* Modal mejorado con navegación */}
         {selectedImage && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-pac-ink/95 z-50 flex items-center justify-center p-4"
             onClick={closeModal}
           >
             {/* Botón cerrar */}
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center"
+              className="absolute top-4 right-4 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-pac-surface/15 hover:bg-pac-surface/25 text-pac-surface text-[28px] leading-none transition-colors duration-200"
+              aria-label="Cerrar galería"
             >
               ×
             </button>
@@ -584,7 +601,8 @@ export function GaleriaSection() {
                     e.stopPropagation();
                     prevMedia();
                   }}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300 z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-pac-surface/15 hover:bg-pac-surface/25 text-pac-surface text-[32px] leading-none transition-colors duration-200"
+                  aria-label="Contenido anterior"
                 >
                   ‹
                 </button>
@@ -597,7 +615,8 @@ export function GaleriaSection() {
                     e.stopPropagation();
                     nextMedia();
                   }}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300 z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-pac-surface/15 hover:bg-pac-surface/25 text-pac-surface text-[32px] leading-none transition-colors duration-200"
+                  aria-label="Contenido siguiente"
                 >
                   ›
                 </button>
@@ -608,8 +627,8 @@ export function GaleriaSection() {
                 {/* Indicador de carga */}
                 {isLoading && (
                   <div className="flex flex-col items-center justify-center min-h-[60vh]">
-                    <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mb-4"></div>
-                    <p className="text-white text-lg">Cargando...</p>
+                    <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-pac-surface mb-4"></div>
+                    <p className="text-[16px] text-pac-surface">Cargando...</p>
                   </div>
                 )}
 
@@ -619,7 +638,7 @@ export function GaleriaSection() {
                     <video
                       src={selectedImage}
                       controls
-                      className="max-w-full max-h-[80vh] object-contain"
+                      className="max-w-full max-h-[80vh] object-contain rounded-[16px]"
                       autoPlay
                       loop
                       onLoadedData={() => setIsLoading(false)}
@@ -629,7 +648,7 @@ export function GaleriaSection() {
                     <Image
                       src={selectedImage}
                       alt={currentMedia[currentIndex]?.alt || "Vista ampliada"}
-                      className="max-w-full max-h-[80vh] object-contain"
+                      className="max-w-full max-h-[80vh] object-contain rounded-[16px]"
                       width={1200}
                       height={800}
                       quality={50}
@@ -642,11 +661,11 @@ export function GaleriaSection() {
 
                 {/* Información del contenido */}
                 {!isLoading && (
-                  <div className="fixed bottom-16  text-center text-white">
-                    <h3 className="text-xl font-bold mb-2">
+                  <div className="fixed bottom-16 text-center text-pac-surface">
+                    <h3 className="font-serif font-medium text-[24px] leading-tight mb-1">
                       {imageCategories[selectedCategory as keyof typeof imageCategories]?.name}
                     </h3>
-                    <p className="text-sm opacity-80">
+                    <p className="text-[13px] opacity-80">
                       {currentIndex + 1} de {currentMedia.length}
                     </p>
                   </div>
@@ -656,6 +675,6 @@ export function GaleriaSection() {
           </div>
         )}
       </div>
-    </section >
+    </section>
   );
 }

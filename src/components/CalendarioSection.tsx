@@ -27,7 +27,8 @@ const viajes: Viaje[] = [
     ubicacion: 'Lima & Cusco, Perú',
     participantes: 'Salida grupal',
     descripcion: 'Lima · Miraflores · Centro Histórico · Machu Picchu · Valle Sagrado',
-    destacado: true,
+    destacado: false,
+    finalizado: true,
     color: 'bg-gradient-to-r from-amber-500 to-orange-500',
     mes: 9, // Octubre (0-indexed)
     dias: [3, 4, 5, 6, 7, 8, 9, 10, 11]
@@ -113,6 +114,12 @@ const viajes: Viaje[] = [
   // },
 ];
 
+/** Color plano de la paleta para el punto identificatorio de cada viaje */
+const puntoViaje = (viaje: Viaje) => {
+  if (viaje.finalizado) return 'bg-pac-olive/25';
+  return viaje.destacado ? 'bg-pac-olive' : 'bg-pac-olive/70';
+};
+
 export function CalendarioSection() {
   const [viajeSeleccionado, setViajeSeleccionado] = useState<string | null>(null);
   const [mesActual, setMesActual] = useState(1); // Febrero (0-indexed)
@@ -180,85 +187,70 @@ export function CalendarioSection() {
   };
 
   return (
-    <section className="py-16" style={{ backgroundColor: '#f8f9fa' }}>
+    <section id="calendario" className="py-20 md:py-24 bg-pac-surface border-y border-pac-olive/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#404d21' }}>
-            Próximos Viajes
+        {/* Encabezado */}
+        <div className="flex flex-col gap-4 mb-12">
+          <div className="pac-eyebrow">Calendario</div>
+          <h2 className="pac-title text-[32px] md:text-[48px]">
+            Próximos viajes
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-[16px] leading-[1.6] text-pac-body max-w-[560px]">
             Descubrí nuestras próximas aventuras y reservá tu lugar en experiencias únicas
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Calendario */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <div className="flex items-center justify-between mb-6">
+          <div className="pac-card bg-pac-bg rounded-[24px] p-6 md:p-8">
+            <div className="flex items-center justify-between gap-3 mb-6">
               <button
+                type="button"
                 onClick={() => cambiarMes('anterior')}
                 disabled={mesActual === 10} // Deshabilitar en noviembre
-                className={`p-2 rounded-lg transition-colors ${mesActual === 10
-                  ? 'opacity-50 cursor-not-allowed'
-                  : 'hover:bg-gray-100'
+                aria-label="Mes anterior"
+                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-pac-olive/15 transition-colors ${mesActual === 10
+                  ? 'opacity-40 cursor-not-allowed'
+                  : 'hover:bg-pac-olive/[0.06]'
                   }`}
               >
-                <ChevronLeft className={`w-5 h-5 ${mesActual === 10 ? 'text-gray-400' : 'text-gray-600'}`} />
+                <ChevronLeft className={`w-5 h-5 ${mesActual === 10 ? 'text-pac-muted' : 'text-pac-olive'}`} aria-hidden="true" />
               </button>
-              <h3 className="text-2xl font-bold flex items-center gap-2" style={{ color: '#404d21' }}>
-                <Calendar className="w-6 h-6" style={{ color: '#404d21' }} />
+              <h3 className="font-serif font-medium text-[22px] md:text-[24px] text-pac-ink flex items-center gap-2.5">
+                <Calendar className="w-5 h-5 text-pac-olive" aria-hidden="true" />
                 {meses[mesActual]} {añoActual}
               </h3>
               <button
+                type="button"
                 onClick={() => cambiarMes('siguiente')}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                aria-label="Mes siguiente"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-pac-olive/15 transition-colors hover:bg-pac-olive/[0.06]"
               >
-                <ChevronRight className="w-5 h-5 text-gray-600" />
+                <ChevronRight className="w-5 h-5 text-pac-olive" aria-hidden="true" />
               </button>
             </div>
 
             {/* Días de la semana */}
-            <div className="grid grid-cols-7 gap-2 mb-4">
+            <div className="grid grid-cols-7 gap-1.5 md:gap-2 mb-2">
               {['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'].map(dia => (
-                <div key={dia} className="text-center text-sm font-semibold text-gray-500 py-2">
+                <div key={dia} className="text-center text-[12px] font-bold uppercase tracking-[0.06em] text-pac-muted py-2">
                   {dia}
                 </div>
               ))}
             </div>
 
             {/* Días del calendario */}
-            <div className="grid grid-cols-7 gap-2">
+            <div className="grid grid-cols-7 gap-1.5 md:gap-2">
               {getDiasDelMes().map((dia, index) => (
                 <div
                   key={index}
                   className={`
-                    aspect-square flex items-center justify-center text-sm font-medium rounded-lg transition-all duration-200
-                    ${dia.esOtroMes ? 'text-gray-300' : ''}
-                    ${dia.esHoy ? 'text-white shadow-lg' : ''}
-                    ${dia.tieneViaje && !dia.esHoy ? 'text-white border-2' : ''}
-                    ${!dia.esOtroMes && !dia.esHoy && !dia.tieneViaje ? 'hover:bg-gray-100 text-gray-700' : ''}
+                    aspect-square flex items-center justify-center text-[13px] md:text-[14px] font-medium rounded-[10px] transition-colors duration-200
+                    ${dia.esOtroMes ? 'text-pac-olive/25' : ''}
+                    ${dia.esHoy ? 'bg-pac-olive text-pac-surface font-bold' : ''}
+                    ${dia.tieneViaje && !dia.esHoy ? 'bg-pac-yellow text-pac-olive-dark font-bold' : ''}
+                    ${!dia.esOtroMes && !dia.esHoy && !dia.tieneViaje ? 'text-pac-body hover:bg-pac-olive/[0.06]' : ''}
                   `}
-                  style={{
-                    backgroundColor: dia.esHoy ? '#404d21' :
-                      dia.tieneViaje ? (
-                        dia.viaje?.color.includes('amber') ? '#f59e0b' :
-                          dia.viaje?.color.includes('blue') ? '#2563eb' :
-                            dia.viaje?.color.includes('purple') ? '#9333ea' :
-                              dia.viaje?.color.includes('teal') ? '#0d9488' :
-                                dia.viaje?.color.includes('rose') || dia.viaje?.color.includes('pink') ? '#e11d48' :
-                                  '#059669'
-                      ) :
-                        'transparent',
-                    borderColor: dia.tieneViaje ? (
-                      dia.viaje?.color.includes('amber') ? '#d97706' :
-                        dia.viaje?.color.includes('blue') ? '#1d4ed8' :
-                          dia.viaje?.color.includes('purple') ? '#7e22ce' :
-                            dia.viaje?.color.includes('teal') ? '#0f766e' :
-                              dia.viaje?.color.includes('rose') || dia.viaje?.color.includes('pink') ? '#be185d' :
-                                '#047857'
-                    ) : 'transparent'
-                  }}
                 >
                   {dia.numero}
                 </div>
@@ -266,83 +258,75 @@ export function CalendarioSection() {
             </div>
 
             {/* Leyenda */}
-            <div className="mt-6 flex flex-wrap gap-4 text-sm">
+            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-pac-body">
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded" style={{ backgroundColor: '#404d21' }}></div>
+                <span className="w-4 h-4 rounded bg-pac-olive" aria-hidden="true"></span>
                 <span>Hoy</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded border-2" style={{ backgroundColor: '#f59e0b', borderColor: '#d97706' }}></div>
+                <span className="w-4 h-4 rounded bg-pac-yellow" aria-hidden="true"></span>
                 <span>Viaje programado</span>
               </div>
             </div>
           </div>
 
           {/* Lista de viajes */}
-          <div className="space-y-6">
+          <div className="flex flex-col gap-5">
             {viajes.map((viaje) => (
               <div
                 key={viaje.id}
                 className={`
-                  bg-white rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl
-                  ${viajeSeleccionado === viaje.id ? 'ring-2 ring-blue-500' : ''}
-                  ${viaje.destacado ? 'border-l-4 border-orange-500' : ''}
-                  ${viaje.finalizado ? 'opacity-90 border border-gray-200' : ''}
+                  pac-card bg-pac-bg rounded-[24px] p-6 transition-colors duration-300
+                  ${viajeSeleccionado === viaje.id ? 'ring-2 ring-pac-olive/30' : ''}
+                  ${viaje.destacado ? 'border-l-[3px] border-l-pac-olive' : ''}
+                  ${viaje.finalizado ? 'opacity-90' : ''}
                 `}
               >
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex items-start justify-between gap-4 mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2 flex-wrap">
-                      <h4 className={`text-xl font-bold ${viaje.finalizado ? 'text-gray-700' : 'text-gray-900'}`}>{viaje.titulo}</h4>
+                      <h4 className={`font-serif font-medium text-[22px] leading-[1.15] ${viaje.finalizado ? 'text-pac-muted' : 'text-pac-ink'}`}>{viaje.titulo}</h4>
                       {viaje.destacado && (
-                        <span className="bg-orange-100 text-orange-800 text-xs font-semibold px-2 py-1 rounded-full">
+                        <span className="bg-pac-yellow text-pac-olive-dark text-[11px] font-bold uppercase tracking-[0.08em] px-2.5 py-1 rounded-full">
                           Destacado
                         </span>
                       )}
                       {viaje.finalizado && (
-                        <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full">
+                        <span className="bg-pac-olive/25 text-pac-muted text-[11px] font-bold uppercase tracking-[0.08em] px-2.5 py-1 rounded-full">
                           Finalizado
                         </span>
                       )}
                     </div>
-                    <p className="text-gray-600 mb-3">{viaje.descripcion}</p>
+                    <p className={`text-[15px] leading-[1.6] mb-3 ${viaje.finalizado ? 'text-pac-muted' : 'text-pac-body'}`}>{viaje.descripcion}</p>
                   </div>
-                  <div className={`w-4 h-4 rounded-full ${viaje.color}`}></div>
+                  <div className={`w-4 h-4 shrink-0 mt-1.5 rounded-full ${puntoViaje(viaje)}`} aria-hidden="true"></div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <Calendar className="w-4 h-4" />
-                    <span className="text-sm">{viaje.fecha}</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
+                  <div className="flex items-center gap-2 text-pac-body">
+                    <Calendar className="w-4 h-4 shrink-0 text-pac-olive/70" aria-hidden="true" />
+                    <span className="text-[14px]">{viaje.fecha}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <Clock className="w-4 h-4" />
-                    <span className="text-sm">{viaje.duracion}</span>
+                  <div className="flex items-center gap-2 text-pac-body">
+                    <Clock className="w-4 h-4 shrink-0 text-pac-olive/70" aria-hidden="true" />
+                    <span className="text-[14px]">{viaje.duracion}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <MapPin className="w-4 h-4" />
-                    <span className="text-sm">{viaje.ubicacion}</span>
+                  <div className="flex items-center gap-2 text-pac-body">
+                    <MapPin className="w-4 h-4 shrink-0 text-pac-olive/70" aria-hidden="true" />
+                    <span className="text-[14px]">{viaje.ubicacion}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <Users className="w-4 h-4" />
-                    <span className="text-sm">{viaje.participantes}</span>
+                  <div className="flex items-center gap-2 text-pac-body">
+                    <Users className="w-4 h-4 shrink-0 text-pac-olive/70" aria-hidden="true" />
+                    <span className="text-[14px]">{viaje.participantes}</span>
                   </div>
                 </div>
 
                 <button
-                  className="hidden w-full text-white py-3 px-6 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-2"
-                  style={{
-                    background: 'linear-gradient(135deg, #404d21 0%, #2d3a1a 100%)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #2d3a1a 0%, #1a2310 100%)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #404d21 0%, #2d3a1a 100%)';
-                  }}
+                  type="button"
+                  className="hidden w-full mt-4 items-center justify-center gap-2 h-12 px-6 rounded-full bg-pac-olive text-pac-surface font-bold text-[15px] transition-colors duration-200 hover:bg-pac-olive-dark"
                 >
                   Más información
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </button>
               </div>
             ))}
@@ -351,23 +335,12 @@ export function CalendarioSection() {
 
         {/* Call to action */}
         <div className="hidden text-center mt-12">
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-[16px] text-pac-body mb-6">
             ¿No encontrás lo que buscás? Contactanos para más opciones
           </p>
-          <button
-            className="text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
-            style={{
-              background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #d97706 0%, #b45309 100%)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)';
-            }}
-          >
+          <a href="#contacto" className="pac-btn-primary">
             Consultar disponibilidad
-          </button>
+          </a>
         </div>
       </div>
     </section>

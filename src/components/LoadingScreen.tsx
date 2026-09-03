@@ -1,6 +1,5 @@
 'use client'
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
@@ -27,29 +26,32 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
   }, [onLoadingComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 bg-white flex items-center justify-center">
+    <div className="fixed inset-0 z-50 bg-pac-bg flex items-center justify-center px-6">
+      <div className="text-center">
+        <h2 className="pac-title text-[36px] md:text-[48px] mb-3">
+          Prendete al Camino
+        </h2>
+        <p className="text-[16px] md:text-[17px] text-pac-body mb-8">
+          Preparando tu experiencia...
+        </p>
 
-      {/* Contenido del loading */}
-      <div className="relative z-10 text-center text-white">
-        <div className="mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#404d21' }}>
-            Prendete al Camino
-          </h2>
-          <p className="text-lg md:text-xl opacity-90" style={{ color: '#404d21' }}>
-            Preparando tu experiencia...
-          </p>
-        </div>
-
-        {/* Progress Bar */}
+        {/* Barra de progreso */}
         <div className="w-80 max-w-full mx-auto">
-          <div className="bg-white bg-opacity-20 rounded-full h-3 overflow-hidden" style={{ backgroundColor: '#404d21' }}>
+          <div
+            className="h-2.5 rounded-full overflow-hidden bg-pac-olive/15"
+            role="progressbar"
+            aria-valuenow={Math.round(progress)}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label="Progreso de carga"
+          >
             <div
-              className="h-full bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full transition-all duration-300 ease-out"
-              style={{ width: `${progress}%` }}
+              className="h-full rounded-full bg-pac-yellow transition-all duration-300 ease-out"
+              style={{ width: `${Math.min(progress, 100)}%` }}
             />
           </div>
-          <div className="mt-4 text-sm opacity-80" style={{ color: '#404d21' }}>
-            {Math.round(progress)}%
+          <div className="mt-4 text-[13px] font-semibold text-pac-muted">
+            {Math.round(Math.min(progress, 100))}%
           </div>
         </div>
       </div>

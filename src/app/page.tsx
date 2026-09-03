@@ -1,8 +1,9 @@
 'use client'
 import { useState } from 'react';
+import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
+import { ViajesSection } from "@/components/ViajesSection";
 import { SantiagoSection } from "@/components/SantiagoSection";
-import { ViajesCortosSection } from "@/components/ViajesCortosSection";
 import { GaleriaSection } from "@/components/GaleriaSection";
 import { PreguntasFrecuentes } from "@/components/PreguntasFrecuentes";
 import { CalendarioSection } from "@/components/CalendarioSection";
@@ -26,25 +27,36 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-pac-bg">
       <Whatsapp />
+      <Header />
       <HeroSection onImageLoad={handleImageLoad} />
-      <div className="text-sm md:text-base w-full mx-auto px-4 sm:px-6 lg:px-8 mt-4" style={{ backgroundColor: '#f8f9fa' }} id="sobre-nosotros">
-        <p className="p-2 text-center text-gray-600 text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
-          <strong>Descubrí la magia del Camino de Santiago:</strong> desde Sarria hasta la majestuosa Catedral de Compostela.
-          Un viaje hacia <strong>la mejor versión de vos mismo.</strong>
-          Una experiencia que <strong>dejará una huella imborrable en tu corazón.</strong>
-        </p>
-      </div>
+
+      {/* Promesa de marca */}
+      <section
+        id="sobre-nosotros"
+        className="bg-pac-surface border-y border-pac-olive/10"
+      >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 text-center">
+          <p className="font-serif text-[26px] md:text-[34px] leading-[1.25] font-medium text-pac-ink [text-wrap:pretty]">
+            Descubrí la magia del Camino de Santiago: desde Sarria hasta la
+            majestuosa Catedral de Compostela. Un viaje hacia{" "}
+            <em className="italic text-pac-olive">la mejor versión de vos mismo</em>.
+          </p>
+          <p className="mt-5 text-[16px] md:text-[17px] leading-[1.6] text-pac-body">
+            Una experiencia que dejará una huella imborrable en tu corazón.
+          </p>
+        </div>
+      </section>
+
       {/* <MachuPicchuSection /> */}
+      <ViajesSection />
+      <CalendarioSection />
       <SantiagoSection />
-      {/* <VideollamadaSection /> */}
       <GaleriaSection />
       <TestimoniosSection />
-      <Contacto />
-      {/* <ViajesCortosSection /> */}
-      <CalendarioSection />
       <PreguntasFrecuentes />
+      <Contacto />
       <Footer />
     </div>
   );

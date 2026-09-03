@@ -192,3 +192,55 @@ html {
   font-size: var(--font-size);
   scroll-behavior: smooth;
 }
+
+/* ==========================================================================
+   Rediseño editorial cálido (2026)
+   Paleta y componentes base. Los tamaños de texto del rediseño se escriben
+   en px arbitrarios (text-[19px]) porque html tiene font-size: 14px y las
+   utilidades en rem quedarían un 12% más chicas de lo diseñado.
+   ========================================================================== */
+
+@layer base {
+  body {
+    @apply bg-pac-bg text-pac-body;
+  }
+}
+
+@layer components {
+  /* Antetítulo de sección */
+  .pac-eyebrow {
+    @apply text-[12px] font-bold uppercase tracking-[0.16em] text-pac-muted;
+  }
+
+  /* Titular serif de sección */
+  .pac-title {
+    @apply font-serif font-medium text-pac-ink leading-[1.1];
+  }
+
+  /* Botón principal: amarillo de marca */
+  .pac-btn-primary {
+    @apply inline-flex items-center justify-center gap-2.5 h-14 px-7 rounded-full
+           bg-pac-yellow text-pac-olive-dark font-extrabold text-[15px] tracking-[0.02em]
+           shadow-[0_8px_24px_rgba(64,77,33,0.18)]
+           transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(64,77,33,0.24)];
+  }
+
+  /* Botón secundario: contorno oliva */
+  .pac-btn-ghost {
+    @apply inline-flex items-center justify-center gap-2.5 h-14 px-6 rounded-full
+           border-[1.5px] border-pac-olive/35 text-pac-olive font-bold text-[15px]
+           transition-colors duration-200 hover:bg-pac-olive/[0.06];
+  }
+
+  /* Tarjeta sobre fondo crema */
+  .pac-card {
+    @apply bg-pac-surface border border-pac-olive/10 rounded-[20px];
+  }
+}
+
+/* Compensa el encabezado fijo al navegar por anclas (#galeria, #contacto, ...) */
+@layer base {
+  [id] {
+    scroll-margin-top: 96px;
+  }
+}
