@@ -237,7 +237,7 @@ export function CalendarioSection() {
   };
 
   return (
-    <section id="calendario" className="py-20 md:py-24 bg-pac-surface border-y border-pac-olive/10">
+    <section id="calendario" className="py-20 md:py-24 bg-pac-bg border-t border-pac-olive/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Encabezado */}
         <div className="flex flex-col gap-4 mb-12">
@@ -252,7 +252,7 @@ export function CalendarioSection() {
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Calendario */}
-          <div className="pac-card bg-pac-bg rounded-[24px] p-6 md:p-8">
+          <div className="pac-card rounded-[24px] p-6 md:p-8 shadow-[0_2px_12px_rgba(31,36,20,0.05)]">
             <div className="flex items-center justify-between gap-3 mb-6">
               <button
                 type="button"
@@ -298,7 +298,7 @@ export function CalendarioSection() {
                     aspect-square flex items-center justify-center text-[13px] md:text-[14px] font-medium rounded-[10px] transition-colors duration-200
                     ${dia.esOtroMes ? 'text-pac-olive/25' : ''}
                     ${dia.esHoy ? 'bg-pac-olive text-pac-surface font-bold' : ''}
-                    ${dia.tieneViaje && !dia.esHoy ? 'bg-pac-yellow text-pac-olive-dark font-bold' : ''}
+                    ${dia.tieneViaje && !dia.esHoy ? 'bg-pac-yellow text-pac-olive-dark font-bold ring-1 ring-inset ring-pac-olive/25' : ''}
                     ${!dia.esOtroMes && !dia.esHoy && !dia.tieneViaje ? 'text-pac-body hover:bg-pac-olive/[0.06]' : ''}
                   `}
                 >
@@ -314,7 +314,7 @@ export function CalendarioSection() {
                 <span>Hoy</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded bg-pac-yellow" aria-hidden="true"></span>
+                <span className="w-4 h-4 rounded bg-pac-yellow ring-1 ring-inset ring-pac-olive/25" aria-hidden="true"></span>
                 <span>Viaje programado</span>
               </div>
             </div>
@@ -326,10 +326,9 @@ export function CalendarioSection() {
               <div
                 key={viaje.id}
                 className={`
-                  pac-card bg-pac-bg rounded-[24px] p-6 transition-colors duration-300
+                  pac-card rounded-[24px] p-6 shadow-[0_2px_12px_rgba(31,36,20,0.05)] transition-colors duration-300
                   ${viajeSeleccionado === viaje.id ? 'ring-2 ring-pac-olive/30' : ''}
                   ${viaje.destacado && !finalizado ? 'border-l-[3px] border-l-pac-olive' : ''}
-                  ${finalizado ? 'opacity-90' : ''}
                 `}
               >
                 <div className="flex items-start justify-between gap-4 mb-4">
