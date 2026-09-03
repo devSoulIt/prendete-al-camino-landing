@@ -32,7 +32,7 @@ export async function POST(request: Request) {
         <p><strong>Email:</strong> ${escapeHtml(email)}</p>
         <p><strong>Teléfono/WhatsApp:</strong> ${escapeHtml(telefono)}</p>
         <p><strong>Estado físico:</strong> ${escapeHtml(estadoFisico)}</p>
-        <p><strong>Disponibilidad en junio 2026:</strong> ${escapeHtml(disponibilidad)}</p>
+        <p><strong>Disponibilidad:</strong> ${escapeHtml(disponibilidad)}</p>
         <p><strong>Disposición económica:</strong> ${escapeHtml(disposicionEconomica)}</p>
         <p><strong>¿Qué le atrae del camino?</strong><br/>${nl2br(escapeHtml(queTeAtrae))}</p>
         <hr style="border:none;border-top:1px solid #eee;margin:16px 0"/>

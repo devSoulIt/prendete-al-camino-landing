@@ -11,8 +11,7 @@ import { Contacto } from "@/components/Contacto";
 import { Whatsapp } from "@/components/Whatsapp";
 import { TestimoniosSection } from "@/components/TestimoniosSection";
 import { LoadingScreen } from "@/components/LoadingScreen";
-// Promo del viaje a Perú (Machu Picchu, octubre 2026). Ya realizado: se conserva para reutilizar en una próxima edición.
-// import { MachuPicchuSection } from "@/components/MachuPicchuSection";
+import { MachuPicchuSection } from "@/components/MachuPicchuSection";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +35,7 @@ export default function Home() {
           Una experiencia que <strong>dejará una huella imborrable en tu corazón.</strong>
         </p>
       </div>
-      {/* <MachuPicchuSection /> */}
+      <MachuPicchuSection />
       <SantiagoSection />
       {/* <VideollamadaSection /> */}
       <GaleriaSection />

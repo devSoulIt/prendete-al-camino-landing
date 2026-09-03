@@ -61,7 +61,7 @@ export function Contacto() {
                         <Card className="bg-white border-0 shadow-2xl">
                             <CardContent className="p-8">
                                 <h3 className="text-2xl font-bold mb-4" style={{ color: '#404d21' }}>
-                                    Sumate a Santiago de Compostela 2026
+                                    Sumate al Camino de Santiago
                                 </h3>
 
                                 <p className="text-gray-500 mb-6">
@@ -161,21 +161,21 @@ export function Contacto() {
                                         </div>
                                     </div>
 
-                                    {/* 5. Disponibilidad en junio 2026 */}
+                                    {/* 5. Disponibilidad para la proxima salida */}
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 mb-3">
-                                            5. Disponibilidad en todo <strong style={{ color: '#404d21' }}>JUNIO</strong> 2026
+                                            5. ¿Tenés <strong style={{ color: '#404d21' }}>disponibilidad</strong> para las fechas de la próxima salida?
                                         </label>
                                         <div className="space-y-2">
                                             <label className="flex items-center space-x-3 cursor-pointer">
                                                 <input
                                                     type="radio"
                                                     name="disponibilidad"
-                                                    value="todo_junio"
+                                                    value="disponible"
                                                     required
                                                     className="text-green-500 focus:ring-green-500"
                                                 />
-                                                <span className="text-gray-700">Sí, todo junio</span>
+                                                <span className="text-gray-700">Sí, tengo disponibilidad</span>
                                             </label>
                                             <label className="flex items-center space-x-3 cursor-pointer">
                                                 <input
