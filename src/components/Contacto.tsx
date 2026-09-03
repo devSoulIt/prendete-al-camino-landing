@@ -12,8 +12,10 @@ const campoBase =
     "w-full rounded-[12px] border border-pac-olive/20 bg-white px-4 text-[14px] text-pac-ink placeholder:text-pac-muted/70 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-pac-olive/30 focus-visible:border-pac-olive/40";
 const campoInput = `${campoBase} h-[52px]`;
 const campoTextarea = `${campoBase} min-h-[120px] py-[14px] leading-[1.55] resize-y`;
-const opcionRadio = "flex items-center gap-3 min-h-[44px] cursor-pointer text-[14px] text-pac-body";
-const inputRadio = "h-[18px] w-[18px] shrink-0 accent-pac-olive";
+// items-start + py para que el radio quede alineado con la primera línea
+// cuando la etiqueta ocupa dos renglones en pantallas angostas.
+const opcionRadio = "flex items-start gap-3 min-h-[44px] py-2 cursor-pointer text-[14px] leading-[1.4] text-pac-body";
+const inputRadio = "h-[18px] w-[18px] shrink-0 mt-[1px] accent-pac-olive";
 const leyendaGrupo = "block text-[14px] font-bold text-pac-ink mb-1";
 
 // Envío del formulario al endpoint /api/contact
