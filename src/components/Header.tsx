@@ -7,6 +7,7 @@ import { WHATSAPP_URL } from "@/lib/site";
 
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
+  { href: "#peru", label: "Perú" },
   { href: "#sobre-nosotros", label: "Quiénes somos" },
   { href: "#viajes", label: "Viajes" },
   { href: "#galeria", label: "Galería" },

@@ -99,7 +99,7 @@ export function Contacto() {
                     {/* Columna derecha: formulario */}
                     <div className="bg-pac-surface rounded-[24px] p-8">
                         <h3 className="font-serif font-medium text-[26px] leading-[1.15] text-pac-ink">
-                            Sumate a Santiago de Compostela 2026
+                            Sumate al Camino de Santiago
                         </h3>
                         <p className="mt-2 text-[14px] leading-[1.6] text-pac-body">
                             Completá este breve formulario y te enviaremos toda la información detallada.
@@ -208,20 +208,20 @@ export function Contacto() {
                                 </label>
                             </fieldset>
 
-                            {/* Disponibilidad en junio 2026 */}
+                            {/* Disponibilidad para las fechas de la proxima salida */}
                             <fieldset className="mt-2">
                                 <legend className={leyendaGrupo}>
-                                    Disponibilidad en todo junio 2026
+                                    ¿Tenés disponibilidad para las fechas de la próxima salida?
                                 </legend>
                                 <label className={opcionRadio}>
                                     <input
                                         type="radio"
                                         name="disponibilidad"
-                                        value="todo_junio"
+                                        value="disponible"
                                         required
                                         className={inputRadio}
                                     />
-                                    <span>Sí, todo junio</span>
+                                    <span>Sí, tengo disponibilidad</span>
                                 </label>
                                 <label className={opcionRadio}>
                                     <input

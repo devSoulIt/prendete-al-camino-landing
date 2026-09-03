@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Calendar, MapPin, Clock, Users, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Viaje {
@@ -11,9 +11,14 @@ interface Viaje {
   participantes: string;
   descripcion: string;
   destacado: boolean;
-  /** Viaje ya realizado: no se marca en el calendario y se muestra como cerrado en la lista */
+  /**
+   * Override manual. Normalmente el estado se deduce de la fecha del viaje
+   * (ver esFinalizado); solo hace falta para casos especiales.
+   */
   finalizado?: boolean;
   color: string;
+  /** Anio de la salida */
+  anio: number;
   mes: number;
   dias: number[];
 }
@@ -27,9 +32,9 @@ const viajes: Viaje[] = [
     ubicacion: 'Lima & Cusco, Perú',
     participantes: 'Salida grupal',
     descripcion: 'Lima · Miraflores · Centro Histórico · Machu Picchu · Valle Sagrado',
-    destacado: false,
-    finalizado: true,
+    destacado: true,
     color: 'bg-gradient-to-r from-amber-500 to-orange-500',
+    anio: 2026,
     mes: 9, // Octubre (0-indexed)
     dias: [3, 4, 5, 6, 7, 8, 9, 10, 11]
   },
@@ -43,6 +48,7 @@ const viajes: Viaje[] = [
     descripcion: 'El camino espiritual más famoso del mundo',
     destacado: true,
     color: 'bg-gradient-to-r from-green-600 to-emerald-600',
+    anio: 2026,
     mes: 5, // Junio (0-indexed)
     dias: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   },
@@ -56,6 +62,7 @@ const viajes: Viaje[] = [
     descripcion: 'Descubrí la belleza y cultura de Italia',
     destacado: false,
     color: 'bg-gradient-to-r from-blue-600 to-indigo-600',
+    anio: 2026,
     mes: 5, // Junio (0-indexed)
     dias: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
   },
@@ -68,8 +75,8 @@ const viajes: Viaje[] = [
     participantes: 'Grupo reducido',
     descripcion: 'Fin de semana largo en los hermosos paisajes de San Carlos',
     destacado: false,
-    finalizado: true,
     color: 'bg-gradient-to-r from-rose-600 to-pink-600',
+    anio: 2026,
     mes: 2, // Marzo (0-indexed)
     dias: [21, 22, 23]
   },
@@ -114,29 +121,70 @@ const viajes: Viaje[] = [
   // },
 ];
 
+/** Medianoche de hoy, para comparar contra las fechas de los viajes */
+const inicioDeHoy = () => {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d;
+};
+
+/** Un viaje esta finalizado cuando su ultimo dia ya paso */
+const esFinalizado = (viaje: Viaje, hoy: Date) => {
+  if (typeof viaje.finalizado === 'boolean') return viaje.finalizado;
+  return new Date(viaje.anio, viaje.mes, Math.max(...viaje.dias)) < hoy;
+};
+
+/** Primer dia del viaje, para ordenar la lista */
+const inicioDelViaje = (viaje: Viaje) =>
+  new Date(viaje.anio, viaje.mes, Math.min(...viaje.dias)).getTime();
+
 /** Color plano de la paleta para el punto identificatorio de cada viaje */
-const puntoViaje = (viaje: Viaje) => {
-  if (viaje.finalizado) return 'bg-pac-olive/25';
+const puntoViaje = (viaje: Viaje, finalizado: boolean) => {
+  if (finalizado) return 'bg-pac-olive/25';
   return viaje.destacado ? 'bg-pac-olive' : 'bg-pac-olive/70';
 };
 
 export function CalendarioSection() {
   const [viajeSeleccionado, setViajeSeleccionado] = useState<string | null>(null);
-  const [mesActual, setMesActual] = useState(1); // Febrero (0-indexed)
-  // const [añoActual, setAñoActual] = useState(new Date().getFullYear());
-  const [añoActual, setAñoActual] = useState(2026);
+
+  // Este componente se renderiza solo en el cliente (durante el SSR la pagina
+  // muestra LoadingScreen), asi que podemos leer la fecha real sin riesgo de
+  // desajuste de hidratacion.
+  const [hoy] = useState(inicioDeHoy);
+
+  // Cada viaje con su estado calculado: primero los proximos, por fecha.
+  const viajesOrdenados = useMemo(
+    () =>
+      viajes
+        .map((viaje) => ({ viaje, finalizado: esFinalizado(viaje, hoy) }))
+        .sort((a, b) => {
+          if (a.finalizado !== b.finalizado) return a.finalizado ? 1 : -1;
+          return inicioDelViaje(a.viaje) - inicioDelViaje(b.viaje);
+        }),
+    [hoy]
+  );
+
+  // El calendario abre en el mes del proximo viaje; si no hay, en el mes actual.
+  const proximoViaje = viajesOrdenados.find((v) => !v.finalizado)?.viaje;
+  const [mesActual, setMesActual] = useState(
+    proximoViaje ? proximoViaje.mes : hoy.getMonth()
+  );
+  const [añoActual, setAñoActual] = useState(
+    proximoViaje ? proximoViaje.anio : hoy.getFullYear()
+  );
 
   const meses = [
     'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
     'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
   ];
 
+  // No dejamos navegar hacia meses que ya pasaron.
+  const enMesMinimo =
+    añoActual === hoy.getFullYear() && mesActual === hoy.getMonth();
+
   const cambiarMes = (direccion: 'anterior' | 'siguiente') => {
     if (direccion === 'anterior') {
-      // No permitir ir a meses anteriores a noviembre
-      if (mesActual === 10) { // Noviembre
-        return; // No hacer nada si ya estamos en noviembre
-      }
+      if (enMesMinimo) return;
       if (mesActual === 0) {
         setMesActual(11);
         setAñoActual(añoActual - 1);
@@ -154,7 +202,6 @@ export function CalendarioSection() {
   };
 
   const getDiasDelMes = () => {
-    const hoy = new Date();
     const diasEnMes = new Date(añoActual, mesActual + 1, 0).getDate();
     const primerDia = new Date(añoActual, mesActual, 1).getDay();
 
@@ -170,9 +217,12 @@ export function CalendarioSection() {
       const esHoy = dia === hoy.getDate() && mesActual === hoy.getMonth() && añoActual === hoy.getFullYear();
 
       // Verificar si hay viajes en este día
-      const viajeEnEsteDia = viajes.find(viaje =>
-        !viaje.finalizado && viaje.mes === mesActual && viaje.dias.includes(dia)
-      );
+      const viajeEnEsteDia = viajesOrdenados.find(({ viaje, finalizado }) =>
+        !finalizado &&
+        viaje.anio === añoActual &&
+        viaje.mes === mesActual &&
+        viaje.dias.includes(dia)
+      )?.viaje;
 
       dias.push({
         numero: dia,
@@ -207,14 +257,14 @@ export function CalendarioSection() {
               <button
                 type="button"
                 onClick={() => cambiarMes('anterior')}
-                disabled={mesActual === 10} // Deshabilitar en noviembre
+                disabled={enMesMinimo}
                 aria-label="Mes anterior"
-                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-pac-olive/15 transition-colors ${mesActual === 10
+                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-pac-olive/15 transition-colors ${enMesMinimo
                   ? 'opacity-40 cursor-not-allowed'
                   : 'hover:bg-pac-olive/[0.06]'
                   }`}
               >
-                <ChevronLeft className={`w-5 h-5 ${mesActual === 10 ? 'text-pac-muted' : 'text-pac-olive'}`} aria-hidden="true" />
+                <ChevronLeft className={`w-5 h-5 ${enMesMinimo ? 'text-pac-muted' : 'text-pac-olive'}`} aria-hidden="true" />
               </button>
               <h3 className="font-serif font-medium text-[22px] md:text-[24px] text-pac-ink flex items-center gap-2.5">
                 <Calendar className="w-5 h-5 text-pac-olive" aria-hidden="true" />
@@ -272,34 +322,34 @@ export function CalendarioSection() {
 
           {/* Lista de viajes */}
           <div className="flex flex-col gap-5">
-            {viajes.map((viaje) => (
+            {viajesOrdenados.map(({ viaje, finalizado }) => (
               <div
                 key={viaje.id}
                 className={`
                   pac-card bg-pac-bg rounded-[24px] p-6 transition-colors duration-300
                   ${viajeSeleccionado === viaje.id ? 'ring-2 ring-pac-olive/30' : ''}
-                  ${viaje.destacado ? 'border-l-[3px] border-l-pac-olive' : ''}
-                  ${viaje.finalizado ? 'opacity-90' : ''}
+                  ${viaje.destacado && !finalizado ? 'border-l-[3px] border-l-pac-olive' : ''}
+                  ${finalizado ? 'opacity-90' : ''}
                 `}
               >
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2 flex-wrap">
-                      <h4 className={`font-serif font-medium text-[22px] leading-[1.15] ${viaje.finalizado ? 'text-pac-muted' : 'text-pac-ink'}`}>{viaje.titulo}</h4>
-                      {viaje.destacado && (
+                      <h4 className={`font-serif font-medium text-[22px] leading-[1.15] ${finalizado ? 'text-pac-muted' : 'text-pac-ink'}`}>{viaje.titulo}</h4>
+                      {viaje.destacado && !finalizado && (
                         <span className="bg-pac-yellow text-pac-olive-dark text-[11px] font-bold uppercase tracking-[0.08em] px-2.5 py-1 rounded-full">
                           Destacado
                         </span>
                       )}
-                      {viaje.finalizado && (
+                      {finalizado && (
                         <span className="bg-pac-olive/25 text-pac-muted text-[11px] font-bold uppercase tracking-[0.08em] px-2.5 py-1 rounded-full">
                           Finalizado
                         </span>
                       )}
                     </div>
-                    <p className={`text-[15px] leading-[1.6] mb-3 ${viaje.finalizado ? 'text-pac-muted' : 'text-pac-body'}`}>{viaje.descripcion}</p>
+                    <p className={`text-[15px] leading-[1.6] mb-3 ${finalizado ? 'text-pac-muted' : 'text-pac-body'}`}>{viaje.descripcion}</p>
                   </div>
-                  <div className={`w-4 h-4 shrink-0 mt-1.5 rounded-full ${puntoViaje(viaje)}`} aria-hidden="true"></div>
+                  <div className={`w-4 h-4 shrink-0 mt-1.5 rounded-full ${puntoViaje(viaje, finalizado)}`} aria-hidden="true"></div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
