@@ -1,64 +1,98 @@
 'use client'
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { useState } from "react";
+import { ArrowRight, MapPin, Star } from "lucide-react";
 
 interface HeroSectionProps {
   onImageLoad?: () => void;
 }
 
 export function HeroSection({ onImageLoad }: HeroSectionProps) {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  const handleImageLoad = () => {
-    setImageLoaded(true);
-    onImageLoad?.();
-  };
-
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center ">
-      <div className="absolute inset-0 z-0">
-          <div
-            className={`absolute inset-0 transition-opacity duration-1000 `}
-          >
-            <Image
-              src={'/images/portada.jpg'}
-              alt={`Portada Prendete al Camino`}
-              className="w-full h-full object-cover"
-              width={1920}
-              height={1080}
-              onLoad={handleImageLoad}
-              priority
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+    <section id="inicio" className="bg-pac-bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-[72px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Texto */}
+          <div className="flex flex-col gap-6 md:gap-7 lg:pr-6 order-2 lg:order-1">
+            <p className="pac-eyebrow">
+              Camino de Santiago · Europa · Escapadas por Argentina
+            </p>
+
+            <h1 className="pac-title text-[44px] md:text-[60px] lg:text-[76px] leading-[1.02] tracking-[-0.01em] [text-wrap:balance]">
+              El primer paso de un viaje{" "}
+              <em className="italic font-semibold text-pac-olive">
+                que te cambiará la vida
+              </em>
+            </h1>
+
+            <p className="text-[17px] md:text-[19px] leading-[1.6] text-pac-body max-w-[520px]">
+              Descubrí la magia del Camino de Santiago, desde Sarria hasta la
+              Catedral de Compostela. Nosotros nos ocupamos de todo para que vos
+              solo tengas que caminar.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5">
+              <a href="#contacto" className="pac-btn-primary">
+                Comenzar mi camino
+                <ArrowRight className="w-[18px] h-[18px]" strokeWidth={2.4} />
+              </a>
+              <a href="#viajes" className="pac-btn-ghost">
+                Ver próximos viajes
+              </a>
+            </div>
+
+            {/* Prueba social */}
+            <div className="flex flex-wrap items-center gap-x-7 gap-y-3 pt-2">
+              <div className="flex items-center gap-2.5">
+                <span className="flex gap-0.5" aria-hidden="true">
+                  {Array.from({ length: 5 }, (_, i) => (
+                    <Star
+                      key={i}
+                      className="w-4 h-4 fill-pac-yellow text-pac-yellow"
+                    />
+                  ))}
+                </span>
+                <span className="text-[14px] text-pac-body">
+                  <strong className="text-pac-ink font-bold">5.0</strong> en
+                  reseñas de Google
+                </span>
+              </div>
+              <span
+                className="hidden sm:block w-px h-5 bg-pac-olive/20"
+                aria-hidden="true"
+              />
+              <span className="text-[14px] text-pac-body">
+                <strong className="text-pac-ink font-bold">+10 años</strong>{" "}
+                guiando grupos
+              </span>
+            </div>
           </div>
-      </div>
 
-      {/* Content */}
-      <div className={`-mt-36 md:mt-0 relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white transition-opacity duration-1000 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <h1 className="text-3xl md:text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          El primer paso de un viaje <br />
-          <span style={{ color: '#ffd600' }}>que te cambiará la vida</span>
-        </h1>
+          {/* Foto */}
+          <div className="relative order-1 lg:order-2">
+            <div className="relative h-[420px] sm:h-[520px] lg:h-[640px] rounded-[24px] md:rounded-[28px] overflow-hidden shadow-[0_30px_60px_rgba(31,36,20,0.18)]">
+              <Image
+                src="/images/portada.jpg"
+                alt="Peregrinos de Prendete al Camino en la Plaza del Obradoiro, Santiago de Compostela"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-[center_40%]"
+                onLoad={onImageLoad}
+                priority
+                quality={90}
+              />
+            </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#sobre-nosotros">
-            <Button
-              size="lg"
-              className="text-lg px-6 py-6 md:px-8 md:py-8 md:text-lg font-bold rounded-3xl hover:opacity-90 transition-opacity duration-200"
-              style={{ backgroundColor: '#ffd600', color: '#404d21' }}
-            >
-              COMENZAR MI CAMINO
-            </Button>
-          </a>
+            <div className="absolute left-4 bottom-4 md:left-6 md:bottom-6 flex items-center gap-2.5 pl-3 pr-4 py-2.5 rounded-full bg-pac-surface/95 backdrop-blur-sm shadow-[0_6px_18px_rgba(0,0,0,0.12)]">
+              <MapPin
+                className="w-[18px] h-[18px] text-pac-olive shrink-0"
+                strokeWidth={2}
+              />
+              <span className="text-[12px] md:text-[13px] font-semibold text-pac-olive-dark">
+                Plaza del Obradoiro, Santiago de Compostela
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
       </div>
     </section>
   );

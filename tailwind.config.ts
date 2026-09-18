@@ -9,7 +9,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // Manrope para texto, Cormorant Garamond para titulares (rediseño 2026).
+        sans: ["var(--font-manrope)", "system-ui", "sans-serif"],
+        serif: ["var(--font-cormorant)", "Georgia", "Times New Roman", "serif"],
+      },
       colors: {
+        // Paleta del rediseño editorial cálido.
+        pac: {
+          bg: "#f6f3ec",
+          surface: "#fbf9f4",
+          ink: "#1f2414",
+          body: "#4b523b",
+          muted: "#6b7548",
+          olive: "#404d21",
+          "olive-dark": "#2d3a1a",
+          yellow: "#ffd600",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import { ChevronDownIcon, ChevronUpIcon, Instagram, Facebook, MessageCircle } from "lucide-react";
+import { Plus, Minus, Instagram, Facebook, MessageCircle } from "lucide-react";
 
 export function PreguntasFrecuentes() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -69,7 +69,7 @@ export function PreguntasFrecuentes() {
         text: "Publicamos cada viaje en nuestras redes sociales:",
         items: [
           "Instagram: @prendetealcamino",
-          "Facebook: Prendete al Camino", 
+          "Facebook: Prendete al Camino",
           "TikTok: Prendete al Camino"
         ]
       }
@@ -99,82 +99,100 @@ export function PreguntasFrecuentes() {
   };
 
   return (
-    <section id="preguntas-frecuentes" className="py-20 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#404d21' }}>
-            Preguntas Frecuentes
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Resolvé todas tus dudas antes de embarcarte en esta aventura inolvidable.
-          </p>
-        </div>
+    <section id="preguntas" className="py-20 md:py-24 bg-pac-bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+          {/* Encabezado editorial a la izquierda */}
+          <div className="lg:col-span-4 flex flex-col gap-4 lg:sticky lg:top-28 lg:self-start">
+            <div className="pac-eyebrow">Preguntas frecuentes</div>
+            <h2 className="pac-title text-[32px] md:text-[44px]">
+              Lo que nos preguntan antes de dar el primer paso
+            </h2>
+            <p className="text-[16px] leading-[1.6] text-pac-body">
+              ¿Tenés otra duda? Escribinos por WhatsApp y te respondemos a la brevedad.
+            </p>
+          </div>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 rounded-lg"
-              >
-                <h3 className="text-lg font-semibold pr-4" style={{ color: '#404d21' }}>
-                  {faq.question}
-                </h3>
-                {openIndex === index ? (
-                  <ChevronUpIcon className="h-5 w-5 text-gray-500 flex-shrink-0" />
-                ) : (
-                  <ChevronDownIcon className="h-5 w-5 text-gray-500 flex-shrink-0" />
-                )}
-              </button>
-              
-              {openIndex === index && (
-                <div className="px-6 pb-4">
-                  <div className="border-t border-gray-100 pt-4">
-                    {typeof faq.answer === 'string' ? (
-                      <p className="text-gray-600 leading-relaxed">
-                        {faq.answer}
-                      </p>
+          {/* Listado de preguntas */}
+          <div className="lg:col-start-6 lg:col-span-7 flex flex-col gap-3">
+            {faqs.map((faq, index) => {
+              const abierta = openIndex === index;
+
+              return (
+                <div
+                  key={index}
+                  className={`pac-card overflow-hidden transition-colors duration-200 ${
+                    abierta ? 'border-pac-olive/25' : 'border-pac-olive/10'
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => toggleFAQ(index)}
+                    aria-expanded={abierta}
+                    aria-controls={`faq-panel-${index}`}
+                    className="w-full px-[26px] py-[22px] flex items-center justify-between gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pac-olive/30 rounded-[20px]"
+                  >
+                    <h3 className="text-[17px] font-bold text-pac-ink">
+                      {faq.question}
+                    </h3>
+                    {abierta ? (
+                      <Minus
+                        className="h-[20px] w-[20px] shrink-0 text-pac-olive"
+                        strokeWidth={2.2}
+                        aria-hidden="true"
+                      />
                     ) : (
-                      <div className="text-gray-600 leading-relaxed">
-                        {faq.answer.text && (
-                          <p className="mb-3">{faq.answer.text}</p>
-                        )}
-                        {faq.answer.items && (
-                          <ul className="list-disc list-inside space-y-1 ml-4">
-                            {faq.answer.items.map((item, itemIndex) => {
-                              // Detectar si es la pregunta de redes sociales para mostrar iconos
-                              if (faq.question === "¿Dónde puedo ver los próximos viajes disponibles?") {
-                                const getIcon = (item: string) => {
-                                  if (item.includes("Instagram")) return <Instagram className="w-4 h-4 inline mr-2 text-pink-500" />;
-                                  if (item.includes("Facebook")) return <Facebook className="w-4 h-4 inline mr-2 text-blue-600" />;
-                                  if (item.includes("TikTok")) return <MessageCircle className="w-4 h-4 inline mr-2 text-black" />;
-                                  return null;
-                                };
-                                
-                                return (
-                                  <li key={itemIndex} className="flex items-center">
-                                    {getIcon(item)}
-                                    <span>{item}</span>
-                                  </li>
-                                );
-                              }
-                              return <li key={itemIndex}>{item}</li>;
-                            })}
-                          </ul>
-                        )}
-                      </div>
+                      <Plus
+                        className="h-[20px] w-[20px] shrink-0 text-pac-olive"
+                        strokeWidth={2.2}
+                        aria-hidden="true"
+                      />
                     )}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+                  </button>
 
-       
+                  {abierta && (
+                    <div id={`faq-panel-${index}`} className="px-[26px] pb-[22px]">
+                      {typeof faq.answer === 'string' ? (
+                        <p className="text-[15px] leading-[1.6] text-pac-body">
+                          {faq.answer}
+                        </p>
+                      ) : (
+                        <div className="text-[15px] leading-[1.6] text-pac-body">
+                          {faq.answer.text && (
+                            <p className="mb-3">{faq.answer.text}</p>
+                          )}
+                          {faq.answer.items && (
+                            <ul className="list-disc space-y-1.5 pl-5">
+                              {faq.answer.items.map((item, itemIndex) => {
+                                // Detectar si es la pregunta de redes sociales para mostrar iconos
+                                if (faq.question === "¿Dónde puedo ver los próximos viajes disponibles?") {
+                                  const getIcon = (item: string) => {
+                                    if (item.includes("Instagram")) return <Instagram className="w-4 h-4 shrink-0 text-pac-olive" />;
+                                    if (item.includes("Facebook")) return <Facebook className="w-4 h-4 shrink-0 text-pac-olive" />;
+                                    if (item.includes("TikTok")) return <MessageCircle className="w-4 h-4 shrink-0 text-pac-olive" />;
+                                    return null;
+                                  };
+
+                                  return (
+                                    <li key={itemIndex} className="list-none flex items-center gap-2">
+                                      {getIcon(item)}
+                                      <span>{item}</span>
+                                    </li>
+                                  );
+                                }
+                                return <li key={itemIndex}>{item}</li>;
+                              })}
+                            </ul>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );

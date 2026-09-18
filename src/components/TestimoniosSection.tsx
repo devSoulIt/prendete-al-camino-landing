@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Avatar, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
 
 interface Testimonio {
   id: number;
@@ -253,113 +252,117 @@ export function TestimoniosSection() {
     testimonioActual + testimoniosPorVista
   );
 
-  const renderEstrellas = (cantidad: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <svg
-        key={i}
-        className={`w-5 h-5 ${
-          i < cantidad ? "text-yellow-400" : "text-gray-300"
-        }`}
-        fill="currentColor"
-        viewBox="0 0 20 20"
-      >
-        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-      </svg>
-    ));
-  };
+  // Cinco estrellas amarillas para la pastilla de reseñas de Google
+  const estrellasGoogle = Array.from({ length: 5 }, (_, i) => (
+    <svg
+      key={i}
+      viewBox="0 0 20 20"
+      className="h-[16px] w-[16px] fill-pac-yellow"
+      aria-hidden="true"
+    >
+      <path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z" />
+    </svg>
+  ));
 
   return (
     <section
       id="testimonios"
-      className="py-16"
-      style={{ backgroundColor: "#f8f9fa" }}
+      className="bg-pac-surface border-y border-pac-olive/10 py-20 md:py-24"
     >
-      <div className="max-w-6xl mx-auto px-4">
-        {/* Título */}
-        <div className="text-center mb-12 flex items-center justify-center gap-4 mb-4">
-          <h3 className="text-4xl font-bold" style={{ color: "#404d21" }}>
-            ELLOS YA SE PRENDIERON AL CAMINO
-          </h3>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Encabezado */}
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-10">
+          <div className="flex flex-col gap-3">
+            <p className="pac-eyebrow">Testimonios</p>
+            <h2 className="pac-title text-[32px] md:text-[48px]">
+              Ellos ya se prendieron al camino
+            </h2>
+          </div>
+
           <a
             href="https://www.google.com.ar/maps/place/Prendete+al+Camino/@-26.8029624,-65.2515868,17z/data=!4m8!3m7!1s0x94225d0005e4e36b:0x12eed56b3e3f59d7!8m2!3d-26.8029672!4d-65.2490119!9m1!1b1!16s%2Fg%2F11m786kw6l?hl=es&entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+            className="inline-flex items-center gap-2.5 self-start rounded-full border border-pac-olive/20 bg-pac-bg px-[18px] py-3 text-[14px] font-bold text-pac-olive transition-colors duration-200 hover:bg-pac-olive/[0.06] md:self-auto md:whitespace-nowrap"
           >
-            <MapPin className="w-6 h-6 text-gray-600" />
+            <span className="flex shrink-0 gap-0.5">{estrellasGoogle}</span>
+            Leer todas las reseñas en Google
           </a>
         </div>
 
         {/* Carrusel */}
         <div className="relative">
           {/* Testimonios visibles */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
-            {testimoniosVisibles.map((testimonio, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px] items-stretch">
+            {testimoniosVisibles.map((testimonio) => (
               <div
                 key={testimonio.id}
-                className="bg-white rounded-2xl shadow-lg p-6 text-center"
+                className="pac-card bg-pac-bg h-full flex flex-col gap-[18px] p-8"
               >
-                <div className="flex justify-center mb-4">
+                <span
+                  aria-hidden="true"
+                  className="block h-[30px] overflow-hidden font-serif text-[56px] leading-none text-pac-yellow"
+                >
+                  &ldquo;
+                </span>
+
+                <blockquote className="flex-1 text-[16px] leading-[1.65] text-pac-olive-dark line-clamp-[10]">
+                  {testimonio.texto}
+                </blockquote>
+
+                <div className="flex items-center gap-3 border-t border-pac-olive/[0.12] pt-4">
                   {testimonio.avatar ? (
-                    <Avatar>
-                      <AvatarImage src={testimonio.avatar} />
+                    <Avatar className="size-[40px] shrink-0">
+                      <AvatarImage
+                        src={testimonio.avatar}
+                        alt={`Foto de ${testimonio.nombre}`}
+                      />
                     </Avatar>
                   ) : (
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-xl font-bold">
-                      {testimonio.nombre.charAt(0)}
+                    <div className="flex size-[40px] shrink-0 items-center justify-center rounded-full bg-pac-olive text-[15px] font-extrabold text-pac-surface">
+                      {testimonio.nombre.charAt(0).toUpperCase()}
                     </div>
                   )}
+
+                  <p className="text-[14px] font-extrabold text-pac-ink">
+                    {testimonio.nombre}
+                  </p>
                 </div>
-
-                <h4
-                  className="text-lg font-semibold mb-2"
-                  style={{ color: "#404d21" }}
-                >
-                  {testimonio.nombre}
-                </h4>
-
-                <div className="flex justify-center mb-4">
-                  {renderEstrellas(testimonio.estrellas)}
-                </div>
-
-                <blockquote className="text-sm text-gray-700 italic leading-relaxed max-h-48 h-48 overflow-y-auto">
-                  "{testimonio.texto}"
-                </blockquote>
               </div>
             ))}
           </div>
 
-          {/* Indicadores */}
-          <div className="flex justify-center items-center mt-8 space-x-2">
-            {/* Controles de navegación */}
+          {/* Controles e indicadores */}
+          <div className="mt-10 flex items-center justify-center gap-2">
             <button
               onClick={anteriorTestimonio}
-              className="bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+              className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full bg-pac-surface border border-pac-olive/15 text-pac-olive transition-colors duration-200 hover:bg-pac-olive/[0.06]"
               aria-label="Testimonio anterior"
             >
-              <ChevronLeft className="w-6 h-6 text-gray-600" />
+              <ChevronLeft className="h-[20px] w-[20px]" />
             </button>
 
-            {Array.from({ length: maxIndex + 1 }, (_, index) => (
-              <button
-                key={index}
-                onClick={() => irA(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === testimonioActual
-                    ? "bg-green-600 scale-125"
-                    : "bg-gray-300 hover:bg-gray-400"
-                }`}
-                aria-label={`Ir al testimonio ${index + 1}`}
-              />
-            ))}
+            <div className="flex flex-wrap items-center justify-center gap-1.5 px-2">
+              {Array.from({ length: maxIndex + 1 }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => irA(index)}
+                  className={`h-[6px] rounded-full transition-all duration-300 ${
+                    index === testimonioActual
+                      ? "w-[20px] bg-pac-olive"
+                      : "w-[6px] bg-pac-olive/25 hover:bg-pac-olive/40"
+                  }`}
+                  aria-label={`Ir al testimonio ${index + 1}`}
+                />
+              ))}
+            </div>
 
-            {/* Controles de navegación */}
             <button
               onClick={siguienteTestimonio}
-              className="bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+              className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full bg-pac-surface border border-pac-olive/15 text-pac-olive transition-colors duration-200 hover:bg-pac-olive/[0.06]"
               aria-label="Siguiente testimonio"
             >
-              <ChevronRight className="w-6 h-6 text-gray-600" />
+              <ChevronRight className="h-[20px] w-[20px]" />
             </button>
           </div>
         </div>
