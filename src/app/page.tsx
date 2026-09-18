@@ -38,8 +38,9 @@ export default function Home() {
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 text-center">
           <p className="font-serif text-[26px] md:text-[34px] leading-[1.25] font-medium text-pac-ink [text-wrap:pretty]">
-            Descubrí la magia del Camino de Santiago: desde Sarria hasta la
-            majestuosa Catedral de Compostela. Un viaje hacia{" "}
+            Descubrí la magia del Camino de Santiago: por el Camino Portugués
+            de la Costa hasta la majestuosa Catedral de Compostela. Un viaje
+            hacia{" "}
             <em className="italic text-pac-olive">la mejor versión de vos mismo</em>.
           </p>
           <p className="mt-5 text-[16px] md:text-[17px] leading-[1.6] text-pac-body">

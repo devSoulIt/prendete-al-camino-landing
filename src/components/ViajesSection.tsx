@@ -53,8 +53,9 @@ export function ViajesSection() {
                   Camino de Santiago de Compostela
                 </h3>
                 <p className="text-[15px] md:text-[16px] leading-[1.5] text-pac-surface/85">
-                  De Sarria a la Catedral: pasajes, alojamiento, media pensión,
-                  traslado de maletas y entrenamiento previo incluidos.
+                  Por el Camino Portugués de la Costa hasta la Catedral:
+                  pasajes, alojamiento, media pensión, traslado de maletas y
+                  entrenamiento previo incluidos.
                 </p>
               </div>
               <span className="inline-flex items-center gap-2 self-start lg:self-auto px-4 py-3 rounded-xl bg-pac-surface/15 border border-pac-surface/40 text-[14px] font-bold whitespace-nowrap">

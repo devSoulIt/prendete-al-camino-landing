@@ -25,9 +25,9 @@ export function HeroSection({ onImageLoad }: HeroSectionProps) {
             </h1>
 
             <p className="text-[17px] md:text-[19px] leading-[1.6] text-pac-body max-w-[520px]">
-              Descubrí la magia del Camino de Santiago, desde Sarria hasta la
-              Catedral de Compostela. Nosotros nos ocupamos de todo para que vos
-              solo tengas que caminar.
+              Descubrí la magia del Camino de Santiago, por el Camino Portugués
+              de la Costa hasta la Catedral de Compostela. Nosotros nos ocupamos
+              de todo para que vos solo tengas que caminar.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5">

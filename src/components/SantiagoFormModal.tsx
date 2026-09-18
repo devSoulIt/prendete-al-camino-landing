@@ -38,12 +38,12 @@ export function SantiagoFormModal({ isOpen, onClose }: SantiagoFormModalProps) {
     }
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose} title="Santiago de Compostela 2026">
+        <Modal isOpen={isOpen} onClose={onClose} title="Santiago de Compostela 2027">
             <Card className="border-0 shadow-none">
                 <CardContent className="p-0">
                     <div className="mb-6">
                         <h3 className="text-lg sm:text-xl font-bold mb-2" style={{ color: '#404d21' }}>
-                            ¿Querés sumarte a Santiago de Compostela 2026?
+                            ¿Querés sumarte a Santiago de Compostela 2027?
                         </h3>
                         <p className="text-sm sm:text-base text-gray-600">
                             Completá este breve formulario y te enviaremos toda la información detallada.
@@ -129,7 +129,7 @@ export function SantiagoFormModal({ isOpen, onClose }: SantiagoFormModalProps) {
                         {/* 5. Disponibilidad */}
                         <div>
                             <label className="block mb-2 font-medium text-sm sm:text-base" style={{ color: '#404d21' }}>
-                                5. Disponibilidad en junio 2026 *
+                                5. Disponibilidad en junio 2027 *
                             </label>
                             <div className="space-y-2">
                                 {[

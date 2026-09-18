@@ -39,6 +39,23 @@ const viajes: Viaje[] = [
     dias: [3, 4, 5, 6, 7, 8, 9, 10, 11]
   },
   {
+    // Salida 2027: cambia la ruta, ya no se sale desde Sarria. El mes es
+    // estimado y los dias son tentativos, solo para ubicarla en la grilla;
+    // por eso el "fecha a confirmar" en el texto visible.
+    id: '8',
+    titulo: 'Santiago de Compostela',
+    fecha: 'Junio 2027 · fecha a confirmar',
+    duracion: '10 días',
+    ubicacion: 'Portugal & España',
+    participantes: 'Grupo reducido',
+    descripcion: 'Camino Portugués de la Costa hasta la Catedral de Compostela',
+    destacado: true,
+    color: 'bg-gradient-to-r from-green-600 to-emerald-600',
+    anio: 2027,
+    mes: 5, // Junio (0-indexed)
+    dias: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  },
+  {
     id: '2',
     titulo: 'Santiago de Compostela',
     fecha: '1-10 Junio 2026',
