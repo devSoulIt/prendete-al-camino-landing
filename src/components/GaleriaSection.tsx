@@ -140,6 +140,39 @@ export function GaleriaSection() {
         ], "Italia"),
       ]
     },
+    espanaPortugal: {
+      name: "España y Portugal",
+      coverImage: "/images/Segovia/1.webp",
+      media: [
+        ...whatsappMedia("/images/Madrid", "Madrid", [
+          "WhatsApp Image 2026-10-02 at 12.06.21 (4).webp",
+          "WhatsApp Image 2026-10-02 at 12.06.21 (1).webp",
+          "WhatsApp Image 2026-10-02 at 12.06.21 (2).webp",
+          "WhatsApp Image 2026-10-02 at 12.06.21 (3).webp",
+          "WhatsApp Image 2026-10-02 at 12.06.21 (5).webp",
+          "WhatsApp Image 2026-10-02 at 12.06.21.webp",
+        ], "España y Portugal"),
+        ...whatsappMedia("/images/Toledo", "Toledo", [
+          "WhatsApp Image 2026-10-02 at 12.01.52 (1).webp",
+          "WhatsApp Image 2026-10-02 at 12.01.52 (2).webp",
+          "WhatsApp Image 2026-10-02 at 12.01.52 (3).webp",
+          "WhatsApp Image 2026-10-02 at 12.01.52.webp",
+        ], "España y Portugal"),
+        ...whatsappMedia("/images/Segovia", "Segovia", [
+          "1.webp",
+          "2.webp",
+          "WhatsApp Image 2026-10-02 at 12.08.49.webp",
+          "WhatsApp Image 2026-10-02 at 12.08.50 (1).webp",
+          "WhatsApp Image 2026-10-02 at 12.08.50.webp",
+          "WhatsApp Image 2026-10-02 at 12.08.49 (1).webp",
+          "WhatsApp Image 2026-10-02 at 12.08.49 (2).webp",
+        ], "España y Portugal"),
+        ...whatsappMedia("/images/Oporto", "Oporto", [
+          "WhatsApp Image 2026-09-30 at 09.17.34.webp",
+          "WhatsApp Image 2026-10-02 at 12.01.52.webp",
+        ], "España y Portugal"),
+      ]
+    },
     catamarca: {
       name: "Catamarca",
       coverImage: "/images/Portadas/Catamarca.webp",
@@ -437,17 +470,40 @@ export function GaleriaSection() {
             </ol>
           </div>
 
-          {/* Italia — Roma, Nápoles, Pompeya, Sorrento, Positano, Amalfi y Capri */}
-          <div className="flex justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px]">
+            {/* España y Portugal 2025 — Madrid, Toledo, Segovia y Oporto */}
             <div
-              className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer w-full max-w-4xl"
+              className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer"
+              onClick={() => openModal('espanaPortugal')}
+            >
+              <Image
+                src={imageCategories.espanaPortugal.coverImage}
+                alt="Acueducto de Segovia durante el viaje a España"
+                className="w-full h-80 md:h-[420px] object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-500"
+                width={600}
+                height={420}
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+                <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                  <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                    España y Portugal
+                  </h3>
+                  <p className="mt-1 text-[14px] opacity-85">2025 · Madrid · Toledo · Segovia · Oporto</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Italia 2026 — Roma, Nápoles, Pompeya, Sorrento, Positano, Amalfi y Capri */}
+            <div
+              className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer"
               onClick={() => openModal('italia')}
             >
               <Image
                 src={imageCategories.italia.coverImage}
                 alt="Calles de Roma durante el viaje a Italia"
                 className="w-full h-80 md:h-[420px] object-cover group-hover:scale-105 transition-transform duration-500"
-                width={800}
+                width={600}
                 height={420}
                 quality={90}
               />
@@ -456,7 +512,7 @@ export function GaleriaSection() {
                   <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
                     Italia
                   </h3>
-                  <p className="mt-1 text-[14px] opacity-85">Roma · Nápoles · Pompeya · Sorrento · Positano · Amalfi · Capri</p>
+                  <p className="mt-1 text-[14px] opacity-85">2026 · Roma · Nápoles · Pompeya · Sorrento · Positano · Amalfi · Capri</p>
                 </div>
               </div>
             </div>
