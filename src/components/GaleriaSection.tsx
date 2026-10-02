@@ -5,71 +5,99 @@ import Image from "next/image";
 
 /** Carpeta pública con espacios y tilde — usar segmento codificado en URLs */
 const SAN_CARLOS_MAGICO = "/images/San%20Carlos%20M%C3%A1gico";
+const CORDOBA = "/images/C%C3%B3rdoba";
+const SANTIAGO = "/images/Santiago";
+
+/** Arma la lista de una galería a partir de los nombres de archivo; los .mp4 se muestran como video */
+function whatsappMedia(dir: string, label: string, files: string[], category = label) {
+  let foto = 0;
+  return files.map((file) => {
+    const isVideo = file.endsWith(".mp4");
+    return {
+      src: `${dir}/${file}`,
+      alt: isVideo ? `${label} - Video` : `${label} - Foto ${++foto}`,
+      category,
+      type: isVideo ? "video" : "image",
+    };
+  });
+}
+
+/** Caminos a Santiago ya realizados, del más antiguo al más reciente */
+const SANTIAGO_TIMELINE = [
+  { year: "2024", key: "santiago2024" },
+  { year: "2025", key: "santiago2025" },
+  { year: "2026", key: "santiago2026" },
+] as const;
 
 export function GaleriaSection() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("santiago");
+  const [selectedCategory, setSelectedCategory] = useState<string>("santiago2026");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const imageCategories = {
-    santiago: {
-      name: "Santiago de Compostela",
-      coverImage: "/images/Portadas/Santiago de Compostela .webp",
-      media: [
-        { src: "/images/Santiago/video-santiago-1.mp4", alt: "Santiago - Video", category: "Santiago", type: "video" },//video
-        { src: "/images/Santiago/IMG_5308.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_4058.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6995.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6581.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6435.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6359.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6350.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6334.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6321.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6309.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
-        //{ src: "/images/Santiago/IMG_6306.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6304.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6280.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-        // { src: "/images/Santiago/IMG_6271.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6167.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6105.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        // { src: "/images/Santiago/IMG_6092.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_6036.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5996.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5965.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5908.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5854.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5849.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5845.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5840.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5803.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5754.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5710.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5690.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5664.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5658.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        // { src: "/images/Santiago/IMG_5650.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5604.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-        // { src: "/images/Santiago/IMG_5554.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5543.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5519.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5502.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5476.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5428.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5400.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
-        // { src: "/images/Santiago/IMG_5395.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        // { src: "/images/Santiago/IMG_5392.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5260.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_5022.webp", alt: "Santiago - Naturaleza", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_4765.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_4715.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_4521.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/IMG_4419.webp", alt: "Santiago - Vista panorámica", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/d2018c62-241e-4d0a-9322-d987678cd4d6.webp", alt: "Santiago - Paisaje rural", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/aef2ef1a-98fe-4cd9-b316-8ea7a37e97f6.webp", alt: "Santiago - Vista aérea", category: "Santiago", type: "image" },
-        { src: "/images/Santiago/667bfe79-55cc-4f23-92f2-09929c853cb7.webp", alt: "Santiago - Paisaje", category: "Santiago", type: "image" },
-      ]
+    santiago2024: {
+      name: "Santiago de Compostela 2024",
+      coverImage: `${SANTIAGO}/2024/WhatsApp Image 2026-09-30 at 09.17.34 (5).webp`,
+      media: whatsappMedia(`${SANTIAGO}/2024`, "Santiago 2024", [
+        "WhatsApp Video 2026-09-30 at 09.17.34 (1).mp4",
+        "WhatsApp Image 2026-09-30 at 09.17.34 (5).webp",
+        "WhatsApp Image 2026-09-30 at 09.17.34 (6).webp",
+        "WhatsApp Image 2026-09-30 at 09.17.34 (7).webp",
+        "WhatsApp Image 2026-09-30 at 09.17.34.webp",
+        "WhatsApp Image 2026-09-30 at 09.17.33 (1).webp",
+        "WhatsApp Image 2026-09-30 at 09.17.33.webp",
+        "WhatsApp Image 2026-09-30 at 09.17.34 (1).webp",
+        "WhatsApp Image 2026-09-30 at 09.17.34 (2).webp",
+        "WhatsApp Image 2026-09-30 at 09.17.34 (3).webp",
+        "WhatsApp Image 2026-09-30 at 09.17.34 (4).webp",
+        "WhatsApp Video 2026-09-30 at 09.17.34.mp4",
+        "WhatsApp Image 2026-09-30 at 09.17.34 (8).webp",
+      ]),
+    },
+    santiago2025: {
+      name: "Santiago de Compostela 2025",
+      coverImage: `${SANTIAGO}/2025/WhatsApp Image 2026-09-30 at 10.00.14 (13).webp`,
+      media: whatsappMedia(`${SANTIAGO}/2025`, "Santiago 2025", [
+        "WhatsApp Video 2026-09-30 at 10.00.14.mp4",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (13).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.12 (1).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.12.webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (1).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (10).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (11).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (12).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (14).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (2).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (3).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (4).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (5).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (6).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (7).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (8).webp",
+        "WhatsApp Image 2026-09-30 at 10.00.14 (9).webp",
+        // 10.00.14.webp queda afuera: es una placa promocional con el texto "Santiago de Compostela 2026"
+        "WhatsApp Image 2026-09-30 at 10.46.41 (1).webp",
+        "WhatsApp Image 2026-09-30 at 10.46.41 (2).webp",
+        "WhatsApp Image 2026-09-30 at 10.46.41 (3).webp",
+        "WhatsApp Image 2026-09-30 at 10.46.41 (4).webp",
+        "WhatsApp Image 2026-09-30 at 10.46.41.webp",
+      ]),
+    },
+    santiago2026: {
+      name: "Santiago de Compostela 2026",
+      coverImage: `${SANTIAGO}/2026/WhatsApp Image 2026-09-30 at 11.20.22.webp`,
+      media: whatsappMedia(`${SANTIAGO}/2026`, "Santiago 2026", [
+        "WhatsApp Video 2026-09-30 at 11.20.41.mp4",
+        "WhatsApp Image 2026-09-30 at 11.20.22.webp",
+        "WhatsApp Image 2026-09-30 at 11.21.51 (1).webp",
+        "WhatsApp Image 2026-09-30 at 11.21.51 (2).webp",
+        "WhatsApp Image 2026-09-30 at 11.21.51.webp",
+        "WhatsApp Image 2026-09-30 at 11.21.52 (1).webp",
+        "WhatsApp Image 2026-09-30 at 11.21.52 (2).webp",
+        "WhatsApp Image 2026-09-30 at 11.21.52 (3).webp",
+        "WhatsApp Image 2026-09-30 at 11.21.52.webp",
+      ]),
     },
     italia: {
       name: "Italia",
@@ -89,6 +117,27 @@ export function GaleriaSection() {
         { src: "/images/Sorrento/1.jpg", alt: "Sorrento - Grupo Prendete al Camino", category: "Italia", type: "image" },
         { src: "/images/Sorrento/2.jpg", alt: "Sorrento - Foto 2", category: "Italia", type: "image" },
         { src: "/images/Pompeya/1.jpg", alt: "Pompeya - Ruinas", category: "Italia", type: "image" },
+        // Las fotos nuevas de la carpeta Sorrento son de Roma (San Pedro, Fontana di Trevi, Castel Sant'Angelo)
+        { src: "/images/Sorrento/WhatsApp Image 2026-09-30 at 11.26.51.webp", alt: "Roma - Fontana di Trevi", category: "Italia", type: "image" },
+        { src: "/images/Sorrento/WhatsApp Image 2026-09-30 at 11.26.50.webp", alt: "Roma - Plaza San Pedro", category: "Italia", type: "image" },
+        { src: "/images/Sorrento/WhatsApp Image 2026-09-30 at 11.26.51 (1).webp", alt: "Roma - Castel Sant'Angelo", category: "Italia", type: "image" },
+        ...whatsappMedia("/images/Napoles", "Nápoles", [
+          "WhatsApp Image 2026-09-30 at 11.27.54 (1).webp",
+          "WhatsApp Image 2026-09-30 at 11.27.54.webp",
+          "WhatsApp Image 2026-09-30 at 11.27.55 (1).webp",
+          "WhatsApp Image 2026-09-30 at 11.27.55.webp",
+          "WhatsApp Image 2026-09-30 at 11.31.32 (1).webp",
+          "WhatsApp Image 2026-09-30 at 11.31.32.webp",
+          "WhatsApp Image 2026-09-30 at 11.31.33 (1).webp",
+          "WhatsApp Image 2026-09-30 at 11.31.33.webp",
+          "WhatsApp Image 2026-09-30 at 11.31.34.webp",
+        ], "Italia"),
+        ...whatsappMedia("/images/Positano", "Positano", [
+          "WhatsApp Video 2026-09-30 at 11.25.04.mp4",
+          "WhatsApp Image 2026-09-30 at 11.25.02.webp",
+          "WhatsApp Image 2026-09-30 at 11.25.04.webp",
+          "WhatsApp Image 2026-09-30 at 11.25.05.webp",
+        ], "Italia"),
       ]
     },
     catamarca: {
@@ -117,25 +166,25 @@ export function GaleriaSection() {
     },
     cordoba: {
       name: "Córdoba",
-      coverImage: "/images/Portadas/Córdoba .webp",
+      coverImage: "/images/Portadas/C%C3%B3rdoba%20.webp",
       media: [
-        { src: "/images/Córdoba/video-cordoba-1.mp4", alt: "Córdoba - Video", category: "Córdoba", type: "video" }, //video
-        { src: "/images/Córdoba/IMG_3928.webp", alt: "Córdoba - Paisaje", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/IMG_3724.webp", alt: "Córdoba - Vista panorámica", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/F31C81B0-4665-4D11-AA2C-EB05CDEF08D8.webp", alt: "Córdoba - Naturaleza", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/D6A28E29-B014-4A68-B1A0-97FC52CA8407.webp", alt: "Córdoba - Paisaje rural", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/D2BAF8D2-A5B2-42AA-A961-89B78A40A2C1.webp", alt: "Córdoba - Vista aérea", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/D6A28E29-B014-4A68-B1A0-97FC52CA8407(1).webp", alt: "Córdoba - Paisaje", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/CBEAEFB5-CDD0-4B58-9CA6-DC1CBA124E8C.webp", alt: "Córdoba - Vista panorámica", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/C0A67155-274B-4B36-B82A-3D5ED051C1E2.webp", alt: "Córdoba - Naturaleza", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/C0453752-EFDB-441D-8FF5-3C2F557D6DB7.webp", alt: "Córdoba - Paisaje rural", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/B4E4D736-21FC-493C-8D44-76BE78BD390E.webp", alt: "Córdoba - Vista aérea", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/98CB852E-D77E-4F6A-94E1-4B491F428748.webp", alt: "Córdoba - Paisaje", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/9172643C-746F-44BB-AD5B-1B4F37A25099.webp", alt: "Córdoba - Vista panorámica", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/90BF532A-0B4D-462F-83F7-B996788F4F6E.webp", alt: "Córdoba - Naturaleza", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/5181FAAD-86F1-48CF-9408-9B030F1BBAA3.webp", alt: "Córdoba - Paisaje rural", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/5110DA24-A2FC-449B-A401-4433614DE1A4.webp", alt: "Córdoba - Vista aérea", category: "Córdoba", type: "image" },
-        { src: "/images/Córdoba/393FBCA0-5D05-43BA-958E-049C14E84F2B.webp", alt: "Córdoba - Paisaje", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/video-cordoba-1.mp4`, alt: "Córdoba - Video", category: "Córdoba", type: "video" }, //video
+        { src: `${CORDOBA}/IMG_3928.webp`, alt: "Córdoba - Paisaje", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/IMG_3724.webp`, alt: "Córdoba - Vista panorámica", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/F31C81B0-4665-4D11-AA2C-EB05CDEF08D8.webp`, alt: "Córdoba - Naturaleza", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/D6A28E29-B014-4A68-B1A0-97FC52CA8407.webp`, alt: "Córdoba - Paisaje rural", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/D2BAF8D2-A5B2-42AA-A961-89B78A40A2C1.webp`, alt: "Córdoba - Vista aérea", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/D6A28E29-B014-4A68-B1A0-97FC52CA8407(1).webp`, alt: "Córdoba - Paisaje", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/CBEAEFB5-CDD0-4B58-9CA6-DC1CBA124E8C.webp`, alt: "Córdoba - Vista panorámica", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/C0A67155-274B-4B36-B82A-3D5ED051C1E2.webp`, alt: "Córdoba - Naturaleza", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/C0453752-EFDB-441D-8FF5-3C2F557D6DB7.webp`, alt: "Córdoba - Paisaje rural", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/B4E4D736-21FC-493C-8D44-76BE78BD390E.webp`, alt: "Córdoba - Vista aérea", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/98CB852E-D77E-4F6A-94E1-4B491F428748.webp`, alt: "Córdoba - Paisaje", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/9172643C-746F-44BB-AD5B-1B4F37A25099.webp`, alt: "Córdoba - Vista panorámica", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/90BF532A-0B4D-462F-83F7-B996788F4F6E.webp`, alt: "Córdoba - Naturaleza", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/5181FAAD-86F1-48CF-9408-9B030F1BBAA3.webp`, alt: "Córdoba - Paisaje rural", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/5110DA24-A2FC-449B-A401-4433614DE1A4.webp`, alt: "Córdoba - Vista aérea", category: "Córdoba", type: "image" },
+        { src: `${CORDOBA}/393FBCA0-5D05-43BA-958E-049C14E84F2B.webp`, alt: "Córdoba - Paisaje", category: "Córdoba", type: "image" },
       ]
     },
     salta: {
@@ -312,39 +361,83 @@ export function GaleriaSection() {
             <p className="text-[17px] text-pac-body leading-relaxed max-w-3xl">
               Santiago de Compostela <strong className="font-bold text-pac-ink">es nuestro destino principal</strong>, pero cada año sumamos nuevas ciudades europeas.
               En 2025 exploramos: Madrid, Barajas, Lugo, Playa de las Catedrales, Segovia, Toledo y Oporto.
-              Este 2026 recorrimos Italia: Roma, Nápoles, Sorrento y Pompeya.
+              Este 2026 recorrimos Italia: Roma, Nápoles, Pompeya, Sorrento, Positano, Amalfi y Capri.
             </p>
           </div>
 
-          {/* Santiago - Portada principal */}
-          <div className="flex justify-center mb-[24px]">
-            <div
-              className="relative group overflow-hidden rounded-[24px] shadow-[0_12px_32px_rgba(31,36,20,0.12)] hover:shadow-[0_22px_52px_rgba(31,36,20,0.20)] transition-all duration-500 cursor-pointer max-w-4xl w-full"
-              onClick={() => openModal('santiago')}
-            >
-              <Image
-                src={imageCategories.santiago.coverImage}
-                alt="Grupo de peregrinos en Santiago de Compostela"
-                className="w-full h-96 md:h-[500px] object-cover group-hover:scale-105 transition-transform duration-500"
-                width={800}
-                height={500}
-                quality={90}
-              />
-              <div className="absolute top-5 left-5 z-10 inline-flex items-center rounded-full bg-pac-yellow px-[14px] py-2 text-[12px] font-extrabold uppercase tracking-[0.08em] text-pac-olive-dark">
+          {/* Santiago - Línea de tiempo de los Caminos realizados */}
+          <div className="mb-[32px] md:mb-[48px]">
+            <div className="flex flex-wrap items-center gap-3 mb-6 md:mb-8">
+              <span className="inline-flex items-center rounded-full bg-pac-yellow px-[14px] py-2 text-[12px] font-extrabold uppercase tracking-[0.08em] text-pac-olive-dark">
                 Destino principal
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
-                <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
-                  <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
-                    Santiago de Compostela
-                  </h3>
-                  <p className="mt-1 text-[14px] opacity-85">Ver galería completa</p>
-                </div>
-              </div>
+              </span>
+              <h3 className="font-serif font-medium leading-[1.05] text-pac-ink text-[28px] md:text-[36px]">
+                Santiago de Compostela, año a año
+              </h3>
             </div>
+
+            <ol className="relative grid gap-8 md:grid-cols-4 md:gap-6">
+              {/* Línea: vertical en mobile, horizontal desde md */}
+              <div
+                aria-hidden="true"
+                className="absolute left-[11px] top-3 bottom-3 w-[2px] bg-pac-olive/20 md:left-3 md:right-3 md:top-[11px] md:bottom-auto md:w-auto md:h-[2px]"
+              />
+
+              {SANTIAGO_TIMELINE.map(({ year, key }) => {
+                const galeria = imageCategories[key];
+                const fotos = galeria.media.filter((m) => m.type === "image").length;
+                const videos = galeria.media.length - fotos;
+                return (
+                  <li key={key} className="relative pl-10 md:pl-0 md:pt-10">
+                    <span
+                      aria-hidden="true"
+                      className="absolute left-0 top-1 md:top-0 h-6 w-6 rounded-full bg-pac-olive border-[5px] border-pac-bg"
+                    />
+                    <p className="font-serif font-medium text-pac-ink text-[32px] leading-none mb-3">{year}</p>
+                    <button
+                      type="button"
+                      onClick={() => openModal(key)}
+                      className="relative group block w-full overflow-hidden rounded-[20px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 text-left"
+                      aria-label={`Ver fotos y videos del Camino ${year}`}
+                    >
+                      <Image
+                        src={galeria.coverImage}
+                        alt={`Grupo de peregrinos en Santiago de Compostela, ${year}`}
+                        className="w-full h-60 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                        width={500}
+                        height={400}
+                        quality={85}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/80 via-transparent to-transparent">
+                        <p className="absolute bottom-4 left-5 right-5 text-[14px] font-semibold text-pac-surface">
+                          {fotos} fotos{videos > 0 && ` · ${videos} ${videos === 1 ? "video" : "videos"}`}
+                        </p>
+                      </div>
+                    </button>
+                  </li>
+                );
+              })}
+
+              {/* Próximo Camino */}
+              <li className="relative pl-10 md:pl-0 md:pt-10">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-1 md:top-0 h-6 w-6 rounded-full bg-pac-yellow border-[5px] border-pac-bg"
+                />
+                <p className="font-serif font-medium text-pac-ink text-[32px] leading-none mb-3">2027</p>
+                <a
+                  href="#calendario"
+                  className="flex flex-col justify-center gap-2 h-60 md:h-72 rounded-[20px] border-2 border-dashed border-pac-olive/30 px-6 text-pac-ink transition-colors duration-200 hover:bg-pac-olive/[0.06]"
+                >
+                  <span className="pac-eyebrow">Próximo Camino</span>
+                  <span className="font-serif font-medium text-[26px] leading-[1.1]">Tu foto puede ser la próxima</span>
+                  <span className="text-[14px] font-bold text-pac-olive">Ver fechas →</span>
+                </a>
+              </li>
+            </ol>
           </div>
 
-          {/* Italia — Roma, Nápoles, Sorrento y Pompeya */}
+          {/* Italia — Roma, Nápoles, Pompeya, Sorrento, Positano, Amalfi y Capri */}
           <div className="flex justify-center">
             <div
               className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer w-full max-w-4xl"
@@ -363,7 +456,7 @@ export function GaleriaSection() {
                   <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
                     Italia
                   </h3>
-                  <p className="mt-1 text-[14px] opacity-85">Roma · Nápoles · Sorrento · Pompeya</p>
+                  <p className="mt-1 text-[14px] opacity-85">Roma · Nápoles · Pompeya · Sorrento · Positano · Amalfi · Capri</p>
                 </div>
               </div>
             </div>
