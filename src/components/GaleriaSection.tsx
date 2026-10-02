@@ -6,6 +6,7 @@ import Image from "next/image";
 /** Carpeta pública con espacios y tilde — usar segmento codificado en URLs */
 const SAN_CARLOS_MAGICO = "/images/San%20Carlos%20M%C3%A1gico";
 const CORDOBA = "/images/C%C3%B3rdoba";
+const TERMAS = "/images/Termas%20de%20Rosario%20de%20la%20frontera";
 const SANTIAGO = "/images/Santiago";
 
 /** Arma la lista de una galería a partir de los nombres de archivo; los .mp4 se muestran como video */
@@ -314,6 +315,19 @@ export function GaleriaSection() {
         { src: `${SAN_CARLOS_MAGICO}/22.jpeg`, alt: "San Carlos Mágico - Foto 22", category: "San Carlos Mágico", type: "image" },
       ]
     },
+    termas: {
+      name: "Termas de Rosario de la Frontera",
+      coverImage: `${TERMAS}/3.webp`,
+      media: whatsappMedia(TERMAS, "Termas de Rosario de la Frontera", [
+        "6.mp4",
+        "3.webp",
+        "1.webp",
+        "2.webp",
+        "4.webp",
+        "6.webp",
+        "7.webp",
+      ]),
+    },
     ancajuli: {
       name: "Ancajuli",
       coverImage: "/images/Ancajuli/1.jpg",
@@ -527,7 +541,7 @@ export function GaleriaSection() {
               Viajes nacionales
             </h2>
             <p className="text-[17px] text-pac-body leading-relaxed max-w-3xl">
-              A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba, Catamarca, Alpachiri-Portal de los Alisos, Balcozna, San Carlos Mágico y Ancajuli.
+              A lo largo de nuestro querido país descubrimos impresionantes escenarios en: Jujuy, Salta, Tucumán, Córdoba, Catamarca, Alpachiri-Portal de los Alisos, Balcozna, San Carlos Mágico, Ancajuli y las Termas de Rosario de la Frontera.
             </p>
           </div>
 
@@ -678,7 +692,7 @@ export function GaleriaSection() {
           </div>
 
           {/* San Carlos Mágico y Ancajuli - Grid de 2 columnas */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px] mb-[24px]">
             {/* San Carlos Mágico - Lado izquierdo */}
             <div
               className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer"
@@ -722,6 +736,29 @@ export function GaleriaSection() {
                   </h3>
                   <p className="mt-1 text-[14px] opacity-85">Ver galería completa</p>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Termas de Rosario de la Frontera - Ancho completo */}
+          <div
+            className="relative group overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer"
+            onClick={() => openModal('termas')}
+          >
+            <Image
+              src={imageCategories.termas.coverImage}
+              alt="Pileta termal en Rosario de la Frontera"
+              className="w-full h-80 md:h-[420px] object-cover group-hover:scale-105 transition-transform duration-500"
+              width={1200}
+              height={420}
+              quality={90}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+              <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                  Termas de Rosario de la Frontera
+                </h3>
+                <p className="mt-1 text-[14px] opacity-85">Ver galería completa</p>
               </div>
             </div>
           </div>
