@@ -39,6 +39,34 @@ const viajes: Viaje[] = [
     dias: [3, 4, 5, 6, 7, 8, 9, 10, 11]
   },
   {
+    id: '9',
+    titulo: 'Tafí del Valle',
+    fecha: 'Sábado 17 Octubre 2026',
+    duracion: 'Salida de un día',
+    ubicacion: 'Tafí del Valle, Tucumán',
+    participantes: 'Grupo reducido',
+    descripcion: 'Una jornada entre cerros y el valle tucumano',
+    destacado: false,
+    color: 'bg-gradient-to-r from-lime-600 to-green-600',
+    anio: 2026,
+    mes: 9, // Octubre (0-indexed)
+    dias: [17]
+  },
+  {
+    id: '10',
+    titulo: 'Termas de Rosario de la Frontera',
+    fecha: '14-15 Noviembre 2026',
+    duracion: '2 días',
+    ubicacion: 'Rosario de la Frontera, Salta',
+    participantes: 'Grupo reducido',
+    descripcion: 'Trekking y relax',
+    destacado: false,
+    color: 'bg-gradient-to-r from-sky-600 to-cyan-600',
+    anio: 2026,
+    mes: 10, // Noviembre (0-indexed)
+    dias: [14, 15]
+  },
+  {
     // Salida 2027: cambia la ruta, ya no se sale desde Sarria. El mes es
     // estimado y los dias son tentativos, solo para ubicarla en la grilla;
     // por eso el "fecha a confirmar" en el texto visible.
