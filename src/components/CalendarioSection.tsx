@@ -197,15 +197,14 @@ export function CalendarioSection() {
   // desajuste de hidratacion.
   const [hoy] = useState(inicioDeHoy);
 
-  // Cada viaje con su estado calculado: primero los proximos, por fecha.
+  // Solo los viajes que todavia no terminaron, ordenados por fecha. Los
+  // finalizados se ocultan solos cuando pasa su ultimo dia.
   const viajesOrdenados = useMemo(
     () =>
       viajes
-        .map((viaje) => ({ viaje, finalizado: esFinalizado(viaje, hoy) }))
-        .sort((a, b) => {
-          if (a.finalizado !== b.finalizado) return a.finalizado ? 1 : -1;
-          return inicioDelViaje(a.viaje) - inicioDelViaje(b.viaje);
-        }),
+        .filter((viaje) => !esFinalizado(viaje, hoy))
+        .map((viaje) => ({ viaje, finalizado: false }))
+        .sort((a, b) => inicioDelViaje(a.viaje) - inicioDelViaje(b.viaje)),
     [hoy]
   );
 

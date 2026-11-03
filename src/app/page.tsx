@@ -12,7 +12,6 @@ import { Contacto } from "@/components/Contacto";
 import { Whatsapp } from "@/components/Whatsapp";
 import { TestimoniosSection } from "@/components/TestimoniosSection";
 import { LoadingScreen } from "@/components/LoadingScreen";
-import { MachuPicchuSection } from "@/components/MachuPicchuSection";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -49,7 +48,6 @@ export default function Home() {
         </div>
       </section>
 
-      <MachuPicchuSection />
       <ViajesSection />
       <CalendarioSection />
       <SantiagoSection />

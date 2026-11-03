@@ -14,6 +14,25 @@ interface Testimonio {
 
 const testimonios: Testimonio[] = [
   {
+    id: 21,
+    nombre: "Margarita Elias",
+    avatar: null,
+    texto: `Nuestro viaje a Machu Picchu, fue magnífico, más de lo que imaginé. Nos adentramos en un Perú, que aún conserva y preserva su cultura, que vivenciamos a través de distintas herramientas como excursiones visitas guiadas por personas especializadas, preparadas y respetuosas. Para mí, el viajar en un grupo pequeño, preservó la intimidad, nos relacionó, participando de distintas formas cada excursión , donde uno se reconocía con sus gustos con su costumbres, con sus sueños, con sus expectativas
+En mi caso cuando llegué a Machu Picchu di las gracias,(dije) es un regalo de Dios. Es la tercera vez que intentaba hacer este viaje y así cada uno desde mi mirada fue habitando su viaje, dándole su propio sentido. Preservando la intimidad y disfrutando este sueño con momentos felices con momentos pensativos, con momentos de mucha emoción, con momentos de conocimientos y con espacios de muchas preguntas.Por todo esto, y más te digo que “Prendete al Camino”es recomendable, no sólo porque conocerás un lugar nuevo o vivirás momentos maravillosos que planificaste, sino que viviras una experiencia que conectarás con tus propósitos.
+Gracias Marina
+Gracias Silvia.
+Abrazos al grupo pequeño con gran corazón.`,
+    estrellas: 5,
+  },
+  {
+    id: 22,
+    nombre: "Maria Victoria Pino",
+    avatar: null,
+    texto:
+      "Viajar a Perú con Prendete fue una experiencia muy linda. Lima, Cusco y Machu Picchu son lugares que hay que conocer al menos una vez en la vida, y hacerlo en grupo le suma algo especial: compartir los paisajes, las caminatas y las charlas con gente nueva. Se nota el entusiasmo que le ponen a cada viaje. ¡Gracias por la experiencia!",
+    estrellas: 5,
+  },
+  {
     id: 19,
     nombre: "Yannina Salomon",
     avatar: null,
