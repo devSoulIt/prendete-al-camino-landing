@@ -7,3 +7,7 @@ export const WHATSAPP_LABEL = "+54 381 518 4516";
 
 export const INSTAGRAM_URL = "https://www.instagram.com/prendetealcamino";
 export const INSTAGRAM_HANDLE = "@prendetealcamino";
+
+/** WhatsApp con el mensaje precargado para consultas de Santiago 2027. */
+export const WHATSAPP_SANTIAGO_URL =
+  "https://api.whatsapp.com/send?phone=543815184516&text=Hola%F0%9F%91%8B%20quiero%20info%20sobre%20Santiago%20de%20Compostela%202027";

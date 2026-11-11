@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
+import { IntroSection } from "@/components/IntroSection";
+import { Santiago2027Section } from "@/components/Santiago2027Section";
 import { ViajesSection } from "@/components/ViajesSection";
 import { SantiagoSection } from "@/components/SantiagoSection";
 import { GaleriaSection } from "@/components/GaleriaSection";
@@ -12,9 +14,12 @@ import { Contacto } from "@/components/Contacto";
 import { Whatsapp } from "@/components/Whatsapp";
 import { TestimoniosSection } from "@/components/TestimoniosSection";
 import { LoadingScreen } from "@/components/LoadingScreen";
+import { esLanzamiento } from "@/lib/campania";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  // Antes del 15/11 se ve el anuncio Early Bird; desde el 15/11, el lanzamiento.
+  const [lanzamiento] = useState(() => esLanzamiento());
 
   const handleImageLoad = () => {
     setIsLoading(false);
@@ -28,32 +33,16 @@ export default function Home() {
     <div className="min-h-screen bg-pac-bg">
       <Whatsapp />
       <Header />
-      <HeroSection onImageLoad={handleImageLoad} />
-
-      {/* Promesa de marca */}
-      <section
-        id="sobre-nosotros"
-        className="bg-pac-surface border-y border-pac-olive/10"
-      >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 text-center">
-          <p className="font-serif text-[26px] md:text-[34px] leading-[1.25] font-medium text-pac-ink [text-wrap:pretty]">
-            Descubrí la magia del Camino de Santiago: por el Camino Portugués
-            de la Costa hasta la majestuosa Catedral de Compostela. Un viaje
-            hacia{" "}
-            <em className="italic text-pac-olive">la mejor versión de vos mismo</em>.
-          </p>
-          <p className="mt-5 text-[16px] md:text-[17px] leading-[1.6] text-pac-body">
-            Una experiencia que dejará una huella imborrable en tu corazón.
-          </p>
-        </div>
-      </section>
-
+      <HeroSection lanzamiento={lanzamiento} onImageLoad={handleImageLoad} />
+      <IntroSection conCarrusel={lanzamiento} />
+      {lanzamiento && <Santiago2027Section />}
       <ViajesSection />
-      <CalendarioSection />
+      <CalendarioSection lanzamiento={lanzamiento} />
+      <GaleriaSection parte="internacional" />
       <SantiagoSection />
-      <GaleriaSection />
+      <GaleriaSection parte="nacional" />
       <TestimoniosSection />
-      <PreguntasFrecuentes />
+      <PreguntasFrecuentes lanzamiento={lanzamiento} />
       <Contacto />
       <Footer />
     </div>

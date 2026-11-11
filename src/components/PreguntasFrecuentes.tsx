@@ -2,13 +2,54 @@
 import { useState } from "react";
 import { Plus, Minus, Instagram, Facebook, MessageCircle } from "lucide-react";
 
-export function PreguntasFrecuentes() {
+type Faq = {
+  question: string;
+  answer: string | { text: string; items: string[] };
+};
+
+/** Preguntas de Santiago 2027: se publican con el lanzamiento (ver lib/campania) */
+const faqsSantiago2027: Faq[] = [
+  {
+    question: "¿Qué incluye el viaje a Santiago 2027?",
+    answer: {
+      text: "Salimos del 7 al 23 de junio de 2027 (16 noches) por el Camino Portugués de la Costa. Coordinamos todo el viaje:",
+      items: [
+        "Vuelos y todos los traslados del recorrido.",
+        "Alojamiento seleccionado en cada etapa.",
+        "Media pensión: desayuno y cena.",
+        "Traslado de maletas de hotel a hotel.",
+        "Plan de entrenamiento previo.",
+        "Acompañamiento de Silvia y Marina antes, durante y después del viaje.",
+        "No incluye: seguro de viaje, almuerzos ni gastos personales.",
+      ]
+    }
+  },
+  {
+    question: "¿Qué es el beneficio Early Bird?",
+    answer: "Es un beneficio exclusivo para las primeras 5 personas que se inscriban a Santiago 2027. Escribinos por WhatsApp y te contamos de qué se trata y cómo acceder."
+  },
+  {
+    question: "¿Cómo me preparo para caminar el Camino?",
+    answer: "No necesitás experiencia previa. Antes del viaje te damos un plan de caminatas progresivas y hacemos encuentros con el grupo para que llegues preparado/a y seguro/a."
+  },
+  {
+    question: "¿Tengo que cargar con mi equipaje?",
+    answer: "No. Tu maleta viaja de hotel a hotel en cada etapa. Vos caminás con una mochila liviana, solo con lo necesario del día."
+  },
+];
+
+interface PreguntasFrecuentesProps {
+  lanzamiento: boolean;
+}
+
+export function PreguntasFrecuentes({ lanzamiento }: PreguntasFrecuentesProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const faqs = [
+  const faqs: Faq[] = [
+    ...(lanzamiento ? faqsSantiago2027 : []),
     {
       question: "¿Puedo viajar solo/a?",
-      answer: "Si, podes viajar solo/a. Podes optar por habitación individual o compartida."
+      answer: "Sí. Muchos viajeros se suman solos y el grupo los recibe desde el primer encuentro. Podés optar por habitación individual o compartida."
     },
     {
       question: "¿Puedo financiar mi viaje?",
@@ -37,7 +78,7 @@ export function PreguntasFrecuentes() {
       answer: {
         text: "El proceso es sencillo:",
         items: [
-          "1. Completás la inscripción por whatsapp.",
+          "1. Nos escribís por WhatsApp y te enviamos toda la información del viaje.",
           "2. Abonás una seña para asegurar tu lugar.",
           "3. Cancelás el saldo en la fecha indicada.",
           "4. Recibís la confirmación final con todos los detalles del viaje."

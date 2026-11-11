@@ -1,9 +1,5 @@
 import { Instagram, MessageCircle } from "lucide-react";
-
-// Misma URL de WhatsApp que usa el botón flotante (src/components/Whatsapp.tsx)
-const WHATSAPP_URL =
-    "https://api.whatsapp.com/send?phone=543815184516&text=Hola%F0%9F%91%8B%20los%20contacto%20desde%20la%20web.%0AQuiero%20info%20sobre...";
-const INSTAGRAM_URL = "https://www.instagram.com/prendetealcamino";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_LABEL, WHATSAPP_SANTIAGO_URL } from "@/lib/site";
 
 // El formulario de contacto se retiró por ahora: el contacto es directo por WhatsApp e Instagram.
 export function Contacto() {
@@ -34,7 +30,7 @@ export function Contacto() {
 
                         <div className="mt-6 flex flex-col gap-3">
                             <a
-                                href={WHATSAPP_URL}
+                                href={WHATSAPP_SANTIAGO_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="pac-btn-primary w-full px-4 sm:px-7"
@@ -49,10 +45,10 @@ export function Contacto() {
                                 className="pac-btn-ghost w-full px-4 sm:px-6"
                             >
                                 <Instagram className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
-                                @prendetealcamino
+                                {INSTAGRAM_HANDLE}
                             </a>
                         </div>
-                        <p className="mt-4 text-center text-[13px] text-pac-muted">WhatsApp +54 381 518 4516</p>
+                        <p className="mt-4 text-center text-[13px] text-pac-muted">WhatsApp {WHATSAPP_LABEL}</p>
                     </div>
                 </div>
             </div>

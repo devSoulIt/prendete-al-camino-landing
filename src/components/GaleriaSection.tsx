@@ -8,6 +8,7 @@ const SAN_CARLOS_MAGICO = "/images/San%20Carlos%20M%C3%A1gico";
 const CORDOBA = "/images/C%C3%B3rdoba";
 const TERMAS = "/images/Termas%20de%20Rosario%20de%20la%20frontera";
 const SANTIAGO = "/images/Santiago";
+const PERU = "/images/Peru";
 
 /** Arma la lista de una galería a partir de los nombres de archivo; los .mp4 se muestran como video */
 function whatsappMedia(dir: string, label: string, files: string[], category = label) {
@@ -30,7 +31,15 @@ const SANTIAGO_TIMELINE = [
   { year: "2026", key: "santiago2026" },
 ] as const;
 
-export function GaleriaSection() {
+interface GaleriaSectionProps {
+  /**
+   * "internacional": Santiago año a año + Europa + Perú (va justo después del calendario).
+   * "nacional": escapadas por Argentina (va más abajo, antes de los testimonios).
+   */
+  parte: "internacional" | "nacional";
+}
+
+export function GaleriaSection({ parte }: GaleriaSectionProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("santiago2026");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -99,6 +108,18 @@ export function GaleriaSection() {
         "WhatsApp Image 2026-09-30 at 11.21.52 (3).webp",
         "WhatsApp Image 2026-09-30 at 11.21.52.webp",
       ]),
+    },
+    peru: {
+      name: "Perú 2026",
+      coverImage: `${PERU}/machu-picchu-1.webp`,
+      media: [
+        ...whatsappMedia(PERU, "Machu Picchu", ["machu-picchu-2.webp", "machu-picchu.mp4", "machu-picchu-1.webp"], "Perú"),
+        ...whatsappMedia(PERU, "Cusco", [
+          "cusco-10.webp", "cusco-1.webp", "cusco-2.webp", "cusco-5.webp", "cusco-7.webp",
+          "cusco-9.webp", "cusco-8.webp", "cusco-4.webp", "cusco-6.webp", "cusco-3.webp",
+        ], "Perú"),
+        ...whatsappMedia(PERU, "Lima", ["lima-2.webp", "lima-1.webp", "lima-3.webp", "lima-4.webp", "lima-5.webp"], "Perú"),
+      ]
     },
     italia: {
       name: "Italia",
@@ -396,10 +417,14 @@ export function GaleriaSection() {
   }, [selectedImage, currentIndex, currentMedia.length]);
 
   return (
-    <section id="galeria" className="bg-pac-bg py-[56px] md:py-[96px]">
+    <section
+      id={parte === "internacional" ? "galeria" : "galeria-nacional"}
+      className="bg-pac-bg py-[56px] md:py-[96px] scroll-mt-20"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Sección Viajes Internacionales */}
-        <div className="mb-14 md:mb-20">
+        {parte === "internacional" && (
+        <div>
           <div className="flex flex-col gap-3 mb-8">
             <p className="pac-eyebrow">Galería</p>
             <h2 className="pac-title text-[32px] md:text-[48px]">
@@ -408,7 +433,8 @@ export function GaleriaSection() {
             <p className="text-[17px] text-pac-body leading-relaxed max-w-3xl">
               Santiago de Compostela <strong className="font-bold text-pac-ink">es nuestro destino principal</strong>, pero cada año sumamos nuevas ciudades europeas.
               En 2025 exploramos: Madrid, Barajas, Lugo, Playa de las Catedrales, Segovia, Toledo y Oporto.
-              Este 2026 recorrimos Italia: Roma, Nápoles, Pompeya, Sorrento, Positano, Amalfi y Capri.
+              Este 2026 recorrimos Italia: Roma, Nápoles, Pompeya, Sorrento, Positano, Amalfi y Capri;
+              y en octubre cruzamos a Perú: Lima, Cusco, el Valle Sagrado y Machu Picchu.
             </p>
           </div>
 
@@ -531,9 +557,35 @@ export function GaleriaSection() {
               </div>
             </div>
           </div>
+
+          {/* Perú 2026 — Lima, Cusco, Valle Sagrado y Machu Picchu */}
+          <div
+            id="peru"
+            className="relative group mt-[24px] overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(31,36,20,0.10)] hover:shadow-[0_18px_44px_rgba(31,36,20,0.18)] transition-all duration-500 cursor-pointer scroll-mt-24"
+            onClick={() => openModal('peru')}
+          >
+            <Image
+              src={imageCategories.peru.coverImage}
+              alt="Dos viajeras de Prendete al Camino frente a Machu Picchu"
+              className="w-full h-80 md:h-[420px] object-cover object-[center_58%] group-hover:scale-105 transition-transform duration-500"
+              width={1200}
+              height={420}
+              quality={85}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-pac-ink/85 via-transparent to-transparent">
+              <div className="absolute bottom-6 left-6 right-6 text-pac-surface">
+                <h3 className="font-serif font-medium leading-[1.05] text-[28px] md:text-[36px]">
+                  Perú
+                </h3>
+                <p className="mt-1 text-[14px] opacity-85">2026 · Lima · Cusco · Valle Sagrado · Machu Picchu</p>
+              </div>
+            </div>
+          </div>
         </div>
+        )}
 
         {/* Sección Viajes Nacionales */}
+        {parte === "nacional" && (
         <div>
           <div className="flex flex-col gap-3 mb-8">
             <p className="pac-eyebrow">Galería</p>
@@ -763,6 +815,7 @@ export function GaleriaSection() {
             </div>
           </div>
         </div>
+        )}
 
         {/* Modal mejorado con navegación */}
         {selectedImage && (

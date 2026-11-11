@@ -3,7 +3,7 @@ import Image from "next/image";
 import {
   Plane,
   Hotel,
-  Luggage,
+  ClipboardCheck,
   Footprints,
   Users,
   Heart,
@@ -21,33 +21,33 @@ type Detalle = {
 const detalles: Detalle[] = [
   {
     icon: Plane,
-    titulo: "Pasajes y traslados",
-    texto: "Vuelos y todos los traslados del recorrido, organizados y confirmados antes de salir.",
+    titulo: "Traslados y equipaje",
+    texto: "Vuelos, traslados y el paso de tu maleta de hotel a hotel, coordinados y confirmados antes de salir. Vos caminás liviano.",
   },
   {
     icon: Hotel,
     titulo: "Alojamiento y media pensión",
-    texto: "Hoteles elegidos uno por uno, con desayuno y cena para descansar bien cada etapa.",
-  },
-  {
-    icon: Luggage,
-    titulo: "Logística de maletas",
-    texto: "Tu equipaje viaja de hotel a hotel. Vos caminás liviano, solo con lo necesario del día.",
+    texto: "Elegimos cada hotel para que descanses bien, y el desayuno y la cena ya están resueltos al final de cada etapa.",
   },
   {
     icon: Footprints,
-    titulo: "Entrenamiento previo",
-    texto: "Un plan de caminatas progresivas para que llegues preparado/a y seguro/a, sin experiencia previa.",
+    titulo: "Preparación previa",
+    texto: "Un plan de caminatas progresivas y encuentros antes del viaje para que llegues preparado/a y seguro/a, sin experiencia previa.",
+  },
+  {
+    icon: ClipboardCheck,
+    titulo: "Organización integral",
+    texto: "Un solo equipo coordina reservas, horarios y cambios. Si algo se mueve en el camino, lo resolvemos nosotros.",
   },
   {
     icon: Users,
     titulo: "Grupos reducidos",
-    texto: "Viajás acompañado por personas que comparten la misma energía. Podés venir solo o sola.",
+    texto: "Viajás con personas que comparten la misma energía. Podés venir solo o sola: el grupo te recibe.",
   },
   {
     icon: Heart,
     titulo: "Acompañamiento en cada paso",
-    texto: "Silvia y Marina están en cada detalle, antes, durante y después del viaje.",
+    texto: "Silvia y Marina están con vos antes, durante y después del viaje. Nunca caminás solo/a.",
     destacada: true,
   },
 ];
@@ -58,7 +58,7 @@ export function SantiagoSection() {
       <div className="flex flex-col gap-16 md:gap-24">
 
         {/* Quiénes somos */}
-        <div className="bg-pac-surface border-y border-pac-olive/10 py-14 md:py-20">
+        <div id="sobre-nosotros" className="bg-pac-surface border-y border-pac-olive/10 py-14 md:py-20 scroll-mt-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
 
@@ -86,16 +86,16 @@ export function SantiagoSection() {
               <div className="lg:col-start-7 lg:col-span-6 flex flex-col gap-5 md:gap-6">
                 <p className="pac-eyebrow">Quiénes somos</p>
                 <h2 className="pac-title text-[30px] md:text-[40px] lg:text-[48px]">
-                  Somos peregrinos que ya vivimos la magia del Camino de Santiago y queremos compartirla con vos
+                  Somos peregrinos que ya vivimos la magia del Camino de Santiago y hoy te acompañamos a vivirla
                 </h2>
                 <p className="text-[15px] md:text-[17px] leading-[1.65] text-pac-body">
-                  Somos una Organizacion Argentina de experiencias guiadas de senderismo y viajes, liderada por{" "}
+                  Somos una organización argentina de viajes y senderismo guiado, liderada por{" "}
                   <strong className="font-bold text-pac-olive">Silvia Pérez Mulki</strong>, odontóloga de vocación y{" "}
-                  <strong className="font-bold text-pac-olive">guía de turismo por pasión</strong>, junto a un equipo que trabaja para vos.
+                  <strong className="font-bold text-pac-olive">guía de turismo por pasión</strong>, junto a un equipo que te acompaña desde la primera consulta hasta el regreso a casa.
                 </p>
                 <p className="text-[15px] md:text-[17px] leading-[1.65] text-pac-body">
-                  Nuestros viajes no conciben &ldquo;el caminar&rdquo; sólo como una actividad física, sino como una{" "}
-                  <strong className="font-bold text-pac-olive">experiencia integral que despierta todos tus sentidos</strong>, conecta cuerpo, mente y alma… y queremos que la vivas plenamente.
+                  Para nosotros caminar no es solo una actividad física: es una{" "}
+                  <strong className="font-bold text-pac-olive">experiencia integral que conecta cuerpo, mente y alma</strong>. Por eso cuidamos cada detalle, para que la vivas plenamente y con la tranquilidad de saber que alguien está pendiente de vos.
                 </p>
                 <p className="font-serif italic text-pac-olive text-[22px] md:text-[26px] border-l-[3px] border-pac-yellow pl-5">
                   ¡Caminamos a tu lado!
@@ -128,10 +128,13 @@ export function SantiagoSection() {
             <div className="lg:col-start-1 lg:col-span-6 flex flex-col gap-5 md:gap-6">
               <p className="pac-eyebrow">Qué hacemos</p>
               <h2 className="pac-title text-[30px] md:text-[40px] lg:text-[48px]">
-                Realizamos numerosos viajes y experiencias durante todo el año, pero el más especial de todos es el &ldquo;Camino de Santiago&rdquo;
+                Organizamos viajes y experiencias durante todo el año, pero el más especial de todos es el &ldquo;Camino de Santiago&rdquo;
               </h2>
               <p className="text-[15px] md:text-[17px] leading-[1.65] text-pac-body">
-                Nos ocupamos de <strong className="font-bold text-pac-olive">cada detalle:</strong> pasajes, alojamiento, media pensión, logística de maletas y entrenamiento previo; para que vos sólo tengas que{" "}
+                Diseñamos cada viaje <strong className="font-bold text-pac-olive">de punta a punta</strong>: coordinamos vuelos, traslados, alojamiento, comidas y la preparación previa para que todo encaje y vos no tengas que resolver nada.
+              </p>
+              <p className="text-[15px] md:text-[17px] leading-[1.65] text-pac-body">
+                Así, tu única tarea es{" "}
                 <strong className="font-bold text-pac-olive">disfrutar de caminar y vivir la experiencia con toda intensidad.</strong>
               </p>
             </div>
@@ -177,8 +180,8 @@ export function SantiagoSection() {
             </div>
 
             <p className="text-[15px] md:text-[17px] leading-[1.65] text-pac-body max-w-[720px]">
-              Porque sabemos que para vivir este viaje plenamente necesitas estar tranquilo,{" "}
-              <strong className="font-bold text-pac-olive">nosotros nos ocupamos de todo</strong> para que solo tengas que disfrutarlo.
+              Viajar tranquilo es saber que alguien ya pensó en todo. Por eso{" "}
+              <strong className="font-bold text-pac-olive">nosotros nos ocupamos de la organización</strong> y te acompañamos en cada paso, para que vos solo tengas que disfrutarlo.
             </p>
 
             <div className="flex justify-center">

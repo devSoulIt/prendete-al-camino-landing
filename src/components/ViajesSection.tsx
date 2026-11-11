@@ -31,7 +31,7 @@ export function ViajesSection() {
           {/* Santiago: destino principal */}
           <a
             href="#galeria"
-            className="lg:col-span-2 group relative h-[420px] lg:h-[544px] rounded-[24px] overflow-hidden bg-pac-olive-dark"
+            className="lg:col-span-2 group relative h-[420px] lg:h-auto lg:min-h-[544px] rounded-[24px] overflow-hidden bg-pac-olive-dark"
           >
             <Image
               src="/images/Portadas/Santiago de Compostela .webp"
@@ -65,7 +65,7 @@ export function ViajesSection() {
             </div>
           </a>
 
-          {/* Europa y escapadas */}
+          {/* Europa, Perú y escapadas */}
           <div className="flex flex-col gap-6">
             <a
               href="#galeria"
@@ -95,7 +95,34 @@ export function ViajesSection() {
             </a>
 
             <a
-              href="#galeria"
+              href="#peru"
+              className="pac-card group flex-1 flex flex-col overflow-hidden hover:shadow-[0_12px_28px_rgba(31,36,20,0.10)] transition-shadow duration-300"
+            >
+              <div className="relative h-32 overflow-hidden">
+                <Image
+                  src="/images/Peru/machu-picchu-2.webp"
+                  alt="Grupo de Prendete al Camino en Machu Picchu"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  className="object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5 flex flex-col gap-1.5">
+                <p className="pac-eyebrow text-[11px]">
+                  Sudamérica · Octubre 2026
+                </p>
+                <h3 className="text-[20px] font-extrabold text-pac-ink">
+                  Perú
+                </h3>
+                <p className="text-[14px] leading-[1.5] text-pac-body">
+                  Lima, Cusco, el Valle Sagrado y Machu Picchu, con todo
+                  resuelto.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="#galeria-nacional"
               className="pac-card group flex-1 flex flex-col overflow-hidden hover:shadow-[0_12px_28px_rgba(31,36,20,0.10)] transition-shadow duration-300"
             >
               <div className="relative h-32 overflow-hidden">
