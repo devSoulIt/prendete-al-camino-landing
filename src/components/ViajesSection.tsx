@@ -31,7 +31,7 @@ export function ViajesSection() {
           {/* Santiago: destino principal */}
           <a
             href="#galeria"
-            className="lg:col-span-2 group relative h-[420px] lg:h-auto lg:min-h-[544px] rounded-[24px] overflow-hidden bg-pac-olive-dark"
+            className="lg:col-span-2 group relative h-[500px] lg:h-auto lg:min-h-[544px] rounded-[24px] overflow-hidden bg-pac-olive-dark"
           >
             <Image
               src="/images/Portadas/Santiago de Compostela .webp"
@@ -71,7 +71,7 @@ export function ViajesSection() {
               href="#galeria"
               className="pac-card group flex-1 flex flex-col overflow-hidden hover:shadow-[0_12px_28px_rgba(31,36,20,0.10)] transition-shadow duration-300"
             >
-              <div className="relative h-32 overflow-hidden">
+              <div className="relative h-48 sm:h-56 lg:h-32 overflow-hidden">
                 <Image
                   src="/images/Roma/3.jpg"
                   alt="Grupo de Prendete al Camino en la Fontana di Trevi, Roma"
@@ -98,13 +98,13 @@ export function ViajesSection() {
               href="#peru"
               className="pac-card group flex-1 flex flex-col overflow-hidden hover:shadow-[0_12px_28px_rgba(31,36,20,0.10)] transition-shadow duration-300"
             >
-              <div className="relative h-32 overflow-hidden">
+              <div className="relative h-48 sm:h-56 lg:h-32 overflow-hidden">
                 <Image
                   src="/images/Peru/machu-picchu-2.webp"
                   alt="Grupo de Prendete al Camino en Machu Picchu"
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-[center_62%] group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-5 flex flex-col gap-1.5">
@@ -125,7 +125,7 @@ export function ViajesSection() {
               href="#galeria-nacional"
               className="pac-card group flex-1 flex flex-col overflow-hidden hover:shadow-[0_12px_28px_rgba(31,36,20,0.10)] transition-shadow duration-300"
             >
-              <div className="relative h-32 overflow-hidden">
+              <div className="relative h-48 sm:h-56 lg:h-32 overflow-hidden">
                 <Image
                   src="/images/Portadas/Catamarca.webp"
                   alt="Paisaje de los valles de Catamarca"

@@ -48,8 +48,17 @@ export function HeroSection({ lanzamiento, onImageLoad }: HeroSectionProps) {
           </div>
 
           {/* Foto / video */}
-          <div className="relative order-1 lg:order-2">
-            <div className="relative h-[420px] sm:h-[520px] lg:h-[640px] rounded-[24px] md:rounded-[28px] overflow-hidden bg-pac-olive-dark shadow-[0_30px_60px_rgba(31,36,20,0.18)]">
+          <div
+            className={`relative order-1 lg:order-2 ${
+              // El teaser es vertical: se muestra entero en 9:16 en vez de recortarlo.
+              lanzamiento ? "" : "w-full max-w-[340px] lg:max-w-[360px] mx-auto"
+            }`}
+          >
+            <div
+              className={`relative rounded-[24px] md:rounded-[28px] overflow-hidden bg-pac-olive-dark shadow-[0_30px_60px_rgba(31,36,20,0.18)] ${
+                lanzamiento ? "h-[420px] sm:h-[520px] lg:h-[640px]" : "aspect-[9/16]"
+              }`}
+            >
               {lanzamiento ? (
                 <Image
                   src="/images/portada.jpg"

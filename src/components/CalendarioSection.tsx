@@ -404,17 +404,17 @@ function TarjetaViaje({ viaje }: { viaje: Viaje }) {
   return (
     <div
       className={`
-        pac-card rounded-[24px] p-4 sm:p-5 shadow-[0_2px_12px_rgba(31,36,20,0.05)] flex gap-4 sm:gap-5
+        pac-card rounded-[24px] p-4 sm:p-5 shadow-[0_2px_12px_rgba(31,36,20,0.05)] flex flex-col sm:flex-row gap-4 sm:gap-5
         ${viaje.destacado ? 'border-l-[3px] border-l-pac-olive' : ''}
       `}
     >
       {viaje.imagen && (
-        <div className="relative w-24 sm:w-36 shrink-0 self-stretch min-h-[120px] overflow-hidden rounded-[16px] bg-pac-olive/10">
+        <div className="relative w-full h-44 sm:h-auto sm:w-36 shrink-0 sm:self-stretch sm:min-h-[120px] overflow-hidden rounded-[16px] bg-pac-olive/10">
           <Image
             src={viaje.imagen}
             alt={viaje.titulo}
             fill
-            sizes="144px"
+            sizes="(max-width: 640px) 100vw, 144px"
             className="object-cover"
             quality={70}
           />
