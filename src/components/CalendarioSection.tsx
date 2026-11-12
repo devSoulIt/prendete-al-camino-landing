@@ -76,6 +76,7 @@ const viajes = (lanzamiento: boolean): Viaje[] => [
     participantes: 'Grupo reducido',
     descripcion: 'Una jornada entre cerros y el valle tucumano',
     destacado: false,
+    imagen: '/images/Tafi/tafi-1.webp',
     anio: 2026,
     mes: 9, // Octubre (0-indexed)
     dias: [17]
