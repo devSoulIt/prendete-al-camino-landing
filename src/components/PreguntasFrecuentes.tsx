@@ -12,7 +12,7 @@ const faqsSantiago2027: Faq[] = [
   {
     question: "¿Qué incluye el viaje a Santiago 2027?",
     answer: {
-      text: "Salimos del 7 al 23 de junio de 2027 (16 noches) por el Camino Portugués de la Costa. Coordinamos todo el viaje:",
+      text: "Salimos del 7 al 23 de junio de 2027 (16 noches): 4 noches en Lisboa con visita opcional a Fátima, el Camino desde Baiona en 6 etapas, 2 noches en Santiago de Compostela en pleno Año Santo y el cierre en Madrid. Coordinamos todo el viaje:",
       items: [
         "Vuelos y todos los traslados del recorrido.",
         "Alojamiento seleccionado en cada etapa.",

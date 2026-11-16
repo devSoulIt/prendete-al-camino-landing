@@ -39,9 +39,26 @@ const noIncluye = [
 ];
 
 const recorrido = [
-  { lugar: "Portugal", detalle: "Inicio por el Camino Portugués de la Costa" },
-  { lugar: "Galicia", detalle: "Etapas a pie entre costa, pueblos y bosques" },
-  { lugar: "Santiago de Compostela", detalle: "Llegada a la Plaza del Obradoiro y la Catedral" },
+  {
+    lugar: "Lisboa",
+    nota: "4 noches",
+    detalle: "Recorremos la ciudad, con visita opcional a Fátima, uno de los santuarios marianos más importantes del mundo.",
+  },
+  {
+    lugar: "Camino a Santiago desde Baiona",
+    nota: "6 etapas",
+    detalle: "Arrancamos en una de las playas más hermosas de España y caminamos por la costa hasta Santiago.",
+  },
+  {
+    lugar: "Santiago de Compostela",
+    nota: "2 noches",
+    detalle: "Ciudad Patrimonio de la Humanidad. Cruzamos la Puerta Santa, con todas las bendiciones que trae para el peregrino.",
+  },
+  {
+    lugar: "Madrid",
+    nota: "Cierre del viaje",
+    detalle: "Terminamos la experiencia en esta ciudad mágica.",
+  },
 ];
 
 export function Santiago2027Section() {
@@ -81,7 +98,10 @@ export function Santiago2027Section() {
                   {recorrido.map((r) => (
                     <li key={r.lugar} className="relative pl-6">
                       <span aria-hidden="true" className="absolute left-0 top-[6px] h-[11px] w-[11px] rounded-full bg-pac-yellow" />
-                      <p className="text-[15px] font-bold">{r.lugar}</p>
+                      <p className="flex flex-wrap items-baseline gap-x-2 text-[15px] font-bold">
+                        {r.lugar}
+                        <span className="text-[12px] font-semibold text-pac-yellow">{r.nota}</span>
+                      </p>
                       <p className="text-[13px] leading-[1.4] text-pac-surface/75">{r.detalle}</p>
                     </li>
                   ))}

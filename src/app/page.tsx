@@ -33,7 +33,7 @@ export default function Home() {
     <div className="min-h-screen bg-pac-bg">
       <Whatsapp />
       <Header />
-      <HeroSection lanzamiento={lanzamiento} onImageLoad={handleImageLoad} />
+      <HeroSection />
       <IntroSection conCarrusel={lanzamiento} />
       {lanzamiento && <Santiago2027Section />}
       <ViajesSection />

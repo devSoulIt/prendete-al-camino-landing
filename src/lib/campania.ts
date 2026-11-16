@@ -1,13 +1,12 @@
 /**
  * Etapas de la campaña Santiago 2027.
  *
- * Hasta el sábado 14/11/2026 la portada muestra el anuncio Early Bird
- * (STAGE 0). Desde el domingo 15/11/2026 se publica sola la web de
- * lanzamiento (STAGE 1): hero nuevo, bloque verde de Santiago 2027,
- * carrusel de la intro y fechas reales en el calendario.
+ * El lanzamiento (STAGE 1) salió el domingo 15/11/2026: desde esa fecha se
+ * muestran el bloque verde de Santiago 2027, el carrusel de la intro, las
+ * fechas reales en el calendario y las preguntas de Santiago 2027. El hero
+ * ya quedó fijo con el reel de lanzamiento.
  *
- * Para revisar la web de lanzamiento antes de esa fecha, abrir la página con
- * `?etapa=lanzamiento` (o `?etapa=anuncio` para forzar el Early Bird).
+ * `?etapa=anuncio` fuerza la vista previa al lanzamiento (solo para revisar).
  */
 export const FECHA_LANZAMIENTO = new Date(2026, 10, 15); // 15/11/2026, hora local
 
