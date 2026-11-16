@@ -25,8 +25,12 @@ const faqsSantiago2027: Faq[] = [
     }
   },
   {
+    question: "¿Cuánto cuesta Santiago 2027 y cómo se paga?",
+    answer: "El viaje cuesta desde USD 5.430. Reservás tu lugar con una seña de USD 1.900 y el saldo lo podés pagar en cuotas."
+  },
+  {
     question: "¿Qué es el beneficio Early Bird?",
-    answer: "Es un beneficio exclusivo para las primeras 5 personas que se inscriban a Santiago 2027. Escribinos por WhatsApp y te contamos de qué se trata y cómo acceder."
+    answer: "Las primeras 5 personas que se inscriban a Santiago 2027 reciben de obsequio la excursión al Santuario de Fátima, uno de los santuarios marianos más importantes del mundo."
   },
   {
     question: "¿Cómo me preparo para caminar el Camino?",

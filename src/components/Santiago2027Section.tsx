@@ -9,14 +9,14 @@ import { FaWhatsapp } from "react-icons/fa";
 import { WHATSAPP_SANTIAGO_URL } from "@/lib/site";
 
 /**
- * Datos comerciales que todavía tienen que confirmar las creadoras.
- * Mientras estén en null, el bloque muestra "Consultanos" en su lugar,
- * así no se publica ningún precio ni condición inventada.
+ * Datos comerciales confirmados por Silvia (16/11/2026).
+ * Si alguno se pone en null, el bloque muestra "Consultanos" en su lugar.
  */
-const PRECIO_USD: string | null = null; // ej. "3500"
-const SENA_USD: string | null = null; // ej. "500"
+const PRECIO_USD: string | null = "5.430";
+const SENA_USD: string | null = "1.900";
 /** Qué beneficio concreto reciben los primeros 5 inscriptos */
-const EARLY_BIRD_DETALLE: string | null = null;
+const EARLY_BIRD_DETALLE: string | null =
+  "Las primeras 5 personas en inscribirse reciben de obsequio la excursión al Santuario de Fátima.";
 
 const WHATSAPP_RESERVA =
   "https://api.whatsapp.com/send?phone=543815184516&text=Hola%F0%9F%91%8B%20quiero%20reservar%20mi%20lugar%20en%20Santiago%20de%20Compostela%202027";
@@ -166,7 +166,7 @@ export function Santiago2027Section() {
                       16 noches
                     </span>
                     <span className="rounded-full border border-pac-yellow/30 bg-pac-yellow/10 px-3 py-1.5 text-[12px] font-semibold text-pac-yellow">
-                      Portugal & España
+                      Saldo en cuotas
                     </span>
                   </div>
                 </div>
@@ -245,13 +245,13 @@ export function Santiago2027Section() {
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center h-14 px-6 rounded-full border-[1.5px] border-pac-surface/35 text-pac-surface font-bold text-[15px] transition-colors duration-200 hover:bg-pac-surface/10"
                 >
-                  Consultar precio y condiciones
+                  Hacer una consulta
                 </a>
               </div>
 
               <p className="flex items-center justify-center gap-2 text-[13px] text-center text-pac-surface/60">
                 <Check className="w-4 h-4 text-pac-yellow" aria-hidden="true" />
-                Reservá con seña · Cupos limitados · Precios en USD
+                Reservá con seña · Saldo en cuotas · Cupos limitados
               </p>
             </div>
           </div>
